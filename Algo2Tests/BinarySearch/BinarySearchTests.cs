@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Algo2;
 using Algo2.BinarySearch;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,9 @@ namespace Algo2.BinarySearch.Tests
         [TestMethod()]
         public void FindInSortedUniqueArrayTest()
         {
-            Assert.Fail();
+            var arr = Utility.ArrayHelper.CreateUniquueSortedArray(12, 25).ToArray();
+            var actual = BinarySearch.FindInSortedUniqueArray(arr, 16);
+            Assert.AreEqual(4, actual);
         }
     }
 }
