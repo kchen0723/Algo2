@@ -19,5 +19,12 @@ namespace Algo2.BinarySearch.Tests
             var actual = BinarySearch.FindInSortedUniqueArray(arr, 16);
             //Assert.AreEqual(4, actual);
         }
+
+        [TestMethod()]
+        public void FindLeftBoundaryInSortedArrayTest()
+        {
+            var arr = Utility.ArrayHelper.CreateSortedList(12, 25).ToArray();
+            var actual = BinarySearch.FindLeftBoundaryInSortedArray(arr, 16);
+        }
     }
 }

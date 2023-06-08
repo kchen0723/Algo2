@@ -21,6 +21,13 @@ namespace Algo2.Utility
             return result.Distinct().ToList();
         }
 
+        public static List<int> CreateSortedList(int min, int max, int count = 10)
+        {
+            var result = CreateList(min, max, count);
+            result.Sort();
+            return result;
+        }
+
         public static List<int> CreateList(int min, int max, int count = 10)
         {
             var result = new List<int>();
