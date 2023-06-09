@@ -26,5 +26,12 @@ namespace Algo2.BinarySearch.Tests
             var arr = Utility.ArrayHelper.CreateSortedList(12, 25).ToArray();
             var actual = BinarySearch.FindLeftBoundaryInSortedArray(arr, 16);
         }
+
+        [TestMethod()]
+        public void FindRightBoundaryInSortedArrayTest()
+        {
+            var arr = Utility.ArrayHelper.CreateSortedList(12, 25).ToArray();
+            var actual = BinarySearch.FindRightBoundaryInSortedArray(arr, 16);
+        }
     }
 }
