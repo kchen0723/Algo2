@@ -33,5 +33,13 @@ namespace Algo2.BinarySearch.Tests
             var arr = Utility.ArrayHelper.CreateSortedList(12, 25).ToArray();
             var actual = BinarySearch.FindRightBoundaryInSortedArray(arr, 16);
         }
+
+        [TestMethod()]
+        public void FindInSortedShiftArrayTest()
+        {
+            var arr = new int[] { 10,20, 1, 3, 5, 6, 7, 8, 9 }; 
+            var actual = BinarySearch.FindInSortedShiftArray(arr, 3);
+            Assert.AreEqual(5, actual);
+        }
     }
 }
