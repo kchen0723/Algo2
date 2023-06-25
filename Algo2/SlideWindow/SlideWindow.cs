@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Algo2.SlideWindow
+{
+    public class SlideWindow
+    {
+        public static string GetMinCover(string source, string target)
+        {
+            var left = 0;
+            var right = 0;
+            var start = 0;
+            var length = source.Length;
+            var matchCount = 0;
+            var window = new Dictionary<char, int>();
+            var targetDictionary = BuildDictionary(target);
+            for (; right < source.Length; right++)
+            { 
+                var item = source[right];
+                if (targetDictionary.ContainsKey(item))
+                {
+                    if (window.ContainsKey(item))
+                    {
+                        window[item] += 1;
+                    }
+                    else
+                    {
+                        window.Add(item, 1);
+                    }
+                    if (window[item] == targetDictionary[item])
+                    {
+                        matchCount++;
+                    }
+                }
+
+                while (matchCount == target.Length)
+                {
+                    if (right - left + 1 < length)
+                    {
+                        start = left;
+                        length = right - left + 1;
+                    }
+
+                    var removeCandidate = source[left];
+                    left++;
+                    if (window.ContainsKey(removeCandidate))
+                    {
+                        window[removeCandidate] -= 1;
+                        if (window[removeCandidate] < targetDictionary[removeCandidate])
+                        {
+                            matchCount--;
+                        }
+                    }
+                }
+            }
+
+            if (length < source.Length)
+            { 
+                return source.Substring(start, length);
+            }
+            return string.Empty;
+        }
+
+        public static Dictionary<char, int> BuildDictionary(string target)
+        { 
+            var result = new Dictionary<char, int>();
+            foreach (var item in target)
+            {
+                if (result.ContainsKey(item))
+                {
+                    result[item] += 1;
+                }
+                else
+                { 
+                    result.Add(item, 1);
+                }
+            }
+            return result;
+        }
+    }
+}

@@ -46,6 +46,7 @@
     <Compile Include="BinarySearch\BinarySearch.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlideWindow\SlideWindow.cs" />
     <Compile Include="Utility\ArrayHelper.cs" />
   </ItemGroup>
   <ItemGroup>
