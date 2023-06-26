@@ -128,5 +128,38 @@ namespace Algo2.SlideWindow
             }
             return false;
         }
+
+        public static bool HasPermutationByBitXOR(string source, string target)
+        {
+            if (string.IsNullOrEmpty(source) || string.IsNullOrEmpty(target) || source.Length < target.Length)
+            { 
+                return false;
+            }
+
+            for (var i = 0; i <= source.Length - target.Length; i++)
+            {
+                var sub = source.Substring(i, target.Length);
+                if (IsPermutation(sub, target))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsPermutation(string sub, string target) 
+        {
+            var bit = 0;
+            if (sub.Length == target.Length)
+            {
+                for (var i = 0; i < sub.Length; i++)
+                {
+                    bit ^= sub[i];
+                    bit ^= target[i];
+                }
+            }
+            return bit == 0;
+        }
     }
 }

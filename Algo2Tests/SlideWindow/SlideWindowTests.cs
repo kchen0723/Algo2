@@ -24,5 +24,12 @@ namespace Algo2.SlideWindow.Tests
             var actual = SlideWindow.HasPermutation("GetMinCover", "niM");
             Assert.IsNotNull(actual);
         }
+
+        [TestMethod()]
+        public void HasPermutationByBitXORTest()
+        {
+            var actual = SlideWindow.HasPermutationByBitXOR("GetMinCover", "niM");
+            Assert.IsNotNull(actual);
+        }
     }
 }
