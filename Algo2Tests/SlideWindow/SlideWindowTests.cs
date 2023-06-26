@@ -17,5 +17,12 @@ namespace Algo2.SlideWindow.Tests
             var actual = SlideWindow.GetMinCover("GetMinCover", "Mov");
             Assert.IsNotNull(actual);
         }
+
+        [TestMethod()]
+        public void HasPermutationTest()
+        {
+            var actual = SlideWindow.HasPermutation("GetMinCover", "niM");
+            Assert.IsNotNull(actual);
+        }
     }
 }

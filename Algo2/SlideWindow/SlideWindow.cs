@@ -49,7 +49,7 @@ namespace Algo2.SlideWindow
                     if (window.ContainsKey(removeCandidate))
                     {
                         window[removeCandidate] -= 1;
-                        if (window[removeCandidate] < targetDictionary[removeCandidate])
+                        if (window[removeCandidate] == targetDictionary[removeCandidate])
                         {
                             matchCount--;
                         }
@@ -79,6 +79,54 @@ namespace Algo2.SlideWindow
                 }
             }
             return result;
+        }
+
+        public static bool HasPermutation(string source, string target)
+        {
+            var left = 0;
+            var right = 0;
+            var matchCount = 0;
+            var window = new Dictionary<char, int>();
+            var targetDictionary = BuildDictionary(target);
+            for (; right < source.Length; right++)
+            {
+                var item = source[right];
+                if (targetDictionary.ContainsKey(item))
+                {
+                    if (window.ContainsKey(item))
+                    {
+                        window[item] += 1;
+                    }
+                    else
+                    {
+                        window.Add(item, 1);
+                    }
+                    if (window[item] == targetDictionary[item])
+                    {
+                        matchCount++;
+                    }
+                }
+
+                while (matchCount == target.Length)
+                {
+                    if (right - left + 1 == target.Length)
+                    {
+                        return true;
+                    }
+
+                    var removeCandidate = source[left];
+                    left++;
+                    if (window.ContainsKey(removeCandidate))
+                    {
+                        window[removeCandidate] -= 1;
+                        if (window[removeCandidate] == targetDictionary[removeCandidate])
+                        {
+                            matchCount--;
+                        }
+                    }
+                }
+            }
+            return false;
         }
     }
 }
