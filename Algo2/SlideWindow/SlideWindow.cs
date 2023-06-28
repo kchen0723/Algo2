@@ -48,11 +48,11 @@ namespace Algo2.SlideWindow
                     left++;
                     if (window.ContainsKey(removeCandidate))
                     {
-                        window[removeCandidate] -= 1;
                         if (window[removeCandidate] == targetDictionary[removeCandidate])
                         {
                             matchCount--;
                         }
+                        window[removeCandidate] -= 1;
                     }
                 }
             }
@@ -118,11 +118,11 @@ namespace Algo2.SlideWindow
                     left++;
                     if (window.ContainsKey(removeCandidate))
                     {
-                        window[removeCandidate] -= 1;
                         if (window[removeCandidate] == targetDictionary[removeCandidate])
                         {
                             matchCount--;
                         }
+                        window[removeCandidate] -= 1;
                     }
                 }
             }
