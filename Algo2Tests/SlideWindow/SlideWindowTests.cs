@@ -38,5 +38,12 @@ namespace Algo2.SlideWindow.Tests
             var actual = SlideWindow.PermutationStartIndexes("GetMinCovMnier", "niM");
             Assert.IsNotNull(actual);
         }
+
+        [TestMethod()]
+        public void GetLongestDistinctSubStringTest()
+        {
+            var actual = SlideWindow.GetLongestDistinctSubString("ebbancf");
+            Assert.IsNotNull(actual);
+        }
     }
 }

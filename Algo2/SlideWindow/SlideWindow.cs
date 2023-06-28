@@ -210,5 +210,43 @@ namespace Algo2.SlideWindow
             }
             return result;
         }
+
+        public static string GetLongestDistinctSubString(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return string.Empty;
+            }
+
+            var left = 0;
+            var right = 0;
+            var result = string.Empty;
+            var window = new Dictionary<char, int>();
+            for(;right < str.Length; right++) 
+            {
+                var item = str[right];
+                if (window.ContainsKey(item))
+                {
+                    window[item] += 1;
+                }
+                else
+                { 
+                    window.Add(item, 1);
+                }
+
+                while (window[item] > 1)
+                {
+                    var removeCandidate = str[left];
+                    window[removeCandidate] -= 1;
+                    left++;
+                }
+
+                if (right - left + 1 > result.Length)
+                { 
+                    result = str.Substring(left, right - left + 1);
+                }
+            }
+            return result;
+        }
     }
 }
