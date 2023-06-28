@@ -161,5 +161,54 @@ namespace Algo2.SlideWindow
             }
             return bit == 0;
         }
+
+        public static List<int> PermutationStartIndexes(string source, string target)
+        {
+            var left = 0;
+            var right = 0;
+            var matchCount = 0;
+            var window = new Dictionary<char, int>();
+            var targetDictionary = BuildDictionary(target);
+            var result = new List<int>();
+            for (; right < source.Length; right++)
+            {
+                var item = source[right];
+                if (targetDictionary.ContainsKey(item))
+                {
+                    if (window.ContainsKey(item))
+                    {
+                        window[item] += 1;
+                    }
+                    else
+                    {
+                        window.Add(item, 1);
+                    }
+                    if (window[item] == targetDictionary[item])
+                    {
+                        matchCount++;
+                    }
+                }
+
+                while (matchCount == target.Length)
+                {
+                    if (right - left + 1 == target.Length)
+                    {
+                        result.Add(left);
+                    }
+
+                    var removeCandidate = source[left];
+                    left++;
+                    if (window.ContainsKey(removeCandidate))
+                    {
+                        if (window[removeCandidate] == targetDictionary[removeCandidate])
+                        {
+                            matchCount--;
+                        }
+                        window[removeCandidate] -= 1;
+                    }
+                }
+            }
+            return result;
+        }
     }
 }
