@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algo2.Permutation
+namespace Algo2.PermutationAndCombination
 {
     public class Permutation
     {
@@ -22,11 +22,12 @@ namespace Algo2.Permutation
             return result;
         }
 
-        private static void GetPermutationFromUniqueArrayHelp(int[] nums, int length, bool[] selected, List<int> candidte, List<List<int>> result) 
+        private static void GetPermutationFromUniqueArrayHelp(int[] nums, int length, bool[] selected, List<int> candidate, List<List<int>> result) 
         {
-            if (candidte.Count == length)  //base case
+            if (candidate.Count == length)  //base case
             { 
-                result.Add(candidte.ToArray().ToList());
+                result.Add(candidate.ToArray().ToList());
+                return;
             }
 
             for(var i = 0; i < nums.Length; i++) 
@@ -37,9 +38,9 @@ namespace Algo2.Permutation
                 }
 
                 selected[i] = true;
-                candidte.Add(nums[i]);
-                GetPermutationFromUniqueArrayHelp(nums, length, selected, candidte, result);
-                candidte.RemoveAt(candidte.Count - 1);
+                candidate.Add(nums[i]);
+                GetPermutationFromUniqueArrayHelp(nums, length, selected, candidate, result);
+                candidate.RemoveAt(candidate.Count - 1);
                 selected[i] = false;
             }
         }

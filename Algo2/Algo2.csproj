@@ -46,7 +46,8 @@
     <Compile Include="BinarySearch\BinarySearch.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculate.cs" />
     <Compile Include="HanoiTower\Honoi.cs" />
-    <Compile Include="Permutation\Permutation.cs" />
+    <Compile Include="CombinationAndPermutation\Combination.cs" />
+    <Compile Include="CombinationAndPermutation\Permutation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideWindow\SlideWindow.cs" />

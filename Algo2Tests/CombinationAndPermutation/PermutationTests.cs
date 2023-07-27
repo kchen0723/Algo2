@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Algo2.Permutation;
+using Algo2.PermutationAndCombination;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algo2.Permutation.Tests
+namespace Algo2.PermutationAndCombination.Tests
 {
     [TestClass()]
     public class PermutationTests

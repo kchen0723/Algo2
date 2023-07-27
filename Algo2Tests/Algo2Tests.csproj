@@ -57,9 +57,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BinarySearch\BinarySearchTests.cs" />
+    <Compile Include="CombinationAndPermutation\CombinationTests.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculateTests.cs" />
     <Compile Include="HanoiTower\HonoiTests.cs" />
-    <Compile Include="Permutation\PermutationTests.cs" />
+    <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideWindow\SlideWindowTests.cs" />
   </ItemGroup>
