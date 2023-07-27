@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Algo2.PermutationAndCombination;
+using Algo2.CombinationAndPermutation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

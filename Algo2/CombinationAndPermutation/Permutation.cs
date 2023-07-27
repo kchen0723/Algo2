@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algo2.PermutationAndCombination
+namespace Algo2.CombinationAndPermutation
 {
     public class Permutation
     {
