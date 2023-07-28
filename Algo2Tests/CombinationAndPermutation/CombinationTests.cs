@@ -24,5 +24,12 @@ namespace Algo2.CombinationAndPermutation.Tests
             var nums = new int[] { 1, 2, 3, 2 };
             var combinations = Combination.GetCombinationFromDuplicateArray(nums, 2);
         }
+
+        [TestMethod()]
+        public void GetCombinationMultipleTimesTest()
+        {
+            var nums = new int[] { 1, 2 };
+            var combinations = Combination.GetCombinationMultipleTimes(nums, 3);
+        }
     }
 }

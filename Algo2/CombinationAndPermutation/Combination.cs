@@ -71,5 +71,34 @@ namespace Algo2.CombinationAndPermutation
             }
             return;
         }
+
+        public static List<List<int>> GetCombinationMultipleTimes(int[] nums, int length)
+        {
+            var result = new List<List<int>>();
+            if (nums == null || nums.Length == 0 || length == 0)
+            {
+                return result;
+            }
+
+            var candidate = new List<int>();
+            GetCombinationMultipleTimesHelp(nums, length, 0, candidate, result);
+            return result;
+        }
+
+        private static void GetCombinationMultipleTimesHelp(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
+        {
+            if (candidate.Count == length)
+            {
+                result.Add(candidate.ToArray().ToList());
+                return;
+            }
+
+            for (var i = index; i < nums.Length; i++)
+            {
+                candidate.Add(nums[i]);
+                GetCombinationMultipleTimesHelp(nums, length, i, candidate, result);
+                candidate.RemoveAt(candidate.Count - 1);
+            }
+        }
     }
 }
