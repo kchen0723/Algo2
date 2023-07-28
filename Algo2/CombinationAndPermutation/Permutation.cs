@@ -115,5 +115,34 @@ namespace Algo2.CombinationAndPermutation
                 candidate.RemoveAt(candidate.Count - 1);
             }
         }
+
+        public static List<List<int>> GetPermutationMultipleTimesSubset(int[] nums, int length)
+        {
+            var result = new List<List<int>>();
+            if (nums == null || nums.Length == 0 || length == 0)
+            {
+                return result;
+            }
+
+            var candidate = new List<int>();
+            GetPermutationMultipleTimesSubsetHelp(nums, length, candidate, result);
+            return result;
+        }
+
+        private static void GetPermutationMultipleTimesSubsetHelp(int[] nums, int length, List<int> candidate, List<List<int>> result)
+        {
+            result.Add(candidate.ToArray().ToList());
+            if (candidate.Count >= length)  //base case
+            {
+                return;
+            }
+
+            for (var i = 0; i < nums.Length; i++)
+            {
+                candidate.Add(nums[i]);
+                GetPermutationMultipleTimesSubsetHelp(nums, length, candidate, result);
+                candidate.RemoveAt(candidate.Count - 1);
+            }
+        }
     }
 }
