@@ -36,5 +36,40 @@ namespace Algo2.CombinationAndPermutation
                 candidate.RemoveAt(candidate.Count - 1);
             }
         }
+
+        public static List<List<int>> GetCombinationFromDuplicateArray(int[] nums, int length)
+        {
+            var result = new List<List<int>>();
+            if (nums == null || nums.Length == 0 || length == 0 || length > nums.Length)
+            {
+                return result;
+            }
+
+            var candidate = new List<int>();
+            Array.Sort(nums);
+            GetCombinationFromDuplicateArrayHelp(nums, length, 0, candidate, result);
+            return result;
+        }
+
+        private static void GetCombinationFromDuplicateArrayHelp(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
+        {
+            if (candidate.Count == length)
+            {
+                result.Add(candidate.ToArray().ToList());
+                return;
+            }
+
+            for (var i = index; i < nums.Length; i++)
+            {
+                if (i > index && nums[i] == nums[i - 1]) 
+                {
+                    continue;
+                }
+                candidate.Add(nums[i]);
+                GetCombinationFromDuplicateArrayHelp(nums, length, i + 1, candidate, result);
+                candidate.RemoveAt(candidate.Count - 1);
+            }
+            return;
+        }
     }
 }

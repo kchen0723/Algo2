@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algo2.PermutationAndCombination.Tests
+namespace Algo2.CombinationAndPermutation.Tests
 {
     [TestClass()]
     public class PermutationTests
@@ -14,8 +14,15 @@ namespace Algo2.PermutationAndCombination.Tests
         [TestMethod()]
         public void GetPermutationFromUniqueArrayTest()
         {
-            var nums = new int[] { 1, 2, 3};
+            var nums = new int[] { 1, 2, 3 };
             var permutations = Permutation.GetPermutationFromUniqueArray(nums, 3);
+        }
+
+        [TestMethod()]
+        public void GetPermutationFromDuplicateArrayTest()
+        {
+            var nums = new int[] { 1, 2, 3, 2 };
+            var permutations = Permutation.GetPermutationFromDuplicateArray(nums, 2);
         }
     }
 }
