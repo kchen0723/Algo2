@@ -31,5 +31,12 @@ namespace Algo2.CombinationAndPermutation.Tests
             var nums = new int[] { 1, 2 };
             var combinations = Combination.GetCombinationMultipleTimes(nums, 3);
         }
+
+        [TestMethod()]
+        public void GetCombinationMultipleTimesSubsetTest()
+        {
+            var nums = new int[] { 1, 2, 3 };
+            var combinations = Combination.GetCombinationMultipleTimesSubset(nums, 2);
+        }
     }
 }
