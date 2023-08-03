@@ -63,6 +63,7 @@
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideWindow\SlideWindowTests.cs" />
+    <Compile Include="TwentyfourGame\Calculate24GameTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -73,6 +74,7 @@
       <Name>Algo2</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
