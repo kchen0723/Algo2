@@ -26,16 +26,17 @@ namespace Algo2.TwentyfourGame
             return false;
         }
 
-        public static List<string> GetFormulas()
+        public static List<FormulaEntity> GetFormulas()
         { 
-            var result = new List<string>();
+            var result = new List<FormulaEntity>();
             var combinations = Combination.GetCombinationMultipleTimes(NUMBERS, 4);
             foreach (var item in combinations)
             {
                 var formula = new FormulaEntity() { Numbers = item };
-                if (formula.IsValid())
+                formula.ProcessFormulas();
+                if (formula.IsValid)
                 {
-                    result.Add(formula.ValidFormla);
+                    result.Add(formula);
                 }
             }
             return result;
@@ -45,13 +46,13 @@ namespace Algo2.TwentyfourGame
     public class FormulaEntity
     {
         public List<int> Numbers { get; set; } = new List<int>();
-        public string ValidFormla { get; private set; }
-        public List<FormulaInfo> Formulas { get; set; } = new List<FormulaInfo>();
+        public bool IsValid { get; private set; }
+        public List<string> ValidFormlas { get; private set; } = new List<string>();
 
-        public bool IsValid()
+        public bool ProcessFormulas()
         {
-            Formulas = BuildFormulas();
-            foreach(var formulaInfo  in Formulas)
+            var formulas = BuildFormulas();
+            foreach(var formulaInfo  in formulas)
             {
                 var formula = formulaInfo.Formula;
                 var bracketValues = DifferentBracketsToCalculate.AddDifferentBracketsToCalculate(formula);
@@ -59,15 +60,15 @@ namespace Algo2.TwentyfourGame
                 {
                     if (Calculate24Game.IsTarget(bracketValue.Item1))
                     {
-                        ValidFormla = bracketValue.Item2;
-                        return true;
+                        IsValid = true;
+                        ValidFormlas.Add(bracketValue.Item2);
                     }
                 }
             }
             return false;
         }
 
-        public List<FormulaInfo> BuildFormulas()
+        private List<FormulaInfo> BuildFormulas()
         { 
             var result = new List<FormulaInfo>();
             var numberPermutations = Permutation.GetPermutationFromUniqueArray(Numbers.ToArray(), 4);
