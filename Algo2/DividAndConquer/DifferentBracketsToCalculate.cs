@@ -8,13 +8,19 @@ namespace Algo2.DividAndConquer
 {
     public class DifferentBracketsToCalculate
     {
-        public static List<float> AddDifferentBracketsToCalculate(string str)
+        public static List<Tuple<float, string>> AddDifferentBracketsToCalculate(string str)
         { 
-            var result = new List<float>();
-            if(string.IsNullOrEmpty(str)) 
-            { 
-                return result; 
+            var result = new List<Tuple<float, string>>();
+            if (string.IsNullOrEmpty(str))
+            {
+                return result;
             }
+            return AddDifferentBracketsToCalculateHelp(str);
+        }
+
+        public static List<Tuple<float, string>> AddDifferentBracketsToCalculateHelp(string str)
+        { 
+            var result = new List<Tuple<float, string>>();
 
             for(var i = 0; i < str.Length; i++) 
             {
@@ -23,28 +29,29 @@ namespace Algo2.DividAndConquer
                 {
                     var leftString = str.Substring(0, i);
                     var rightString = str.Substring(i + 1, str.Length - i - 1);
-                    var leftResult = AddDifferentBracketsToCalculate(leftString);
-                    var rightResult = AddDifferentBracketsToCalculate(rightString);
+                    var leftResult = AddDifferentBracketsToCalculateHelp(leftString);
+                    var rightResult = AddDifferentBracketsToCalculateHelp(rightString);
 
                     foreach (var left in leftResult)
                     {
                         foreach (var right in rightResult)
-                        { 
+                        {
+                            var formula = $"({left.Item2}{item}{right.Item2})";
                             switch (item) 
                             {
                                 case '+':
-                                    result.Add(left + right);
+                                    result.Add(new Tuple<float, string>(left.Item1 + right.Item1, formula));
                                     break;
                                 case '-':
-                                    result.Add(left - right);
+                                    result.Add(new Tuple<float, string>(left.Item1 - right.Item1, formula));
                                     break;
                                 case '*':
-                                    result.Add(left * right);
+                                    result.Add(new Tuple<float, string>(left.Item1 * right.Item1, formula));
                                     break;
                                 case '/':
-                                    if (right != 0)
+                                    if (right.Item1 != 0)
                                     {
-                                        result.Add(left / right);
+                                        result.Add(new Tuple<float, string>(left.Item1 / right.Item1, formula));
                                     }
                                     break;
                             }
@@ -57,7 +64,7 @@ namespace Algo2.DividAndConquer
             {
                 float floatValue;
                 float.TryParse(str, out floatValue);
-                result.Add(floatValue);
+                result.Add(new Tuple<float, string>(floatValue, str));
             }
             return result;
         }

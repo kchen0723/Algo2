@@ -57,9 +57,9 @@ namespace Algo2.TwentyfourGame
                 var bracketValues = DifferentBracketsToCalculate.AddDifferentBracketsToCalculate(formula);
                 foreach (var bracketValue in bracketValues)
                 {
-                    if (Calculate24Game.IsTarget(bracketValue))
+                    if (Calculate24Game.IsTarget(bracketValue.Item1))
                     {
-                        ValidFormla = formula;
+                        ValidFormla = bracketValue.Item2;
                         return true;
                     }
                 }
