@@ -72,10 +72,7 @@ namespace Algo2.TwentyfourGame
                     operatorStack.Push(token);
                 }
             }
-            while (operatorStack.Count > 0)
-            { 
-                result.Add(operatorStack.Pop());
-            }
+            result.AddRange(operatorStack.ToArray());
             return result;
         }
 
@@ -86,6 +83,58 @@ namespace Algo2.TwentyfourGame
                 return false;
             }
             return true;
+        }
+
+        public static float CalculatePostfixExpression(List<string> tokens)
+        {
+            Stack<float> stack = new Stack<float>();
+            foreach (var token in tokens)
+            {
+                if (IsNumber(token))
+                {
+                    stack.Push(ToFloat(token));
+                }
+                else
+                { 
+                    var right = stack.Pop();
+                    var left = stack.Pop();
+                    var midResult = Calculate2Numbers(left, right, token);
+                    stack.Push(midResult);
+                }
+            }
+            return stack.Pop();
+        }
+
+        private static float ToFloat(string str)
+        {
+            var result = 0f;
+            float.TryParse(str, out result);
+            return result;
+        }
+
+        private static float Calculate2Numbers(float left, float right, string token)
+        {
+            var result = 0f;
+            switch (token)
+            {
+                case "+":
+                    result = left + right;
+                    break;
+                case "-":
+                    result = left - right;
+                    break;
+                case "*":
+                    result = left * right;
+                    break;
+                case "/":
+                    if (right != 0)
+                    {
+                        result = left / right;
+                    }
+                    break;
+
+            }
+            return result;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Algo2.TwentyfourGame.Tests
             var src = "1+2-3*(4+5)";
             var tokens = Calculate.GetTokens(src);
             var postfix = Calculate.ParseToPostfixExpression(tokens);
+            var actual = Calculate.CalculatePostfixExpression(postfix);
         }
     }
 }
