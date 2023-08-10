@@ -14,8 +14,9 @@ namespace Algo2.TwentyfourGame.Tests
         [TestMethod()]
         public void GetTokensTest()
         {
-            var src = "11+5.2-23*(0.4+23)";
-            var actual = Calculate.GetTokens(src);
+            var src = "1+2-3*(4+5)";
+            var tokens = Calculate.GetTokens(src);
+            var postfix = Calculate.ParseToPostfixExpression(tokens);
         }
     }
 }
