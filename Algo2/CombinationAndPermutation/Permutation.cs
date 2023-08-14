@@ -116,20 +116,20 @@ namespace Algo2.CombinationAndPermutation
             }
         }
 
-        public static List<List<int>> GetPermutationMultipleTimesSubset(int[] nums, int length)
+        public static List<List<T>> GetPermutationMultipleTimesSubset<T>(T[] nums, int length)
         {
-            var result = new List<List<int>>();
+            var result = new List<List<T>>();
             if (nums == null || nums.Length == 0 || length == 0)
             {
                 return result;
             }
 
-            var candidate = new List<int>();
+            var candidate = new List<T>();
             GetPermutationMultipleTimesSubsetHelp(nums, length, candidate, result);
             return result;
         }
 
-        private static void GetPermutationMultipleTimesSubsetHelp(int[] nums, int length, List<int> candidate, List<List<int>> result)
+        private static void GetPermutationMultipleTimesSubsetHelp<T>(T[] nums, int length, List<T> candidate, List<List<T>> result)
         {
             result.Add(candidate.ToArray().ToList());
             if (candidate.Count >= length)  //base case

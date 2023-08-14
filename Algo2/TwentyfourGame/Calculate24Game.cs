@@ -41,6 +41,96 @@ namespace Algo2.TwentyfourGame
             }
             return result;
         }
+
+        public static List<FormulaModel> GetFormulaModels()
+        {
+            var result = new List<FormulaModel>();
+            var combinations = Combination.GetCombinationMultipleTimes(NUMBERS, 4);
+            foreach (var item in combinations)
+            {
+                var formula = new FormulaModel() { Numbers = item };
+                formula.ProcessModel();
+                if (formula.IsValid)
+                {
+                    result.Add(formula);
+                }
+            }
+            return result;
+        }
+    }
+
+    public class FormulaModel
+    { 
+        public List<int> Numbers { get; set; } = new List<int>();
+        public bool IsValid { get; private set; }
+        public List<string> ValidFormlas { get; private set; } = new List<string>();
+
+        public void ProcessModel()
+        {
+            var postfixExpresses = BuildPostfixExpresses();
+            foreach (var postfix in postfixExpresses)
+            { 
+                var calculateValue = Calculate.CalculatePostfixExpression(postfix);
+                if (Calculate24Game.IsTarget(calculateValue))
+                { 
+                    IsValid = true;
+                    ValidFormlas.Add(string.Join(",", postfix));
+                }
+            }
+        }
+
+        // ab*c*d*
+        // ab*cd**
+        // abcd***
+        // abc**d*
+        // abc*d**
+        public List<List<string>> BuildPostfixExpresses()
+        {
+            var numberPermutations = Permutation.GetPermutationFromUniqueArray(Numbers.ToArray(), Numbers.Count);
+            var operators = Permutation.GetPermutationMultipleTimesSubset<char>(Calculate24Game.OPERATORS, Numbers.Count - 1);
+            var result = new List<List<string>>();
+            foreach (var nums in numberPermutations)
+            {
+                var candidate = new List<string> { nums[0].ToString() }; //add the first number anyway.
+                BuildPostfixExpressHelp(nums, operators, 0, 0, candidate, result);
+            }
+            return result;
+        }
+
+        private void BuildPostfixExpressHelp(List<int> nums, List<List<char>> operators, int index, int operatorCount, List<string> candidate, List<List<string>> postfixExpress)
+        {
+            if (index == nums.Count - 1) //move to the last position
+            {
+                if (operatorCount == nums.Count - 1)
+                {
+                    postfixExpress.Add(candidate.ToArray().ToList());
+                }
+                return;
+            }
+
+            candidate.Add(nums[index + 1].ToString());  //add the next number
+            foreach (var item in operators)
+            {
+                if (index < nums.Count - 1)
+                {
+                    if (item.Count > index - operatorCount + 1)   //operatorCount conditions
+                    {
+                        continue;
+                    }
+                }
+
+                foreach (var op in item)                       //add operators
+                { 
+                    candidate.Add(op.ToString());
+                }
+                BuildPostfixExpressHelp(nums, operators, index + 1, operatorCount + item.Count, candidate, postfixExpress);
+                foreach (var op in item)                      //remove operators
+                { 
+                    candidate.RemoveAt(candidate.Count - 1);
+                }
+            }
+            candidate.RemoveAt(candidate.Count - 1);        //remove the next number
+        }
     }
 
     public class FormulaEntity

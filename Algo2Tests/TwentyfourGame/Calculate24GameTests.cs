@@ -17,5 +17,12 @@ namespace Algo2.TwentyfourGame.Tests
             var result = Calculate24Game.GetFormulas();
             Assert.IsNotNull(result);
         }
+
+        [TestMethod()]
+        public void GetFormulaModelsTest()
+        {
+            var result = Calculate24Game.GetFormulaModels();
+            Assert.IsNotNull(result);
+        }
     }
 }
