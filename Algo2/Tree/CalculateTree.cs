@@ -100,5 +100,36 @@ namespace Algo2.Tree
             }
             return stack.Pop();
         }
+
+        public static float CalculateTreeValue(TreeNode<string> root)
+        {
+            if (root == null)
+            {
+                return 0f;
+            }
+
+            CalculateHelp(root);
+            return Calculate.ToFloat(root.NodeValue);
+        }
+
+        private static void CalculateHelp(TreeNode<string> root)
+        {
+            if (root == null)
+            {
+                return;
+            }
+
+            CalculateHelp(root.Left);
+            CalculateHelp(root.Right);
+            if(root.Left != null && root.Right != null)
+            {
+                var left = Calculate.ToFloat(root.Left.NodeValue);
+                var right = Calculate.ToFloat(root.Right.NodeValue);
+                var midResult = Calculate.Calculate2Numbers(left, right, root.NodeValue);
+                root.Left = null;
+                root.Right = null;
+                root.NodeValue = midResult.ToString();
+            }
+        }
     }
 }

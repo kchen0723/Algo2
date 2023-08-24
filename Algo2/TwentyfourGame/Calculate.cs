@@ -112,7 +112,7 @@ namespace Algo2.TwentyfourGame
             return result;
         }
 
-        private static float Calculate2Numbers(float left, float right, string token)
+        public static float Calculate2Numbers(float left, float right, string token)
         {
             var result = 0f;
             switch (token)

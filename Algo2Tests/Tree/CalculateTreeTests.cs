@@ -43,5 +43,14 @@ namespace Algo2.Tree.Tests
             var root = CalculateTree.Deserialize<string>(str);
             Assert.IsNull(root);
         }
+
+        [TestMethod()]
+        public void CalculateTreeValueTest()
+        {
+            var str = "(1+8/4)*(5-3)";
+            var root = CalculateTree.Deserialize<string>(str);
+            var actual = CalculateTree.CalculateTreeValue(root);
+            Assert.AreEqual(6, actual);
+        }
     }
 }
