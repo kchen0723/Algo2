@@ -63,6 +63,7 @@
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideWindow\SlideWindowTests.cs" />
+    <Compile Include="Tree\CalculateTreeTests.cs" />
     <Compile Include="TwentyfourGame\Calculate24GameTests.cs" />
     <Compile Include="TwentyfourGame\CalculateTests.cs" />
   </ItemGroup>

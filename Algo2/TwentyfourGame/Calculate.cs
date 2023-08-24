@@ -76,7 +76,7 @@ namespace Algo2.TwentyfourGame
             return result;
         }
 
-        private static bool IsNumber(string str)
+        public static bool IsNumber(string str)
         {
             if (str == "(" || str == ")" || str == "+" || str == "-" || str == "*" || str == "/")
             {
@@ -105,7 +105,7 @@ namespace Algo2.TwentyfourGame
             return stack.Pop();
         }
 
-        private static float ToFloat(string str)
+        public static float ToFloat(string str)
         {
             var result = 0f;
             float.TryParse(str, out result);
