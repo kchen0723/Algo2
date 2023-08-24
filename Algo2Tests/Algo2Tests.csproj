@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="BinarySearch\BinarySearchTests.cs" />
     <Compile Include="CombinationAndPermutation\CombinationTests.cs" />
+    <Compile Include="Container\ContainerTests.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculateTests.cs" />
     <Compile Include="HanoiTower\HonoiTests.cs" />
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
