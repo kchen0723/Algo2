@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinarySearch\BinarySearch.cs" />
-    <Compile Include="Container\Container.cs" />
+    <Compile Include="Container\ContainerDS.cs" />
     <Compile Include="Container\IContainer.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculate.cs" />
     <Compile Include="HanoiTower\Honoi.cs" />

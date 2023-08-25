@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 namespace Algo2.Container.Tests
 {
     [TestClass()]
-    public class ContainerTests
+    public class ContainerDSTests
     {
         [TestMethod()]
-        public void ContainerTest()
+        public void ContainerDSTest()
         {
-            var c = new Container.Container<int>();
+            var c = new Container.ContainerDS<int>();
             Assert.IsNotNull(c);
         }
 
         [TestMethod()]
         public void DeleteTest()
         {
-            var c = new Container.Container<int>();
+            var c = new Container.ContainerDS<int>();
             c.Insert(2);
             c.Insert(3);
             c.Delete(3);
@@ -31,7 +31,7 @@ namespace Algo2.Container.Tests
         [TestMethod()]
         public void InsertTest()
         {
-            var c = new Container.Container<int>();
+            var c = new Container.ContainerDS<int>();
             c.Insert(2);
             c.Insert(3);
             Assert.IsNotNull(c);

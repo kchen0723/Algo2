@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Algo2.Container
 {
-    public class Container<T> : IContainer<T>
+    public class ContainerDS<T> : IContainer<T>
     {
         private readonly int _size;
         private int _containPointer;
         private T[] _items;
 
-        public Container(int size)
+        public ContainerDS(int size)
         { 
             _size = size;
             _items = new T[size];
             _containPointer = -1;
         }
 
-        public Container() : this(10) 
+        public ContainerDS() : this(10) 
         {
         }
 
@@ -71,7 +71,7 @@ namespace Algo2.Container
         {
             if (IsFull)
             {
-                throw new ApplicationException("Container is full");
+                throw new ApplicationException("ContainerDS is full");
             }
             else
             { 
