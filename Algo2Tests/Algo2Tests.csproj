@@ -62,6 +62,8 @@
     <Compile Include="DividAndConquer\DifferentBracketsToCalculateTests.cs" />
     <Compile Include="HanoiTower\HonoiTests.cs" />
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
+    <Compile Include="List\LinkedListDSTests.cs" />
+    <Compile Include="List\SequenceListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideWindow\SlideWindowTests.cs" />
     <Compile Include="Tree\CalculateTreeTests.cs" />
