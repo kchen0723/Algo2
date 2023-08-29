@@ -39,7 +39,7 @@ namespace Algo2.BinarySearch.Tests
         {
             var arr = new int[] { 10,20, 1, 3, 5, 6, 7, 8, 9 }; 
             var actual = BinarySearch.FindInSortedShiftArray(arr, 3);
-            Assert.AreEqual(5, actual);
+            Assert.AreEqual(3, actual);
         }
     }
 }

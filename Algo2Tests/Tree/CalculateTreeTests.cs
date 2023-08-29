@@ -16,7 +16,7 @@ namespace Algo2.Tree.Tests
         {
             var root = CreateCalculateTree();
             var actual = CalculateTree.Serialize(root);
-            Assert.IsNull(actual);
+            Assert.IsNotNull(actual);
         }
 
         private TreeNode<string> CreateCalculateTree()
@@ -41,7 +41,7 @@ namespace Algo2.Tree.Tests
         {
             var str = "(1+8/4)*(5-3)";
             var root = CalculateTree.Deserialize<string>(str);
-            Assert.IsNull(root);
+            Assert.IsNotNull(root);
         }
 
         [TestMethod()]
