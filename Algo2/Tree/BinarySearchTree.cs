@@ -44,19 +44,34 @@ namespace Algo2.Tree
             }
 
             TreeNode<T> result = null;
+            var isEqueal = false;
             var current = Root;
             while (current != null)
             {
                 var compareResult = current.NodeValue.CompareTo(target);
-                if (compareResult <= 0)
+                if (compareResult < 0)
                 {
                     result = current;
                     current = current.Right;
+                }
+                else if (compareResult == 0)
+                {
+                    current = current.Left;
+                    isEqueal = true;
+                    break;
                 }
                 else if (compareResult > 0)
                 {
                     current = current.Left;
                 }
+            }
+            if (isEqueal)
+            {
+                while (current != null && current.Right != null)
+                {
+                    current = current.Right;
+                }
+                result = current;
             }
             if (result != null && result.NodeValue.CompareTo(target) < 0)
             {

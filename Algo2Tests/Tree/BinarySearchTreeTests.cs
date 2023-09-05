@@ -37,7 +37,7 @@ namespace Algo2.Tree.Tests
             {
                 bt.Insert(item);
             }
-            var actual = bt.FindMaxNodeWhichIsSmallerThanTarget(9);
+            var actual = bt.FindMaxNodeWhichIsSmallerThanTarget(77);
             Assert.IsNotNull(actual);
         }
     }
