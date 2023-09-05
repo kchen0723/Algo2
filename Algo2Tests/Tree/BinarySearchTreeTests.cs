@@ -25,8 +25,20 @@ namespace Algo2.Tree.Tests
 
             BinarySearchTree<int> bt = new BinarySearchTree<int>() { Root = nine };
             var result = bt.Find(3);
-            result = bt.FindMaxNodeWhichIsSmallerThanTarget(9);
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod()]
+        public void FindMaxNodeWhichIsSmallerThanTargetTest()
+        {
+            List<int> lists = new List<int> { 20, 9, 25, 5, 12, 11, 14 };
+            BinarySearchTree<int> bt = new BinarySearchTree<int>();
+            foreach (var item in lists)
+            {
+                bt.Insert(item);
+            }
+            var actual = bt.FindMaxNodeWhichIsSmallerThanTarget(9);
+            Assert.IsNotNull(actual);
         }
     }
 }

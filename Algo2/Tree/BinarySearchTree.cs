@@ -79,14 +79,14 @@ namespace Algo2.Tree
                 var compareResult = current.NodeValue.CompareTo(value);
                 if (compareResult < 0)
                 {
-                    if (current.Left == null)
+                    if (current.Right == null)
                     {
-                        current.Left = newNode;
+                        current.Right = newNode;
                         return;
                     }
                     else
                     {
-                        current = current.Left;
+                        current = current.Right;
                     }
                 }
                 else if (compareResult == 0)
@@ -95,13 +95,13 @@ namespace Algo2.Tree
                 }
                 else if (compareResult > 0)
                 {
-                    if (current.Right == null)
+                    if (current.Left == null)
                     {
-                        current.Right = newNode;
+                        current.Left = newNode;
                     }
                     else
                     {
-                        current = current.Right;
+                        current = current.Left;
                     }
                 }
             }
