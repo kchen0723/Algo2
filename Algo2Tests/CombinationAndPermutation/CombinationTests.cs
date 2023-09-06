@@ -19,6 +19,22 @@ namespace Algo2.CombinationAndPermutation.Tests
         }
 
         [TestMethod()]
+        public void FindNSumTest()
+        {
+            var nums = new int[] { 2, 7, 4, 0, 9, 5, 1, 3 };
+            var combinations = Combination.GetCombinationFromUniqueArray(nums, 4);
+            var result = new List<List<int>>();
+            foreach (var combination in combinations)
+            {
+                if (combination.Sum() == 20)
+                { 
+                    result.Add(combination);
+                }
+            }
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod()]
         public void GetCombinationFromDuplicateArrayTest()
         {
             var nums = new int[] { 1, 2, 3, 2 };
