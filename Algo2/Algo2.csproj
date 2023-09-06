@@ -64,6 +64,7 @@
     <Compile Include="Tree\TreeNode.cs" />
     <Compile Include="TwentyfourGame\Calculate.cs" />
     <Compile Include="TwentyfourGame\Calculate24Game.cs" />
+    <Compile Include="TwoPoints\MoveZeroToEnd.cs" />
     <Compile Include="Utility\ArrayHelper.cs" />
   </ItemGroup>
   <ItemGroup>
