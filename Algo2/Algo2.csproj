@@ -47,6 +47,7 @@
     <Compile Include="Container\ContainerDS.cs" />
     <Compile Include="Container\IContainer.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculate.cs" />
+    <Compile Include="Graph\IGraph.cs" />
     <Compile Include="HanoiTower\Honoi.cs" />
     <Compile Include="CombinationAndPermutation\Combination.cs" />
     <Compile Include="CombinationAndPermutation\Permutation.cs" />
@@ -71,6 +72,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Graph\china railway map.jpeg" />
+    <Content Include="Graph\map.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
