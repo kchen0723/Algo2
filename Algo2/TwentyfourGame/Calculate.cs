@@ -10,6 +10,13 @@ namespace Algo2.TwentyfourGame
 {
     public class Calculate
     {
+        public static float Calcualte(string str)
+        { 
+            var tokents = GetTokens(str);
+            var postfix = ParseToPostfixExpression(tokents);
+            var result = CalculatePostfixExpression(postfix);
+            return result;
+        }
         public static List<string> GetTokens(string src)
         {
             var result = new List<string>();
