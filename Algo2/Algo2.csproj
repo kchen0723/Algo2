@@ -48,6 +48,7 @@
     <Compile Include="Container\IContainer.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculate.cs" />
     <Compile Include="DP\ArrayProductExceptItemItself.cs" />
+    <Compile Include="DP\CoinChange.cs" />
     <Compile Include="Graph\IGraph.cs" />
     <Compile Include="HanoiTower\Honoi.cs" />
     <Compile Include="CombinationAndPermutation\Combination.cs" />
