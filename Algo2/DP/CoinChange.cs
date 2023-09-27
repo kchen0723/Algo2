@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Algo2.DP
 {
+    //return how many wasy to change coins.
     public class CoinChange
     {
         public static int GetMinCountByDp(int[] coins, int money)

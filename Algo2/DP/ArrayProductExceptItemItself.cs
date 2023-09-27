@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algo2.DP
 {
+    //return an array of a array produce except the item itself
     public class ArrayProductExceptItemItself
     {
         public static List<int> GetArrayProductExceptItemItself(int[] arr)

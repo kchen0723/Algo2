@@ -9,6 +9,7 @@ namespace Algo2.DP
 {
     public class WordDistance
     {
+        //Get Insert and Delete Distance
         public static int GetInsertDeleteDistance(string src, string dst)
         {
             if (src == null || dst == null)
@@ -42,6 +43,7 @@ namespace Algo2.DP
             return dp[src.Length, dst.Length];
         }
 
+        //Get Edit Distance(insert, delete and edit)
         public static int GetEditDistance(string src, string dst)
         {
             if (src == null || dst == null)
