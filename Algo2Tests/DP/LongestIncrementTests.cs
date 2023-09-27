@@ -18,5 +18,13 @@ namespace Algo2.DP.Tests
             var actual = LongestIncrement.GetContinuousLongestIncremental(numbers);
             Assert.AreEqual(3, actual);
         }
+
+        [TestMethod()]
+        public void GetLongestIncrementalSubsequenceTest()
+        {
+            var numbers = new int[] { 10, 9, 2, 5, 3, 7, 101, 18 };
+            var actual = LongestIncrement.GetLongestIncrementalSubsequence(numbers);
+            Assert.AreEqual(4, actual);
+        }
     }
 }

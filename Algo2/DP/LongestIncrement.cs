@@ -31,5 +31,27 @@ namespace Algo2.DP
             }
             return dp.Max();
         }
+
+        public static int GetLongestIncrementalSubsequence(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+            {
+                return 0;
+            }
+
+            var dp = new int[numbers.Length];   //each dp means the longest incremental array 
+            for (var i = 0; i < numbers.Length; i++)
+            {
+                dp[i] = 1;                      //base case
+                for (var j = 0; j < i; j++)
+                {
+                    if (numbers[i] > numbers[j])         //transfer formula
+                    {
+                        dp[i] = Math.Max(dp[i], dp[j] + 1);
+                    }
+                }
+            }
+            return dp.Max();
+        }
     }
 }
