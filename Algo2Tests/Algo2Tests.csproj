@@ -61,6 +61,7 @@
     <Compile Include="Container\ContainerDSTests.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculateTests.cs" />
     <Compile Include="DP\ArrayProductExceptItemItselfTests.cs" />
+    <Compile Include="DP\BracketTests.cs" />
     <Compile Include="DP\CoinChangeTests.cs" />
     <Compile Include="DP\LongestIncrementTests.cs" />
     <Compile Include="DP\WordDistanceTests.cs" />
