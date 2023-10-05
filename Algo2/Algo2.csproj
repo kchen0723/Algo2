@@ -51,6 +51,7 @@
     <Compile Include="DP\Bracket.cs" />
     <Compile Include="DP\CoinChange.cs" />
     <Compile Include="DP\LongestIncrement.cs" />
+    <Compile Include="DP\SquareSum.cs" />
     <Compile Include="DP\TriangleMinPath.cs" />
     <Compile Include="DP\WordDistance.cs" />
     <Compile Include="Graph\IGraph.cs" />

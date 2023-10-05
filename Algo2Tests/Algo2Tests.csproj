@@ -64,6 +64,7 @@
     <Compile Include="DP\BracketTests.cs" />
     <Compile Include="DP\CoinChangeTests.cs" />
     <Compile Include="DP\LongestIncrementTests.cs" />
+    <Compile Include="DP\SquareSumTests.cs" />
     <Compile Include="DP\TriangleMinPathTests.cs" />
     <Compile Include="DP\WordDistanceTests.cs" />
     <Compile Include="HanoiTower\HonoiTests.cs" />
