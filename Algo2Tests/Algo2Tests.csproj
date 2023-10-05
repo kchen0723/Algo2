@@ -73,6 +73,7 @@
     <Compile Include="List\SequenceListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideWindow\SlideWindowTests.cs" />
+    <Compile Include="SplitNumberToGetMaxProductTests.cs" />
     <Compile Include="Tree\BinarySearchTreeTests.cs" />
     <Compile Include="Tree\BinaryTreeTests.cs" />
     <Compile Include="Tree\CalculateTreeTests.cs" />
