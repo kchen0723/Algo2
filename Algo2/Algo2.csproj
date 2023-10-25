@@ -52,6 +52,7 @@
     <Compile Include="DP\CoinChange.cs" />
     <Compile Include="DP\LongestIncrement.cs" />
     <Compile Include="DP\LongestSubsetFromZeroOneString.cs" />
+    <Compile Include="DP\MaxProfitCut.cs" />
     <Compile Include="DP\SquareSum.cs" />
     <Compile Include="DP\TriangleMinPath.cs" />
     <Compile Include="DP\WordDistance.cs" />
