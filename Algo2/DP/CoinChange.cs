@@ -40,6 +40,33 @@ namespace Algo2.DP
             return dp[money];
         }
 
+        public static int GetMinCountByDp2(int[] coins, int money)
+        {
+            if (coins == null || coins.Length == 0 || money <= 0)
+            {
+                return 0;
+            }
+
+            var dp = new int[money + 1];
+            var candidte = new List<int>();
+            for (var i = 0; i <= money; i++)
+            {
+                candidte.Clear();
+                for (var j = 0; j < coins.Length; j++)
+                {
+                    if (i > coins[j])
+                    {
+                        candidte.Add(1 + dp[i - coins[j]]);
+                    }
+                }
+                if (candidte.Count > 0)
+                {
+                    dp[i] = candidte.Min();
+                }
+            }
+            return dp[money];
+        }
+
         public static Tuple<int, List<List<int>>> GetMinCountByBackTrack(int[] coins, int money)
         {
             var result = int.MaxValue;
