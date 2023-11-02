@@ -48,6 +48,7 @@
     <Compile Include="Container\IContainer.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculate.cs" />
     <Compile Include="DP\ArrayProductExceptItemItself.cs" />
+    <Compile Include="DP\BagMax.cs" />
     <Compile Include="DP\Bracket.cs" />
     <Compile Include="DP\CoinChange.cs" />
     <Compile Include="DP\LongestIncrement.cs" />
