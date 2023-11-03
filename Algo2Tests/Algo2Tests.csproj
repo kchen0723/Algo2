@@ -64,6 +64,7 @@
     <Compile Include="DP\BagMaxTests.cs" />
     <Compile Include="DP\BracketTests.cs" />
     <Compile Include="DP\CoinChangeTests.cs" />
+    <Compile Include="DP\JumpGameTests.cs" />
     <Compile Include="DP\LongestIncrementTests.cs" />
     <Compile Include="DP\LongestSubsetFromZeroOneStringTests.cs" />
     <Compile Include="DP\MaxProfitCutTests.cs" />

@@ -51,6 +51,7 @@
     <Compile Include="DP\BagMax.cs" />
     <Compile Include="DP\Bracket.cs" />
     <Compile Include="DP\CoinChange.cs" />
+    <Compile Include="DP\JumpGame.cs" />
     <Compile Include="DP\LongestIncrement.cs" />
     <Compile Include="DP\LongestSubsetFromZeroOneString.cs" />
     <Compile Include="DP\MaxProfitCut.cs" />
