@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 namespace Algo2.DP.Tests
 {
     [TestClass()]
-    public class JumpGameTests
+    public class MatrixTrianglePathTests
     {
         [TestMethod()]
-        public void CanJumpTest()
+        public void GetMatrixTrianglePathByDpTest()
         {
-            var nums = new int[] { 3, 0, 0, 1, 4};
-            var actual = JumpGame.CanJump(nums);
-            Assert.AreEqual(true, actual);
+            var actual = MatrixTrianglePath.GetMatrixTrianglePathByDp(4);
+            Assert.AreEqual(14, actual);
         }
     }
 }

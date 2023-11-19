@@ -67,6 +67,7 @@
     <Compile Include="DP\JumpGameTests.cs" />
     <Compile Include="DP\LongestIncrementTests.cs" />
     <Compile Include="DP\LongestSubsetFromZeroOneStringTests.cs" />
+    <Compile Include="DP\MatrixTrianglePathTests.cs" />
     <Compile Include="DP\MaxProfitCutTests.cs" />
     <Compile Include="DP\SquareSumTests.cs" />
     <Compile Include="DP\TriangleMinPathTests.cs" />
