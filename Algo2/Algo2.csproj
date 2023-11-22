@@ -57,6 +57,7 @@
     <Compile Include="DP\MatrixTrianglePath.cs" />
     <Compile Include="DP\MaxProfitCut.cs" />
     <Compile Include="DP\SquareSum.cs" />
+    <Compile Include="DP\Stock.cs" />
     <Compile Include="DP\TriangleMinPath.cs" />
     <Compile Include="DP\WordDistance.cs" />
     <Compile Include="Graph\IGraph.cs" />
