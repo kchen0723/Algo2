@@ -14,9 +14,9 @@ namespace Algo2.DP.Tests
         [TestMethod()]
         public void GetMaxProfitByDpTest()
         {
-            var nums = new List<int>() { 7, 2, 6, 1, 4, 2 };
+            var nums = new List<int>() { 7, 2, 6, 1, 7, 2 };
             var actual = Stock.GetMaxProfitByDp(nums);
-            Assert.AreEqual(4, actual);
+            Assert.AreEqual(6, actual);
         }
 
         [TestMethod()]
