@@ -64,6 +64,7 @@
     <Compile Include="DP\BagMaxTests.cs" />
     <Compile Include="DP\BracketTests.cs" />
     <Compile Include="DP\CoinChangeTests.cs" />
+    <Compile Include="DP\CommonSubStringTests.cs" />
     <Compile Include="DP\JumpGameTests.cs" />
     <Compile Include="DP\LongestIncrementTests.cs" />
     <Compile Include="DP\LongestSubsetFromZeroOneStringTests.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
     <Compile Include="List\LinkedListDSTests.cs" />
     <Compile Include="List\SequenceListTests.cs" />
+    <Compile Include="Pramp\SpiralCopyTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideWindow\SlideWindowTests.cs" />
     <Compile Include="SplitNumberToGetMaxProductTests.cs" />
