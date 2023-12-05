@@ -8,14 +8,15 @@ namespace Algo2.DP
 {
     public class CommonSubString
     {
-        public static int GetLongestCommonSubString(string left, string right)
+        public static string GetLongestCommonSubString(string left, string right)
         {
             if (left == null || right == null || left.Length == 0 || right.Length == 0)
             {
-                return 0;
+                return string.Empty;
             }
             
             var dp = new int[left.Length + 1, right.Length + 1];  //each item means the longest common string till the m left and n right
+            var result = string.Empty;
             for(var i = 1; i < left.Length + 1; i++)
             {
                 for (var j = 1; j < right.Length + 1; j++)
@@ -23,14 +24,14 @@ namespace Algo2.DP
                     if (left[i - 1] == right[j - 1])
                     {
                         dp[i, j] = dp[i - 1, j - 1] + 1;           //transfer formula
-                    }
-                    else
-                    {
-                        dp[i, j] = dp[i - 1, j - 1];              //transfer formula
+                        if (dp[i, j] > result.Length)
+                        { 
+                            result = left.Substring(i - dp[i, j], dp[i, j]);
+                        }
                     }
                 }
             }
-            return dp[left.Length, right.Length];
+            return result;
         }
     }
 }
