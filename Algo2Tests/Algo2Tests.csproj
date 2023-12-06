@@ -82,6 +82,7 @@
     <Compile Include="Pramp\TimePlannerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideWindow\SlideWindowTests.cs" />
+    <Compile Include="Sorting\BasicSortingTests.cs" />
     <Compile Include="SplitNumberToGetMaxProductTests.cs" />
     <Compile Include="Tree\BinarySearchTreeTests.cs" />
     <Compile Include="Tree\BinaryTreeTests.cs" />

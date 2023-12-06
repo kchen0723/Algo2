@@ -74,6 +74,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlideWindow\SlideWindow.cs" />
+    <Compile Include="Sorting\BasicSorting.cs" />
     <Compile Include="SplitNumberToGetMaxProduct.cs" />
     <Compile Include="Tree\BinarySearchTree.cs" />
     <Compile Include="Tree\BinaryTree.cs" />
