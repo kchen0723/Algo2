@@ -14,8 +14,24 @@ namespace Algo2.Sorting.Tests
         [TestMethod()]
         public void BubbleSortTest()
         {
-            var input = new int[] { 11, 10, 9, 5, 6, 7};
+            var input = new int[] { 11, 10, 9, 5, 6, 7 };
             var result = BasicSorting.BubbleSort(input);
+            Assert.AreEqual(5, result[0]);
+        }
+
+        [TestMethod()]
+        public void SelectionSortTest()
+        {
+            var input = new int[] { 11, 10, 9, 5, 6, 7 };
+            var result = BasicSorting.SelectionSort(input);
+            Assert.AreEqual(5, result[0]);
+        }
+
+        [TestMethod()]
+        public void InsertionSortTest()
+        {
+            var input = new int[] { 11, 10, 9, 5, 6, 7 };
+            var result = BasicSorting.InsertionSort(input);
             Assert.AreEqual(5, result[0]);
         }
     }
