@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graph\NumberOfIslands.cs" />
     <Compile Include="Searching\BinarySearch.cs" />
     <Compile Include="Container\ContainerDS.cs" />
     <Compile Include="Container\IContainer.cs" />
