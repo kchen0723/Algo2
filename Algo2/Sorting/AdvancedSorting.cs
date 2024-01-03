@@ -80,5 +80,66 @@ namespace Algo2.Sorting
                 input[right] = temp;
             }
         }
+
+        public static void MergeSort(int[] input)
+        {
+            if (input == null || input.Length == 0)
+            {
+                return;
+            }
+            MergeSortHelper(input, 0, input.Length - 1);
+        }
+
+        private static void MergeSortHelper(int[] input, int start, int end)
+        {
+            if (start < end)
+            {
+                var middle = start + (end - start) / 2;
+                MergeSortHelper(input, start, middle);
+                MergeSortHelper(input, middle + 1, end);
+                Merge2SortedHalvesArray(input, start, middle, end);
+            }
+        }
+
+        public static void Merge2SortedHalvesArray(int[] input, int left, int leftEnd, int rightEnd)
+        {
+            var leftLength = leftEnd - left + 1;
+            var rightLength = rightEnd - leftEnd;
+            var leftPart = new int[leftLength];
+            var rightPart = new int[rightLength];
+            Array.Copy(input, left, leftPart, 0, leftLength);
+            Array.Copy(input, leftEnd + 1, rightPart, 0, rightLength);
+
+            var i = 0;
+            var j = 0;
+            var k = left;
+            while (i < leftLength && j < rightLength)
+            {
+                if (leftPart[i] <= rightPart[j])
+                {
+                    input[k] = leftPart[i];
+                    i++;
+                }
+                else
+                {
+                    input[k] = rightPart[j];
+                    j++;
+                }
+                k++;
+            }
+
+            while (i < leftLength)
+            {
+                input[k] = leftPart[i];
+                i++;
+                k++;
+            }
+            while (j < rightLength)
+            {
+                input[k] = rightPart[j];
+                j++;
+                k++;
+            }
+        }
     }
 }
