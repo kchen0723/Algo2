@@ -8,6 +8,40 @@ namespace Algo2.BinarySearch
 {
     public class BinarySearch
     {
+        public static int FindInSortedUniqueArrayRecursive(int[] arr, int target)
+        {
+            if (arr == null || arr.Length == 0)
+            {
+                return -1;
+            }
+
+            var start = 0;
+            var end = arr.Length - 1;
+            return FindInSortedUniqueArrayRecursiveHelper(arr, start, end, target);
+        }
+
+        private static int FindInSortedUniqueArrayRecursiveHelper(int[] arr, int start, int end, int target)
+        {
+            if (start >= end)
+            {
+                return -1;
+            }
+            var middle = start + (end - start) / 2;
+            if (arr[middle] < target)
+            {
+                return FindInSortedUniqueArrayRecursiveHelper(arr, middle + 1, end, target);
+            }
+            else if (arr[middle] == target)
+            {
+                return middle;
+            }
+            else if (arr[middle] > target)
+            {
+                return FindInSortedUniqueArrayRecursiveHelper(arr, start, middle, target);
+            }
+            return -1;
+        }
+
         public static int FindInSortedUniqueArray(int[] arr, int target)
         {
             if (arr == null || arr.Length == 0)

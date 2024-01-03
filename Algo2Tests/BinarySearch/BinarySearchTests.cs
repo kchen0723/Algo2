@@ -37,8 +37,16 @@ namespace Algo2.BinarySearch.Tests
         [TestMethod()]
         public void FindInSortedShiftArrayTest()
         {
-            var arr = new int[] { 10,20, 1, 3, 5, 6, 7, 8, 9 }; 
+            var arr = new int[] { 10, 20, 1, 3, 5, 6, 7, 8, 9 };
             var actual = BinarySearch.FindInSortedShiftArray(arr, 3);
+            Assert.AreEqual(3, actual);
+        }
+
+        [TestMethod()]
+        public void FindInSortedUniqueArrayRecursiveTest()
+        {
+            var arr = new int[] { 10, 20, 1, 3, 5, 6, 7, 8, 9 };
+            var actual = BinarySearch.FindInSortedUniqueArrayRecursive(arr, 3);
             Assert.AreEqual(3, actual);
         }
     }
