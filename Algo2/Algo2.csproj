@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinarySearch\BinarySearch.cs" />
+    <Compile Include="Searching\BinarySearch.cs" />
     <Compile Include="Container\ContainerDS.cs" />
     <Compile Include="Container\IContainer.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculate.cs" />
