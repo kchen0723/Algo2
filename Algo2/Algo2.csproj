@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graph\NumberOfIslands.cs" />
+    <Compile Include="Pramp\ShortestCellPath.cs" />
     <Compile Include="Pramp\StringCross.cs" />
     <Compile Include="Searching\BinarySearch.cs" />
     <Compile Include="Container\ContainerDS.cs" />

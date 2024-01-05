@@ -79,6 +79,7 @@
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
     <Compile Include="List\LinkedListDSTests.cs" />
     <Compile Include="List\SequenceListTests.cs" />
+    <Compile Include="Pramp\ShortestCellPathTests.cs" />
     <Compile Include="Pramp\SpiralCopyTests.cs" />
     <Compile Include="Pramp\StringCrossTests.cs" />
     <Compile Include="Pramp\TimePlannerTests.cs" />
