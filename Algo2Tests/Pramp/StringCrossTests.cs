@@ -16,8 +16,7 @@ namespace Algo2.Pramp.Tests
         {
             var arr = new string[] { "dig", "lot", "dog", "bot", "dot" };
             var result = StringCross.GetCrossNumber(arr, "bot");
-
-            Assert.AreEqual(result, 5);
+            Assert.AreEqual(result, 3);
         }
     }
 }

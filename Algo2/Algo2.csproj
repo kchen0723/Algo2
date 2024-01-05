@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graph\GraphAdjacentList.cs" />
+    <Compile Include="Graph\GraphAdjacentMatrix.cs" />
     <Compile Include="Graph\NumberOfIslands.cs" />
     <Compile Include="Pramp\ShortestCellPath.cs" />
     <Compile Include="Pramp\StringCross.cs" />
