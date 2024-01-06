@@ -34,5 +34,13 @@ namespace Algo2.DP.Tests
             var actual = CoinChange.GetMinCountByDp(arr, 12);
             Assert.AreEqual(3, actual);
         }
+
+        [TestMethod()]
+        public void GetMinCountByDp3Test()
+        {
+            var arr = new int[] { 1, 5, 2 };
+            var actual = CoinChange.GetMinCountByDp3(arr, 12);
+            Assert.AreEqual(3, actual);
+        }
     }
 }

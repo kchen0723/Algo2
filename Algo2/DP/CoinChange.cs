@@ -67,6 +67,47 @@ namespace Algo2.DP
             return dp[money];
         }
 
+        public static int GetMinCountByDp3(int[] coins, int money)
+        {
+            if (coins == null || coins.Length == 0 || money == 0)
+            {
+                return 0;
+            }
+
+            var memo = new Dictionary<int, int>();
+            return GetMinCountByDp3Help(coins, money, memo);
+        }
+
+        private static int GetMinCountByDp3Help(int[] coins, int money, Dictionary<int, int> memo)
+        {
+            if (money == 0)
+            {
+                return 0;
+            }
+            if (money < 0)
+            {
+                return -1;
+            }
+            if (memo.ContainsKey(money))
+            {
+                return memo[money];
+            }
+
+            var result = int.MaxValue;
+            foreach(var coin in coins)
+            {
+                var coinResult = GetMinCountByDp3Help(coins, money - coin, memo);
+                if (coinResult == -1)
+                {
+                    continue;
+                }
+                result = Math.Min(result, coinResult + 1);
+            }
+            result = (result == int.MaxValue ? -1 : result);
+            memo[money] = result;
+            return result;
+        }
+
         public static Tuple<int, List<List<int>>> GetMinCountByBackTrack(int[] coins, int money)
         {
             var result = int.MaxValue;
