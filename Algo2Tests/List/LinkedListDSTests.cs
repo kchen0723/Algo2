@@ -22,7 +22,7 @@ namespace Algo2.List.Tests
             var linkedList = new LinkedListDS<int>();
             linkedList.Append(1);
             linkedList.Append(2);
-            return linkedList; 
+            return linkedList;
         }
 
         [TestMethod()]
@@ -51,6 +51,20 @@ namespace Algo2.List.Tests
         {
             var linkedList = CreateLinkedList();
             linkedList.Insert(1, 4);
+        }
+
+        [TestMethod()]
+        public void TraverseInteractionTest()
+        {
+            var linkedList = CreateLinkedList();
+            linkedList.TraverseInteraction((t) => Console.WriteLine(t));
+        }
+
+        [TestMethod()]
+        public void TraverseRecursiveTest()
+        {
+            var linkedList = CreateLinkedList();
+            linkedList.TraverseRecursive((t) => Console.WriteLine(t));
         }
     }
 }
