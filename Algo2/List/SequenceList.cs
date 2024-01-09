@@ -139,7 +139,7 @@ namespace Algo2.List
             }
         }
 
-        public void TraverseInteraction(Action<T> action)
+        public void TraverseIteration(Action<T> action)
         {
             if (_pointIndex >= 0)
             {

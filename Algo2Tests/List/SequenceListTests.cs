@@ -61,10 +61,10 @@ namespace Algo2.List.Tests
         }
 
         [TestMethod()]
-        public void TraverseInteractionTest()
+        public void TraverseIterationTest()
         {
             var list = CreateList();
-            list.TraverseInteraction((item) => Console.WriteLine(item));
+            list.TraverseIteration((item) => Console.WriteLine(item));
         }
     }
 }
