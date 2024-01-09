@@ -52,5 +52,19 @@ namespace Algo2.List.Tests
             var list = CreateList();
             list.Insert(1, 5);
         }
+
+        [TestMethod()]
+        public void TraverseRecursiveTest()
+        {
+            var list = CreateList();
+            list.TraverseRecursive((item) => Console.WriteLine(item));
+        }
+
+        [TestMethod()]
+        public void TraverseInteractionTest()
+        {
+            var list = CreateList();
+            list.TraverseInteraction((item) => Console.WriteLine(item));
+        }
     }
 }

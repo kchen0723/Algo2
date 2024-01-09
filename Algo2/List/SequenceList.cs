@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -118,6 +119,36 @@ namespace Algo2.List
                     _items[i] = _items[i - 1];
                 }
                 _items[index] = item;
+            }
+        }
+
+        public void TraverseRecursive(Action<T> action)
+        {
+            if (_pointIndex >= 0)
+            {
+                TraverseRecursiveHelp(0, action);
+            }
+        }
+
+        private void TraverseRecursiveHelp(int index, Action<T> action)
+        {
+            if (index <= _pointIndex)
+            {
+                action?.Invoke(_items[index]);
+                TraverseRecursiveHelp(index + 1, action);
+            }
+        }
+
+        public void TraverseInteraction(Action<T> action)
+        {
+            if (_pointIndex >= 0)
+            {
+                var index = 0;
+                while (index <= _pointIndex)
+                {
+                    action?.Invoke(_items[index]);
+                    index++;
+                }
             }
         }
     }
