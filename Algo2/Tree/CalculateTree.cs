@@ -9,7 +9,7 @@ namespace Algo2.Tree
 {
     public class CalculateTree
     {
-        public static string Serialize<T>(TreeNode<T> root)
+        public static string SerializeByDp<T>(TreeNode<T> root)
         {
             var result = string.Empty;
             if(root == null)
@@ -17,11 +17,11 @@ namespace Algo2.Tree
                 return result;
             }
 
-            result = SerializeHelp(root);
+            result = SerializeByDpHelp(root);
             return result;
         }
 
-        private static string SerializeHelp<T>(TreeNode<T> root)
+        private static string SerializeByDpHelp<T>(TreeNode<T> root)
         {
             var result = new StringBuilder();
             if (root == null)
@@ -29,8 +29,8 @@ namespace Algo2.Tree
                 return result.ToString();
             }
 
-            var left = SerializeHelp<T>(root.Left);
-            var right = SerializeHelp<T>(root.Right);
+            var left = SerializeByDpHelp<T>(root.Left);
+            var right = SerializeByDpHelp<T>(root.Right);
             var shouldLeftAddBracket = ShouldAddBracket(root, root.Left);
             var shouldRightAddBracket = ShouldAddBracket(root, root.Right);
 
@@ -101,26 +101,26 @@ namespace Algo2.Tree
             return stack.Pop();
         }
 
-        public static float CalculateTreeValue(TreeNode<string> root)
+        public static float CalculateTreeValueByDp(TreeNode<string> root)
         {
             if (root == null)
             {
                 return 0f;
             }
 
-            CalculateHelp(root);
+            CalculateTreeValueByDpHelp(root);
             return Calculate.ToFloat(root.NodeValue);
         }
 
-        private static void CalculateHelp(TreeNode<string> root)
+        private static void CalculateTreeValueByDpHelp(TreeNode<string> root)
         {
             if (root == null)
             {
                 return;
             }
 
-            CalculateHelp(root.Left);
-            CalculateHelp(root.Right);
+            CalculateTreeValueByDpHelp(root.Left);
+            CalculateTreeValueByDpHelp(root.Right);
             if(root.Left != null && root.Right != null)
             {
                 var left = Calculate.ToFloat(root.Left.NodeValue);

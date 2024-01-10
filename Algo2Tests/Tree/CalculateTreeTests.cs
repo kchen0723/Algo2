@@ -15,7 +15,7 @@ namespace Algo2.Tree.Tests
         public void SerializeTest()
         {
             var root = CreateCalculateTree();
-            var actual = CalculateTree.Serialize(root);
+            var actual = CalculateTree.SerializeByDp(root);
             Assert.IsNotNull(actual);
         }
 
@@ -49,7 +49,7 @@ namespace Algo2.Tree.Tests
         {
             var str = "(1+8/4)*(5-3)";
             var root = CalculateTree.Deserialize<string>(str);
-            var actual = CalculateTree.CalculateTreeValue(root);
+            var actual = CalculateTree.CalculateTreeValueByDp(root);
             Assert.AreEqual(6, actual);
         }
     }

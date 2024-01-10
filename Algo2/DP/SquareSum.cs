@@ -8,7 +8,7 @@ namespace Algo2.DP
 {
     public class SquareSum
     {
-        public static int GetMinSquareCount(int num)
+        public static int GetMinSquareCountByDp(int num)
         {
             if (num < 1)
             {

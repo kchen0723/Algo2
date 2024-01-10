@@ -9,7 +9,7 @@ namespace Algo2.DP
     public class LongestIncrement
     {
         //Get Continuous Longest Incremental
-        public static int GetContinuousLongestIncremental(int[] numbers)
+        public static int GetContinuousLongestIncrementalByDp(int[] numbers)
         {
             if (numbers == null || numbers.Length == 0)
             { 
@@ -32,7 +32,7 @@ namespace Algo2.DP
             return dp.Max();
         }
 
-        public static int GetLongestIncrementalSubsequence(int[] numbers)
+        public static int GetLongestIncrementalSubsequenceByDp(int[] numbers)
         {
             if (numbers == null || numbers.Length == 0)
             {

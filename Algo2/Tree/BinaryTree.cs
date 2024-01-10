@@ -29,7 +29,7 @@ namespace Algo2.Tree
             PreOrder(node.Right);
         }
 
-        //how to do it without recursive?
+        //how to do it by Iteration?
         public void InOrder(TreeNode<T> node)
         {
             if (node == null)
@@ -76,12 +76,12 @@ namespace Algo2.Tree
             }
         }
 
-        public TreeNode<T> GetLowestCommonAncestor(T n1, T n2)
+        public TreeNode<T> GetLowestCommonAncestorByDp(T n1, T n2)
         {
-            return GetLowestCommonAncestorHelp(Root, n1, n2);
+            return GetLowestCommonAncestorByDpHelp(Root, n1, n2);
         }
 
-        private TreeNode<T> GetLowestCommonAncestorHelp(TreeNode<T> current, T n1, T n2)
+        private TreeNode<T> GetLowestCommonAncestorByDpHelp(TreeNode<T> current, T n1, T n2)
         {
             if (current == null)
             {
@@ -96,8 +96,8 @@ namespace Algo2.Tree
                 return current;
             }
 
-            var left = GetLowestCommonAncestorHelp(current.Left, n1, n2);
-            var right = GetLowestCommonAncestorHelp(current.Right, n1, n2);
+            var left = GetLowestCommonAncestorByDpHelp(current.Left, n1, n2);
+            var right = GetLowestCommonAncestorByDpHelp(current.Right, n1, n2);
             if (left != null && right != null)
             {
                 return current;

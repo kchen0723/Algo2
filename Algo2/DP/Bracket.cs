@@ -37,7 +37,7 @@ namespace Algo2.DP
             return stack.Count == 0;
         }
 
-        public static int GetLongestCount(string brackets)
+        public static int GetLongestCountByDp(string brackets)
         {
             if (brackets == null || brackets.Length == 0)
             {

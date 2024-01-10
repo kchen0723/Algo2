@@ -23,7 +23,7 @@ namespace Algo2.DP.Tests
         public void GetLongestCountTest()
         {
             var brackets = "((())()()))(((((())))))";
-            var actual = Bracket.GetLongestCount(brackets);
+            var actual = Bracket.GetLongestCountByDp(brackets);
             Assert.AreEqual(12, actual);
         }
     }

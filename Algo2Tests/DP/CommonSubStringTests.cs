@@ -14,7 +14,7 @@ namespace Algo2.DP.Tests
         [TestMethod()]
         public void GetLongestCommonSubStringTest()
         {
-            var actual = CommonSubString.GetLongestCommonSubString("maven", "having");
+            var actual = CommonSubString.GetLongestCommonSubStringByDp("maven", "having");
             Assert.AreEqual("av", actual);
         }
     }

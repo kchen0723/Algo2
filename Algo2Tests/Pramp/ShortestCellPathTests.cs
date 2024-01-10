@@ -15,7 +15,7 @@ namespace Algo2.Pramp.Tests
         public void GetShortestPathTest()
         {
             var arr = new int[,] { { 1, 1, 1, 1 }, { 0, 0, 1, 1 }, { 1, 1, 1, 0 } };
-            var result = ShortestCellPath.GetShortestPath(arr, 0, 0, 2, 0);
+            var result = ShortestCellPath.GetShortestPathByBfs(arr, 0, 0, 2, 0);
             Assert.AreEqual(6, result);
         }
     }

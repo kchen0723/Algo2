@@ -108,7 +108,7 @@ namespace Algo2.DP
             return result;
         }
 
-        public static Tuple<int, List<List<int>>> GetMinCountByBackTrack(int[] coins, int money)
+        public static Tuple<int, List<List<int>>> GetMinCountByBackTracking(int[] coins, int money)
         {
             var result = int.MaxValue;
             var resultCoins = new List<List<int>>();
@@ -119,11 +119,11 @@ namespace Algo2.DP
 
             Array.Sort(coins);
             var candidate = new List<int>();
-            GetMinCountHelp(coins, money, 0, candidate, ref result, resultCoins);
+            GetMinCountByBackTrackingHelp(coins, money, 0, candidate, ref result, resultCoins);
             return new Tuple<int, List<List<int>>>(result, resultCoins);
         }
 
-        private static void GetMinCountHelp(int[] coins, int money, int index, List<int> candidate, ref int result, List<List<int>> resultCoins)
+        private static void GetMinCountByBackTrackingHelp(int[] coins, int money, int index, List<int> candidate, ref int result, List<List<int>> resultCoins)
         { 
             if(candidate.Sum() == money)
             {
@@ -142,7 +142,7 @@ namespace Algo2.DP
             for (var i = index; i < coins.Length; i++)
             {
                 candidate.Add(coins[i]);
-                GetMinCountHelp(coins, money, index, candidate, ref result, resultCoins);
+                GetMinCountByBackTrackingHelp(coins, money, index, candidate, ref result, resultCoins);
                 candidate.RemoveAt(candidate.Count - 1);
             }
         }

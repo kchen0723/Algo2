@@ -17,11 +17,11 @@ namespace Algo2.CombinationAndPermutation
             }
 
             var candidate = new List<int>();
-            GetCombinationFromUniqueArrayHelp(nums, length, 0, candidate, result);
+            GetCombinationFromUniqueArrayBackTracking(nums, length, 0, candidate, result);
             return result;
         }
 
-        private static void GetCombinationFromUniqueArrayHelp(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
+        private static void GetCombinationFromUniqueArrayBackTracking(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
         {
             if (candidate.Count == length)
             { 
@@ -32,7 +32,7 @@ namespace Algo2.CombinationAndPermutation
             for(var i = index; i < nums.Length; i++)
             {
                 candidate.Add(nums[i]);
-                GetCombinationFromUniqueArrayHelp(nums, length, i + 1, candidate, result);
+                GetCombinationFromUniqueArrayBackTracking(nums, length, i + 1, candidate, result);
                 candidate.RemoveAt(candidate.Count - 1);
             }
         }
@@ -47,11 +47,11 @@ namespace Algo2.CombinationAndPermutation
 
             var candidate = new List<int>();
             Array.Sort(nums);
-            GetCombinationFromDuplicateArrayHelp(nums, length, 0, candidate, result);
+            GetCombinationFromDuplicateArrayBackTracking(nums, length, 0, candidate, result);
             return result;
         }
 
-        private static void GetCombinationFromDuplicateArrayHelp(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
+        private static void GetCombinationFromDuplicateArrayBackTracking(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
         {
             if (candidate.Count == length)
             {
@@ -66,7 +66,7 @@ namespace Algo2.CombinationAndPermutation
                     continue;
                 }
                 candidate.Add(nums[i]);
-                GetCombinationFromDuplicateArrayHelp(nums, length, i + 1, candidate, result);
+                GetCombinationFromDuplicateArrayBackTracking(nums, length, i + 1, candidate, result);
                 candidate.RemoveAt(candidate.Count - 1);
             }
             return;
@@ -81,11 +81,11 @@ namespace Algo2.CombinationAndPermutation
             }
 
             var candidate = new List<int>();
-            GetCombinationMultipleTimesHelp(nums, length, 0, candidate, result);
+            GetCombinationMultipleTimesBackTracking(nums, length, 0, candidate, result);
             return result;
         }
 
-        private static void GetCombinationMultipleTimesHelp(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
+        private static void GetCombinationMultipleTimesBackTracking(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
         {
             if (candidate.Count == length)
             {
@@ -96,7 +96,7 @@ namespace Algo2.CombinationAndPermutation
             for (var i = index; i < nums.Length; i++)
             {
                 candidate.Add(nums[i]);
-                GetCombinationMultipleTimesHelp(nums, length, i, candidate, result);
+                GetCombinationMultipleTimesBackTracking(nums, length, i, candidate, result);
                 candidate.RemoveAt(candidate.Count - 1);
             }
         }
@@ -110,11 +110,11 @@ namespace Algo2.CombinationAndPermutation
             }
 
             var candidate = new List<int>();
-            GetCombinationMultipleTimesSubsetHelp(nums, length, 0, candidate, result);
+            GetCombinationMultipleTimesSubsetBackTracking(nums, length, 0, candidate, result);
             return result;
         }
 
-        private static void GetCombinationMultipleTimesSubsetHelp(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
+        private static void GetCombinationMultipleTimesSubsetBackTracking(int[] nums, int length, int index, List<int> candidate, List<List<int>> result)
         {
             result.Add(candidate.ToArray().ToList());
             if (candidate.Count >= length)
@@ -125,7 +125,7 @@ namespace Algo2.CombinationAndPermutation
             for (var i = index; i < nums.Length; i++)
             {
                 candidate.Add(nums[i]);
-                GetCombinationMultipleTimesSubsetHelp(nums, length, i, candidate, result);
+                GetCombinationMultipleTimesSubsetBackTracking(nums, length, i, candidate, result);
                 candidate.RemoveAt(candidate.Count - 1);
             }
         }

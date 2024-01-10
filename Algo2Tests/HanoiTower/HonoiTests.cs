@@ -17,7 +17,7 @@ namespace Algo2.HanoiTower.Tests
             var source = new HonoiEntity() { Name = "Source", Data = new List<int>() { 1, 2, 3, 4 } };
             var target = new HonoiEntity() { Name = "Target" };
             var help = new HonoiEntity() { Name = "Help" };
-            Honoi.Solve(source, help, target);
+            Honoi.SolveByRecursive(source, help, target);
         }
     }
 }

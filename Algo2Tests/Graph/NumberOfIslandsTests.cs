@@ -15,7 +15,7 @@ namespace Algo2.Graph.Tests
         public void GetNumberOfIslandsTest()
         {
             var binaryMatrix = new int[,] { { 1, 0, 1, 0 }, { 0, 1, 1, 1 }, { 0, 0, 1, 0 } };
-            var result = NumberOfIslands.GetNumberOfIslands(binaryMatrix);
+            var result = NumberOfIslands.GetNumberOfIslandsByDfs(binaryMatrix);
             Assert.AreEqual(result, 2);
         }
     }

@@ -24,7 +24,7 @@ namespace Algo2.Tree.Tests
             TreeNode<int> eight = new TreeNode<int>() { NodeValue = 8, Left = seven, Right = three };
 
             BinaryTree<int> bt = new BinaryTree<int>() { Root = eight };
-            var result = bt.GetLowestCommonAncestor(9, 5);
+            var result = bt.GetLowestCommonAncestorByDp(9, 5);
             Assert.AreEqual(7, result.NodeValue);
         }
     }

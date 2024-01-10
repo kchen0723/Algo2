@@ -19,7 +19,7 @@ namespace Algo2.DP.Tests
             var third = new List<int>() { 6, 5, 7 };
             var fouth = new List<int>() { 4, 1, 8, 3 };
             var triangle = new List<List<int>>() { first, second, third, fouth };
-            var min = TriangleMinPath.GetMinPath(triangle);
+            var min = TriangleMinPath.GetMinPathByDp(triangle);
             Assert.AreEqual(11, min);
         }
     }

@@ -18,11 +18,11 @@ namespace Algo2.CombinationAndPermutation
 
             var selected = new bool[nums.Length];
             var candidate = new List<int>();
-            GetPermutationFromUniqueArrayHelp(nums, length, selected, candidate, result);
+            GetPermutationFromUniqueArrayBackTracking(nums, length, selected, candidate, result);
             return result;
         }
 
-        private static void GetPermutationFromUniqueArrayHelp(int[] nums, int length, bool[] selected, List<int> candidate, List<List<int>> result) 
+        private static void GetPermutationFromUniqueArrayBackTracking(int[] nums, int length, bool[] selected, List<int> candidate, List<List<int>> result) 
         {
             if (candidate.Count == length)  //base case
             { 
@@ -39,7 +39,7 @@ namespace Algo2.CombinationAndPermutation
 
                 selected[i] = true;
                 candidate.Add(nums[i]);
-                GetPermutationFromUniqueArrayHelp(nums, length, selected, candidate, result);
+                GetPermutationFromUniqueArrayBackTracking(nums, length, selected, candidate, result);
                 candidate.RemoveAt(candidate.Count - 1);
                 selected[i] = false;
             }
@@ -56,11 +56,11 @@ namespace Algo2.CombinationAndPermutation
             Array.Sort(nums);
             var selected = new bool[nums.Length];
             var candidate = new List<int>();
-            GetPermutationFromDuplicateArrayHelp(nums, length, selected, candidate, result);
+            GetPermutationFromDuplicateArrayBackTracking(nums, length, selected, candidate, result);
             return result;
         }
 
-        private static void GetPermutationFromDuplicateArrayHelp(int[] nums, int length, bool[] selected, List<int> candidate, List<List<int>> result)
+        private static void GetPermutationFromDuplicateArrayBackTracking(int[] nums, int length, bool[] selected, List<int> candidate, List<List<int>> result)
         {
             if (candidate.Count == length)  //base case
             {
@@ -81,7 +81,7 @@ namespace Algo2.CombinationAndPermutation
 
                 selected[i] = true;
                 candidate.Add(nums[i]);
-                GetPermutationFromDuplicateArrayHelp(nums, length, selected, candidate, result);
+                GetPermutationFromDuplicateArrayBackTracking(nums, length, selected, candidate, result);
                 candidate.RemoveAt(candidate.Count - 1);
                 selected[i] = false;
             }
@@ -96,11 +96,11 @@ namespace Algo2.CombinationAndPermutation
             }
 
             var candidate = new List<int>();
-            GetPermutationMultipleTimesHelp(nums, length, candidate, result);
+            GetPermutationMultipleTimesBackTracking(nums, length, candidate, result);
             return result;
         }
 
-        private static void GetPermutationMultipleTimesHelp(int[] nums, int length, List<int> candidate, List<List<int>> result)
+        private static void GetPermutationMultipleTimesBackTracking(int[] nums, int length, List<int> candidate, List<List<int>> result)
         {
             if (candidate.Count == length)  //base case
             {
@@ -111,7 +111,7 @@ namespace Algo2.CombinationAndPermutation
             for (var i = 0; i < nums.Length; i++)
             {
                 candidate.Add(nums[i]);
-                GetPermutationMultipleTimesHelp(nums, length, candidate, result);
+                GetPermutationMultipleTimesBackTracking(nums, length, candidate, result);
                 candidate.RemoveAt(candidate.Count - 1);
             }
         }
@@ -125,11 +125,11 @@ namespace Algo2.CombinationAndPermutation
             }
 
             var candidate = new List<T>();
-            GetPermutationMultipleTimesSubsetHelp(nums, length, candidate, result);
+            GetPermutationMultipleTimesSubsetBackTracking(nums, length, candidate, result);
             return result;
         }
 
-        private static void GetPermutationMultipleTimesSubsetHelp<T>(T[] nums, int length, List<T> candidate, List<List<T>> result)
+        private static void GetPermutationMultipleTimesSubsetBackTracking<T>(T[] nums, int length, List<T> candidate, List<List<T>> result)
         {
             result.Add(candidate.ToArray().ToList());
             if (candidate.Count >= length)  //base case
@@ -140,7 +140,7 @@ namespace Algo2.CombinationAndPermutation
             for (var i = 0; i < nums.Length; i++)
             {
                 candidate.Add(nums[i]);
-                GetPermutationMultipleTimesSubsetHelp(nums, length, candidate, result);
+                GetPermutationMultipleTimesSubsetBackTracking(nums, length, candidate, result);
                 candidate.RemoveAt(candidate.Count - 1);
             }
         }

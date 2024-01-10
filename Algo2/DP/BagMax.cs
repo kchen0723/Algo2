@@ -17,11 +17,11 @@ namespace Algo2.DP
 
             var selected = new bool[bags.GetLength(0)];
             var result = 0;
-            GetMaxProfitForWeightHelper(bags, maxWeight, selected, 0, ref result);
+            GetMaxProfitForWeightByBackTrackingHelper(bags, maxWeight, selected, 0, ref result);
             return result;
         }
 
-        private static void GetMaxProfitForWeightHelper(int[,] bags, int maxWeight, bool[] selected, int index, ref int result)
+        private static void GetMaxProfitForWeightByBackTrackingHelper(int[,] bags, int maxWeight, bool[] selected, int index, ref int result)
         {
             var selectedWeight = 0;
             var selectedProfit = 0;
@@ -50,7 +50,7 @@ namespace Algo2.DP
                     continue;
                 }
                 selected[i] = true;
-                GetMaxProfitForWeightHelper(bags, maxWeight, selected, i + 1, ref result);
+                GetMaxProfitForWeightByBackTrackingHelper(bags, maxWeight, selected, i + 1, ref result);
                 selected[i] = false;
             }
         }

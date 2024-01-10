@@ -8,7 +8,7 @@ namespace Algo2.DP
 {
     public class CommonSubString
     {
-        public static string GetLongestCommonSubString(string left, string right)
+        public static string GetLongestCommonSubStringByDp(string left, string right)
         {
             if (left == null || right == null || left.Length == 0 || right.Length == 0)
             {

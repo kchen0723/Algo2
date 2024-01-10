@@ -15,7 +15,7 @@ namespace Algo2.Pramp.Tests
         public void GetCrossNumberTest()
         {
             var arr = new string[] { "dig", "lot", "dog", "bot", "dot" };
-            var result = StringCross.GetCrossNumber(arr, "bot");
+            var result = StringCross.GetCrossNumberByBackTracking(arr, "bot");
             Assert.AreEqual(result, 3);
         }
     }

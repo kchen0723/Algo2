@@ -14,14 +14,14 @@ namespace Algo2.DP.Tests
         [TestMethod()]
         public void GetInsertDeleteDistanceTest()
         {
-            var result = WordDistance.GetInsertDeleteDistance("dog", "frog");
+            var result = WordDistance.GetInsertDeleteDistanceByDp("dog", "frog");
             Assert.AreEqual(3, result);
         }
 
         [TestMethod()]
         public void GetEditDistanceTest()
         {
-            var result = WordDistance.GetEditDistance("dog", "frog");
+            var result = WordDistance.GetEditDistanceByDp("dog", "frog");
             Assert.AreEqual(2, result);
         }
     }

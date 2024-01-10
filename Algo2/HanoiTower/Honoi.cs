@@ -14,16 +14,16 @@ namespace Algo2.HanoiTower
 
     public class Honoi
     {
-        public static void Solve(HonoiEntity source, HonoiEntity help, HonoiEntity target)
+        public static void SolveByRecursive(HonoiEntity source, HonoiEntity help, HonoiEntity target)
         {
             if (source == null || help == null || target == null || source.Data.Count == 0)
             {
                 return;
             }
-            SolveHelp(source, help, target, source.Data.Count);
+            SolveByRecursiveHelp(source, help, target, source.Data.Count);
         }
 
-        private static void SolveHelp(HonoiEntity source, HonoiEntity help, HonoiEntity target, int movingCount)
+        private static void SolveByRecursiveHelp(HonoiEntity source, HonoiEntity help, HonoiEntity target, int movingCount)
         {
             if (movingCount == 1)
             {
@@ -34,13 +34,13 @@ namespace Algo2.HanoiTower
                 return;
             }
 
-            SolveHelp(source, target, help, movingCount - 1);
+            SolveByRecursiveHelp(source, target, help, movingCount - 1);
 
             Console.WriteLine("now moving {0} from {1} to {2}", source.Data[0], source.Name, target.Name);
             target.Data.Insert(0, source.Data[0]);
             source.Data.RemoveAt(0);
 
-            SolveHelp(help, source, target, movingCount - 1);
+            SolveByRecursiveHelp(help, source, target, movingCount - 1);
         }
 
         private static void PrintStacks(HonoiEntity source, HonoiEntity help, HonoiEntity target)

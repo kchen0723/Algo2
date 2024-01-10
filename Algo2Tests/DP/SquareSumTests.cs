@@ -14,7 +14,7 @@ namespace Algo2.DP.Tests
         [TestMethod()]
         public void GetMinSquareCountTest()
         {
-            var actual = SquareSum.GetMinSquareCount(11);
+            var actual = SquareSum.GetMinSquareCountByDp(11);
             Assert.AreEqual(3, actual);
         }
     }

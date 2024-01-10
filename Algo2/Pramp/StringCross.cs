@@ -9,7 +9,7 @@ namespace Algo2.Pramp
     public class StringCross
     {
         //dig -> dog -> dot -> lot -> bot  BFS
-        public static int GetCrossNumber(string[] arr, string target)
+        public static int GetCrossNumberByBackTracking(string[] arr, string target)
         {
             if (target == null || arr == null || arr.Length == 0 || arr.Contains(target) == false)
             {
@@ -18,11 +18,11 @@ namespace Algo2.Pramp
 
             int result = int.MaxValue;
             var visited = new List<string>();
-            GetCrossNumberHelp(arr, target, visited, 0, ref result);
+            GetCrossNumberByBackTrackingHelp(arr, target, visited, 0, ref result);
             return result;
         }
 
-        private static void GetCrossNumberHelp(string[] arr, string target, List<string> visited, int index, ref int result)
+        private static void GetCrossNumberByBackTrackingHelp(string[] arr, string target, List<string> visited, int index, ref int result)
         {
             if (arr[index] == target)
             {
@@ -39,7 +39,7 @@ namespace Algo2.Pramp
                 if (CanTransfer(arr[index], arr[i]))
                 {
                     visited.Add(arr[index]);
-                    GetCrossNumberHelp(arr, target, visited, i, ref result);
+                    GetCrossNumberByBackTrackingHelp(arr, target, visited, i, ref result);
                     visited.RemoveAt(visited.Count - 1);
                 }
             }

@@ -15,10 +15,10 @@ namespace Algo2.DividAndConquer
             {
                 return result;
             }
-            return AddDifferentBracketsToCalculateHelp(str);
+            return AddDifferentBracketsToCalculateDp(str);
         }
 
-        public static List<Tuple<float, string>> AddDifferentBracketsToCalculateHelp(string str)
+        public static List<Tuple<float, string>> AddDifferentBracketsToCalculateDp(string str)
         { 
             var result = new List<Tuple<float, string>>();
 
@@ -29,8 +29,8 @@ namespace Algo2.DividAndConquer
                 {
                     var leftString = str.Substring(0, i);
                     var rightString = str.Substring(i + 1, str.Length - i - 1);
-                    var leftResult = AddDifferentBracketsToCalculateHelp(leftString);
-                    var rightResult = AddDifferentBracketsToCalculateHelp(rightString);
+                    var leftResult = AddDifferentBracketsToCalculateDp(leftString);
+                    var rightResult = AddDifferentBracketsToCalculateDp(rightString);
 
                     foreach (var left in leftResult)
                     {

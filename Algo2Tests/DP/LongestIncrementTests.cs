@@ -15,7 +15,7 @@ namespace Algo2.DP.Tests
         public void GetContinuousLongestIncrementalTest()
         {
             var numbers = new int[] { 10, 9, 2, 5, 3, 7, 101, 18 };
-            var actual = LongestIncrement.GetContinuousLongestIncremental(numbers);
+            var actual = LongestIncrement.GetContinuousLongestIncrementalByDp(numbers);
             Assert.AreEqual(3, actual);
         }
 
@@ -23,7 +23,7 @@ namespace Algo2.DP.Tests
         public void GetLongestIncrementalSubsequenceTest()
         {
             var numbers = new int[] { 10, 9, 2, 5, 3, 7, 101, 18 };
-            var actual = LongestIncrement.GetLongestIncrementalSubsequence(numbers);
+            var actual = LongestIncrement.GetLongestIncrementalSubsequenceByDp(numbers);
             Assert.AreEqual(4, actual);
         }
     }

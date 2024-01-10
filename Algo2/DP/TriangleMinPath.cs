@@ -8,7 +8,7 @@ namespace Algo2.DP
 {
     public class TriangleMinPath
     {
-        public static int GetMinPath(List<List<int>> triangle)
+        public static int GetMinPathByDp(List<List<int>> triangle)
         {
             if (triangle == null || triangle.Count == 0)
             {

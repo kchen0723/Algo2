@@ -15,7 +15,7 @@ namespace Algo2.DP.Tests
         public void CanJumpTest()
         {
             var nums = new int[] { 3, 0, 0, 1, 4};
-            var actual = JumpGame.CanJump(nums);
+            var actual = JumpGame.CanJumpByDp(nums);
             Assert.AreEqual(true, actual);
         }
     }

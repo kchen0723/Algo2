@@ -9,7 +9,7 @@ namespace Algo2.Pramp
     public class ShortestCellPath
     {
         //BFS
-        public static int GetShortestPath(int[,] arr, int sourceRow, int sourceCol, int targetRow, int targetCol)
+        public static int GetShortestPathByBfs(int[,] arr, int sourceRow, int sourceCol, int targetRow, int targetCol)
         {
             int result = -1;
             var visited = new bool[arr.GetLength(0), arr.GetLength(1)];

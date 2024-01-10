@@ -15,7 +15,7 @@ namespace Algo2.DP.Tests
         public void GetMinCountByBackTrackTest()
         {
             var arr = new int[] { 1, 5, 2 };
-            var actual = CoinChange.GetMinCountByBackTrack(arr, 12);
+            var actual = CoinChange.GetMinCountByBackTracking(arr, 12);
             Assert.AreEqual(3, actual.Item1);
         }
 

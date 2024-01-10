@@ -11,7 +11,7 @@ namespace Algo2.DP
         //each num means the max step can jump for this index.
         //for example, [3, 2, 1, 0, 4], the 2 means max 2 steps can jump from here.
         //return true if can jump to the last number, otherwise, return false.
-        public static bool CanJump(int[] nums)
+        public static bool CanJumpByDp(int[] nums)
         {
             if (nums == null || nums.Length == 0)
             { 

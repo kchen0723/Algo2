@@ -8,7 +8,7 @@ namespace Algo2.Graph
 {
     public class NumberOfIslands
     {
-        public static int GetNumberOfIslands(int[,] binaryMatrix)
+        public static int GetNumberOfIslandsByDfs(int[,] binaryMatrix)
         {
             if (binaryMatrix == null || binaryMatrix.Length == 0)
             {
@@ -26,14 +26,14 @@ namespace Algo2.Graph
                     if (isVisited[i, j] == false && binaryMatrix[i, j] == 1)
                     { 
                         result++;
-                        GetNumberOfIslandsHelp(binaryMatrix, i, j, rowCount, columnCount, isVisited);
+                        GetNumberOfIslandsByDfsHelp(binaryMatrix, i, j, rowCount, columnCount, isVisited);
                     }
                 }
             }
             return result;
         }
 
-        private static void GetNumberOfIslandsHelp(int[,] binaryMatrix, int row, int col, int rowCount, int columnCount, bool[,] isVisited)
+        private static void GetNumberOfIslandsByDfsHelp(int[,] binaryMatrix, int row, int col, int rowCount, int columnCount, bool[,] isVisited)
         {
             if (row < 0 || col < 0 || row >= rowCount || col >= columnCount)
             {
@@ -44,9 +44,9 @@ namespace Algo2.Graph
                 return;
             }
             isVisited[row, col] = true;
-            GetNumberOfIslandsHelp(binaryMatrix, row, col + 1, rowCount, columnCount, isVisited);
-            GetNumberOfIslandsHelp(binaryMatrix, row, col - 1, rowCount, columnCount, isVisited);
-            GetNumberOfIslandsHelp(binaryMatrix, row + 1, col, rowCount, columnCount, isVisited);
+            GetNumberOfIslandsByDfsHelp(binaryMatrix, row, col + 1, rowCount, columnCount, isVisited);
+            GetNumberOfIslandsByDfsHelp(binaryMatrix, row, col - 1, rowCount, columnCount, isVisited);
+            GetNumberOfIslandsByDfsHelp(binaryMatrix, row + 1, col, rowCount, columnCount, isVisited);
         }
     }
 }
