@@ -101,6 +101,7 @@
   <ItemGroup>
     <Content Include="Graph\china railway map.jpeg" />
     <Content Include="Graph\map.jpeg" />
+    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
