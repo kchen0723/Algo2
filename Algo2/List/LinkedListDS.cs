@@ -171,5 +171,22 @@ namespace Algo2.List
                 }
             }
         }
+
+        public void TraverseBackRecursive(Action<T> action)
+        {
+            if (_head != null)
+            {
+                TraverseBackRecursiveHelp(_head.Next, action);
+            }
+        }
+
+        private void TraverseBackRecursiveHelp(LinkedListNodeDS<T> node, Action<T> action)
+        {
+            if (node != null)
+            {
+                TraverseRecursiveHelp(node.Next, action);
+                action?.Invoke(node.NodeValue);
+            }
+        }
     }
 }

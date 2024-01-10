@@ -66,5 +66,12 @@ namespace Algo2.List.Tests
             var linkedList = CreateLinkedList();
             linkedList.TraverseRecursive((t) => Console.WriteLine(t));
         }
+
+        [TestMethod()]
+        public void TraverseBackRecursiveTest()
+        {
+            var linkedList = CreateLinkedList();
+            linkedList.TraverseBackRecursive((t) => Console.WriteLine(t));
+        }
     }
 }
