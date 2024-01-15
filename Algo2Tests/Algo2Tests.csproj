@@ -77,6 +77,7 @@
     <Compile Include="Graph\NumberOfIslandsTests.cs" />
     <Compile Include="HanoiTower\HonoiTests.cs" />
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
+    <Compile Include="labuladong\WeightRandomTests.cs" />
     <Compile Include="List\LinkedListDSTests.cs" />
     <Compile Include="List\SequenceListTests.cs" />
     <Compile Include="Pramp\ReverseWordsTests.cs" />
