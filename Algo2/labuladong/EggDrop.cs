@@ -117,5 +117,35 @@ namespace Algo2.labuladong
             memory[key] = result;
             return result;
         }
+
+        public static int GetMinDrop2(int eggCount, int floorCount)
+        {
+            if (eggCount <= 0 || floorCount <= 0)
+            {
+                return -1;
+            }
+
+            //if have enough eggs, then we can do it by binary search.
+            if (eggCount >= Math.Log(floorCount, 2))
+            {
+                return (int)Math.Ceiling(Math.Log(floorCount, 2));
+            }
+
+            //max try floorCount times.
+            //with K eggs and N drop count, what's the maximum floor we can test?
+            var dp = new int[eggCount + 1, floorCount + 1]; 
+            var dropCount = 0;
+            while (dp[eggCount, dropCount] < floorCount)   
+            {
+                dropCount++;                              //Iterate the drop count;
+                for (var i = 1; i <= eggCount; i++)        //Internate the egg count
+                {
+                    var notBroken = dp[i, dropCount - 1];
+                    var broken = dp[i - 1, dropCount - 1];
+                    dp[i, dropCount] = notBroken + broken + 1;
+                }
+            }
+            return dropCount;
+        }
     }
 }

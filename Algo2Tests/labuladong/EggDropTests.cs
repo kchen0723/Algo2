@@ -25,5 +25,12 @@ namespace Algo2.labuladong.Tests
             var actual = EggDrop.GetMinDrop(3, 100);
             Assert.AreEqual(9, actual);
         }
+
+        [TestMethod()]
+        public void GetMinDrop2Test()
+        {
+            var actual = EggDrop.GetMinDrop2(3, 100);
+            Assert.AreEqual(9, actual);
+        }
     }
 }
