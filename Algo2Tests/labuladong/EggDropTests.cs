@@ -15,15 +15,15 @@ namespace Algo2.labuladong.Tests
         [TestMethod()]
         public void GetMinTryTest()
         {
-            var actual = EggDrop.GetMinTry(2, 5);
-            Assert.AreEqual(3, actual);
+            var actual = EggDrop.GetMinTry(3, 100);
+            Assert.AreEqual(9, actual);
         }
 
         [TestMethod()]
         public void GetMinDropTest()
         {
-            var actual = EggDrop.GetMinDrop(2, 5);
-            Assert.AreEqual(14, actual);
+            var actual = EggDrop.GetMinDrop(3, 100);
+            Assert.AreEqual(9, actual);
         }
     }
 }

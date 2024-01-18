@@ -44,6 +44,10 @@ namespace Algo2.labuladong
                     {
                         dp[i, 1] = 1;
                     }
+                    else if (i >= Math.Log(j, 2))
+                    {
+                        dp[i, j] = (int)Math.Ceiling(Math.Log(j, 2));
+                    }
                     else
                     {
                         dp[i, j] = int.MaxValue;
@@ -51,7 +55,7 @@ namespace Algo2.labuladong
                         {
                             var notBroken = dp[i, j - k];
                             var borken = dp[i - 1, k - 1];
-                            var current = Math.Max(notBroken, borken);
+                            var current = Math.Max(notBroken, borken) + 1;
                             dp[i, j] = Math.Min(dp[i, j], current);
                         }
                     }
