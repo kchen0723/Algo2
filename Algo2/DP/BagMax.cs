@@ -94,22 +94,17 @@ namespace Algo2.DP
             }
 
             var dp = new int[maxWeight + 1];          //each item means the first N weight.
-            var candidate = new List<int>();
             for (var i = 0; i < maxWeight + 1; i++)           //for each weight
             {
-                candidate.Clear();
                 for (var j = 0; j < bags.GetLength(0); j++)
                 {
                     if (i >= bags[j, 0])
                     {
                         var notTaken = dp[i - 1];
                         var taken = bags[j, 1] + dp[i - bags[j, 0]];
-                        candidate.Add(Math.Max(taken, notTaken));   //transfer formula
+                        var current = Math.Max(taken, notTaken);
+                        dp[i] = Math.Max(dp[i], current);
                     }
-                }
-                if (candidate.Count > 0)
-                {
-                    dp[i] = candidate.Max();
                 }
             }
             return dp[maxWeight];
