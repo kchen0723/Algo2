@@ -62,18 +62,16 @@ namespace Algo2.DP
             }
 
             var dp = new int[length + 1];
-            var candidates = new List<int>();
             for(var i = 1; i < dp.Length; i++ )
             {
-                candidates.Clear();
                 for (var j = 0; j < sections.Length; j++)
                 {
                     if (i >= sections[j])
                     {
-                        candidates.Add(dp[i - sections[j]] + profits[j]);
+                        var current = dp[i - sections[j]] + profits[j];
+                        dp[i] = Math.Max(dp[i], current);
                     }
                 }
-                dp[i] = candidates.Max();
             }
             return dp[length];
         }
