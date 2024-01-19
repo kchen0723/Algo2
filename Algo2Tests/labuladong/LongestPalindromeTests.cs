@@ -15,7 +15,7 @@ namespace Algo2.labuladong.Tests
         public void GetLongestPalindromeSubsetTest()
         {
             var actual = LongestPalindrome.GetLongestPalindromeSubset("array");
-            Assert.AreEqual("arra", actual);
+            Assert.AreEqual(4, actual);
         }
     }
 }
