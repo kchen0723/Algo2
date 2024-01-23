@@ -78,6 +78,7 @@
     <Compile Include="HanoiTower\HonoiTests.cs" />
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
     <Compile Include="labuladong\EggDropTests.cs" />
+    <Compile Include="labuladong\HouseRobberTests.cs" />
     <Compile Include="labuladong\LongestPalindromeTests.cs" />
     <Compile Include="labuladong\WeightRandomTests.cs" />
     <Compile Include="List\LinkedListDSTests.cs" />
