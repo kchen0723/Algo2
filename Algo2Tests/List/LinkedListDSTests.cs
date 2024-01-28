@@ -50,7 +50,7 @@ namespace Algo2.List.Tests
         public void InsertTest()
         {
             var linkedList = CreateLinkedList();
-            linkedList.Insert(1, 4);
+            linkedList.InsertAfter(1, 4);
         }
 
         [TestMethod()]
@@ -72,6 +72,23 @@ namespace Algo2.List.Tests
         {
             var linkedList = CreateLinkedList();
             linkedList.TraverseBackRecursive((t) => Console.WriteLine(t));
+        }
+
+        [TestMethod()]
+        public void RemoveLastTest()
+        {
+            var linkedList = CreateLinkedList();
+            var result = new LinkedListNodeDS<int>();
+            linkedList.RemoveLast(ref result);
+            Assert.AreEqual(1, linkedList.Count);
+        }
+
+        [TestMethod()]
+        public void AddFirstTest()
+        {
+            var linkedList = CreateLinkedList();
+            linkedList.AddFirst(10);
+            Assert.AreEqual(3, linkedList.Count);
         }
     }
 }

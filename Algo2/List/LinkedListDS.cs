@@ -9,6 +9,19 @@ namespace Algo2.List
     public class LinkedListDS<T> : IListDS<T>
     {
         private LinkedListNodeDS<T> _head = new LinkedListNodeDS<T>();
+        private LinkedListNodeDS<T> _last = null;
+        private int _count = 0;
+        
+        private LinkedListNodeDS<T> First
+        {
+            get { return _head.Next; }
+        }
+
+        private LinkedListNodeDS<T> Last
+        {
+            get { return _last; }
+        }
+
         public T this[int index] 
         {
             get
@@ -34,14 +47,7 @@ namespace Algo2.List
         {
             get
             { 
-                var result = 0;
-                var current = _head.Next;
-                while(current != null)
-                {
-                    result++;
-                    current = current.Next;
-                }
-                return result;
+                return _count;
             }
         }
 
@@ -55,14 +61,20 @@ namespace Algo2.List
 
         public void Append(T item)
         {
-            var current = _head;
-            while (current != null && current.Next != null)
+            var current = _last;
+            var linkedListNode = new LinkedListNodeDS<T>() { NodeValue = item };
+            if (current != null)
             {
-                current = current.Next;
+                current.Next = linkedListNode;
+                linkedListNode.Previous = current;
             }
-            var last = new LinkedListNodeDS<T>() { NodeValue = item };
-            current.Next = last;
-            last.Previous = current;
+            else
+            {
+                _head.Next = linkedListNode;
+                linkedListNode.Previous = _head;
+            }
+            _last = linkedListNode;
+            _count++;
         }
 
         public void Clear()
@@ -72,6 +84,8 @@ namespace Algo2.List
                 _head.Next.Previous = null;
             }
             _head.Next = null;
+            _count = 0;
+            _last = null;
         }
 
         public T Delete(int index)
@@ -79,11 +93,21 @@ namespace Algo2.List
             var node = GetByIndex(index);
             if (node != null)
             {
+                if (_count == 1)     //only one element
+                { 
+                    _last = null;
+                }
+                else     
+                {
+                    _last = _last.Previous;        //move _last point.
+                }
                 node.Previous.Next = node.Next;
+                node.Previous = null;
                 if (node.Next != null)
                 { 
                     node.Next.Previous = node.Previous;
                 }
+                _count--;
                 return node.NodeValue;
             }
             return default(T);
@@ -126,7 +150,7 @@ namespace Algo2.List
             return currentIndex;
         }
 
-        public void Insert(int index, T item)
+        public void InsertAfter(int index, T item)
         {
             var node = GetByIndex(index);
             if (node != null)
@@ -134,12 +158,54 @@ namespace Algo2.List
                 var newNode = new LinkedListNodeDS<T>() { NodeValue = item };
                 newNode.Previous = node;
                 newNode.Next = node.Next;
-                node.Next = newNode;
-                if (node.Next != null)
+                if (node.Next != null)    //insert in the middle
                 {
                     node.Next.Previous = newNode;
                 }
+                else        //insert in the end
+                {
+                    _last = newNode;
+                }
+                node.Next = newNode;
+                _count++;
             }
+        }
+
+        public bool RemoveLast(ref LinkedListNodeDS<T> result)
+        {
+            if (IsEmpty)
+            {
+                return false;
+            }
+
+            result = _last;
+            if (_count == 1)
+            {
+                _last = null;
+            }
+            else
+            {
+                _last = _last.Previous;
+            }
+            result.Previous.Next = null;
+            result.Previous = null;
+            _count--;
+            return true;
+        }
+
+        public void AddFirst(T item)
+        {
+            var newNode = new LinkedListNodeDS<T>() { NodeValue = item };
+            var oldFirst = _head.Next;
+            oldFirst.Previous = newNode;
+            newNode.Next = oldFirst;
+            _head.Next = newNode;
+            newNode.Previous = _head;
+            if (_count == 0)
+            {
+                _last = newNode;
+            }
+            _count++;
         }
 
         public void TraverseRecursive(Action<T> action)

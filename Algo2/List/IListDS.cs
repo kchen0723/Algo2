@@ -13,7 +13,7 @@ namespace Algo2.List
         T this[int index] { get; set; }
         void Clear();
         void Append(T item);
-        void Insert(int index, T item);
+        void InsertAfter(int index, T item);
         T Delete(int index);
         int Find(T item);
     }

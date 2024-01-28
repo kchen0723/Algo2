@@ -50,7 +50,7 @@ namespace Algo2.List.Tests
         public void InsertTest()
         {
             var list = CreateList();
-            list.Insert(1, 5);
+            list.InsertAfter(1, 5);
         }
 
         [TestMethod()]

@@ -16,7 +16,7 @@ namespace Algo2.labuladong.Tests
         {
             var arr = new int[] { 1, 2, 3, 1, 1, 7};
             var actual = HouseRobber.GetMaxValueWithoutAdjacentBackTracking(arr);
-            Assert.AreEqual(4, actual);
+            Assert.AreEqual(11, actual);
         }
     }
 }

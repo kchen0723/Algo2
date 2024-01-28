@@ -109,7 +109,7 @@ namespace Algo2.List
             }
         }
 
-        public void Insert(int index, T item)
+        public void InsertAfter(int index, T item)
         {
             ExpandCapacity();
             if (_pointIndex < _items.Length - 1 && index >= 0 && index <= _pointIndex)
