@@ -18,6 +18,58 @@ namespace Algo2.Tree
             Root = new TreeNode<T>() { NodeValue = data };    
         }
 
+        public static int Min(BinaryTree<int> tree)
+        {
+            if (tree == null || tree.Root == null)
+            {
+                return int.MinValue;
+            }
+
+            return MinHelp(tree.Root);
+        }
+
+        private static int MinHelp(TreeNode<int> node)
+        {
+            var result = node.NodeValue;
+            if (node.Left != null)
+            { 
+                var leftMin = MinHelp(node.Left);
+                result = Math.Min(result, leftMin);
+            }
+            if (node.Right != null)
+            { 
+                var rightMin = MinHelp(node.Right);
+                result = Math.Min(result, rightMin);
+            }
+            return result;
+        }
+
+        public static int Max(BinaryTree<int> tree)
+        {
+            if (tree == null || tree.Root == null)
+            {
+                return int.MinValue;
+            }
+
+            return MaxHelp(tree.Root);
+        }
+
+        private static int MaxHelp(TreeNode<int> node)
+        {
+            var result = node.NodeValue;
+            if (node.Left != null)
+            {
+                var leftMin = MaxHelp(node.Left);
+                result = Math.Max(result, leftMin);
+            }
+            if (node.Right != null)
+            {
+                var rightMin = MaxHelp(node.Right);
+                result = Math.Max(result, rightMin);
+            }
+            return result;
+        }
+
         public void PreOrder(TreeNode<T> node)
         {
             if (node == null)
