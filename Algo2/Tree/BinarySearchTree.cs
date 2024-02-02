@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,6 +79,58 @@ namespace Algo2.Tree
                 return result;
             }
             return null;
+        }
+
+        public static bool IsValid(BinarySearchTree<int> tree)
+        {
+            if (tree == null || tree.Root == null)
+            {
+                return true;
+            }
+
+            var min = int.MaxValue;
+            var max = int.MinValue;
+            var result = IsValidHelp(tree.Root, ref min, ref max);
+            return result;
+        }
+
+        private static bool IsValidHelp(TreeNode<int> node, ref int min, ref int max)
+        {
+            if (node.Left == null && node.Right == null)
+            {
+                min = node.NodeValue;
+                max = node.NodeValue;
+                return true;
+            }
+
+            var result = true;
+            if (node.Left != null)
+            {
+                var leftMin = int.MaxValue;
+                int leftMax = int.MinValue;
+                var isLeftValid = IsValidHelp(node.Left, ref leftMin, ref leftMax);
+                min = Math.Min(node.NodeValue, Math.Min(leftMin, leftMax));
+                max = Math.Max(node.NodeValue, Math.Max(leftMin, leftMax)); 
+                result = result && isLeftValid;
+                if (node.NodeValue < leftMax)  //node value must be greater than all values of left sub tree. 
+                {
+                    result = false;
+                }
+            }
+            if (node.Right != null)
+            {
+                var rightMin = int.MaxValue;
+                int rightMax = int.MinValue;
+                var isRightValid = IsValidHelp(node.Right, ref rightMin, ref rightMax);
+                min = Math.Min(min, Math.Min(rightMin, rightMax));
+                max = Math.Max(max, Math.Max(rightMin, rightMax));
+                result = result && isRightValid;
+                if (node.NodeValue > rightMin)  //node value must be smaller than all values of right sub tree
+                {
+                    result = false;
+                }
+            }
+            return result;
         }
 
         public void Insert(T value)
