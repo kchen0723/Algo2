@@ -23,5 +23,21 @@ namespace Algo2.labuladong
             }
             return result.ToList();
         }
+
+        public static List<int> GetNextGreaterNumberDistance(List<int> numbers)
+        {
+            var result = new int[numbers.Count];
+            var stack = new Stack<int>();
+            for (var i = numbers.Count - 1; i >= 0; i--)
+            {
+                while (stack.Count > 0 && numbers[stack.Peek()] <= numbers[i])
+                {
+                    stack.Pop();
+                }
+                result[i] = (stack.Count == 0 ? 0 : stack.Peek() - i);
+                stack.Push(i);
+            }
+            return result.ToList();
+        }
     }
 }

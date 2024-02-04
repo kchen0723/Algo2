@@ -18,5 +18,12 @@ namespace Algo2.labuladong.Tests
             var result = MonotonicStack.GetNextGreaterNumbers(arr);
             Assert.IsNotNull(result);
         }
+        [TestMethod()]
+        public void GetNextGreaterNumbersTest2()
+        {
+            var arr = new List<int>() {73, 74, 75, 71, 69, 72, 76, 73};
+            var result = MonotonicStack.GetNextGreaterNumberDistance(arr);
+            Assert.IsNotNull(result);
+        }
     }
 }
