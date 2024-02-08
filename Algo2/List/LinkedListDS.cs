@@ -197,14 +197,17 @@ namespace Algo2.List
         {
             var newNode = new LinkedListNodeDS<T>() { NodeValue = item };
             var oldFirst = _head.Next;
-            oldFirst.Previous = newNode;
-            newNode.Next = oldFirst;
-            _head.Next = newNode;
-            newNode.Previous = _head;
-            if (_count == 0)
+            if (oldFirst == null)   //empty linked list
             {
                 _last = newNode;
             }
+            else
+            {
+                oldFirst.Previous = newNode;
+            }
+            newNode.Next = oldFirst;
+            _head.Next = newNode;
+            newNode.Previous = _head;
             _count++;
         }
 
