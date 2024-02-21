@@ -47,6 +47,7 @@
     <Compile Include="Graph\GraphAdjacentMatrix.cs" />
     <Compile Include="Graph\NumberOfIslands.cs" />
     <Compile Include="Graph\RailWayMap.cs" />
+    <Compile Include="labuladong\ChessQueen.cs" />
     <Compile Include="labuladong\EggDrop.cs" />
     <Compile Include="labuladong\HouseRobber.cs" />
     <Compile Include="labuladong\LeastRecentlyUsed.cs" />
