@@ -72,6 +72,7 @@
     <Compile Include="DP\MaxProfitCutTests.cs" />
     <Compile Include="DP\SquareSumTests.cs" />
     <Compile Include="DP\StockTests.cs" />
+    <Compile Include="DP\StringSearchTests.cs" />
     <Compile Include="DP\TriangleMinPathTests.cs" />
     <Compile Include="DP\WordDistanceTests.cs" />
     <Compile Include="Graph\NumberOfIslandsTests.cs" />

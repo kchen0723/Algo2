@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DP\StringSearch.cs" />
     <Compile Include="Graph\GraphAdjacentList.cs" />
     <Compile Include="Graph\GraphAdjacentMatrix.cs" />
     <Compile Include="Graph\NumberOfIslands.cs" />
