@@ -17,5 +17,12 @@ namespace Algo2.DP.Tests
             var actual = StringSearch.BruteSearch("abcabaabcabac", "abaa");
             Assert.AreEqual(3, actual);
         }
+
+        [TestMethod()]
+        public void KmpSearchTest()
+        {
+            var actual = StringSearch.KmpSearch("abcabaabcabac", "abaa");
+            Assert.AreEqual(3, actual);
+        }
     }
 }

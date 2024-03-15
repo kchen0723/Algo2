@@ -41,5 +41,53 @@ namespace Algo2.DP
             }
             return -1;
         }
+
+        private static int[] KmpNext(string pattern)
+        {
+            int[] next = new int[pattern.Length];
+            for(int i = 1, j = 0; i < pattern.Length; i++)
+            {
+                while (j > 0 && pattern[i] != pattern[j])
+                { 
+                    j = next[j - 1];
+                }
+                if (pattern[i] == pattern[j])
+                {
+                    j++;
+                }
+                next[i] = j;
+            }
+            return next;
+        }
+
+        public static int KmpSearch(string text, string pattern)
+        {
+            if (text == null || pattern == null)
+            {
+                return -1;
+            }
+            if (pattern.Length == 0)
+            {
+                return 0;
+            }
+
+            var next = KmpNext(pattern);
+            for(int i = 0, j = 0; i < text.Length; i++)
+            {
+                while (j > 0 && text[i] != pattern[j])
+                {
+                    j = next[j - 1];
+                }
+                if (text[i] == pattern[j])
+                {
+                    j++;
+                }
+                if (j == pattern.Length)
+                {
+                    return i - j + 1;
+                }
+            }
+            return -1;
+        }
     }
 }
