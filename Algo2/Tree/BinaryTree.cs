@@ -81,6 +81,29 @@ namespace Algo2.Tree
             PreOrder(node.Right);
         }
 
+        public void PreOrderIteration(TreeNode<T> node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+            var stack = new Stack<TreeNode<T>>();
+            stack.Push(node);
+            while (stack.Count > 0)
+            {
+                var current = stack.Pop();
+                Console.WriteLine(current.NodeValue.ToString());
+                if (current.Right != null)
+                {
+                    stack.Push(current.Right);
+                }
+                if (current.Left != null)
+                {
+                    stack.Push(current.Left);
+                }
+            }
+        }
+
         //Todo: how to do it by Iteration?
         public void InOrder(TreeNode<T> node)
         {
