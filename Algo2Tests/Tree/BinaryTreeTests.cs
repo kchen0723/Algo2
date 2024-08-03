@@ -24,7 +24,7 @@ namespace Algo2.Tree.Tests
         {
             BinaryTree<int> bt = CreateTestingTree();
             var min = BinaryTree<int>.Min(bt);
-            Assert.AreEqual(3, min);
+            Assert.AreEqual(2, min);
             var max = BinaryTree<int>.Max(bt);
             Assert.AreEqual(9, max);
         }
@@ -33,7 +33,10 @@ namespace Algo2.Tree.Tests
         {
             TreeNode<int> nine = new TreeNode<int>() { NodeValue = 9 };
             TreeNode<int> six = new TreeNode<int>() { NodeValue = 6, Left = nine };
-            TreeNode<int> five = new TreeNode<int>() { NodeValue = 5 };
+
+            TreeNode<int> two = new TreeNode<int>() { NodeValue = 2 };
+            TreeNode<int> four = new TreeNode<int>() { NodeValue = 4 };
+            TreeNode<int> five = new TreeNode<int>() { NodeValue = 5, Left = two, Right = four };
 
             TreeNode<int> seven = new TreeNode<int>() { NodeValue = 7, Left = six, Right = five };
             TreeNode<int> three = new TreeNode<int>() { NodeValue = 3 };
@@ -49,6 +52,13 @@ namespace Algo2.Tree.Tests
         {
             BinaryTree<int> bt = CreateTestingTree();
             bt.PreOrderIteration(bt.Root);
+        }
+
+        [TestMethod()]
+        public void InOrderIterationTest()
+        {
+            BinaryTree<int> bt = CreateTestingTree();
+            bt.InOrderIteration(bt.Root);
         }
     }
 }

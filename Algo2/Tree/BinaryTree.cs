@@ -89,10 +89,12 @@ namespace Algo2.Tree
             }
             var stack = new Stack<TreeNode<T>>();
             stack.Push(node);
+            var result = new List<T>();
             while (stack.Count > 0)
             {
                 var current = stack.Pop();
                 Console.WriteLine(current.NodeValue.ToString());
+                result.Add(current.NodeValue);
                 if (current.Right != null)
                 {
                     stack.Push(current.Right);
@@ -102,9 +104,9 @@ namespace Algo2.Tree
                     stack.Push(current.Left);
                 }
             }
+            Console.WriteLine(result.Count.ToString());
         }
 
-        //Todo: how to do it by Iteration?
         public void InOrder(TreeNode<T> node)
         {
             if (node == null)
@@ -114,6 +116,33 @@ namespace Algo2.Tree
             InOrder(node.Left);
             Console.WriteLine(node.NodeValue.ToString());
             InOrder(node.Right);
+        }
+
+        public void InOrderIteration(TreeNode<T> node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+            var stack = new Stack<TreeNode<T>>();
+            stack.Push(node);
+            var result = new Dictionary<TreeNode<T>, bool>();
+            while (stack.Count > 0)
+            {
+                var current = stack.Pop();
+                while (current.Left != null && result.ContainsKey(current.Left) == false)
+                {
+                    stack.Push(current);
+                    current = current.Left;
+                }
+                Console.WriteLine(current.NodeValue.ToString());
+                if (current.Right != null)
+                { 
+                    stack.Push(current.Right);
+                }
+                result.Add(current, true);
+            }
+            Console.WriteLine(result.Keys.Count.ToString());
         }
 
         public void PostOrder(TreeNode<T> node)
