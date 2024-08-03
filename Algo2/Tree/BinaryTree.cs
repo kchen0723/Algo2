@@ -156,6 +156,35 @@ namespace Algo2.Tree
             Console.WriteLine(node.NodeValue.ToString());
         }
 
+        public void PostOrderIteration(TreeNode<T> node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+            var stack = new Stack<TreeNode<T>>();
+            stack.Push(node);
+            var result = new Dictionary<TreeNode<T>, bool>();
+            while (stack.Count > 0)
+            {
+                var current = stack.Pop();
+                while (current.Left != null && result.ContainsKey(current.Left) == false)
+                {
+                    stack.Push(current);
+                    current = current.Left;
+                }
+                if (current.Right != null && result.ContainsKey(current.Right) == false)
+                {
+                    stack.Push(current);
+                    stack.Push(current.Right);
+                    continue;
+                }
+                Console.WriteLine(current.NodeValue.ToString());
+                result.Add(current, true);
+            }
+            Console.WriteLine(result.Keys.Count.ToString());
+        }
+
         public void LevelOrder(TreeNode<T> node)
         {
             if (node == null)

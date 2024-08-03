@@ -60,5 +60,12 @@ namespace Algo2.Tree.Tests
             BinaryTree<int> bt = CreateTestingTree();
             bt.InOrderIteration(bt.Root);
         }
+
+        [TestMethod()]
+        public void PostOrderIterationTest()
+        {
+            BinaryTree<int> bt = CreateTestingTree();
+            bt.PostOrderIteration(bt.Root);
+        }
     }
 }
