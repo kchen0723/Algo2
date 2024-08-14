@@ -81,6 +81,25 @@ namespace Algo2.Tree
             return null;
         }
 
+        public static bool IsValidBst(TreeNode<int> currentNode, TreeNode<int> min, TreeNode<int> max)
+        {
+            if (currentNode == null)
+            {
+                return true;
+            }
+            if (min != null && currentNode.NodeValue <= min.NodeValue)
+            {
+                return false;
+            }
+            if (max != null && currentNode.NodeValue >= max.NodeValue)
+            {
+                return false;
+            }
+            var left = IsValidBst(currentNode.Left, min, currentNode);
+            var right = IsValidBst(currentNode.Right, currentNode, max);
+            return left && right;
+        }
+
         public static bool IsValid(BinarySearchTree<int> tree)
         {
             if (tree == null || tree.Root == null)

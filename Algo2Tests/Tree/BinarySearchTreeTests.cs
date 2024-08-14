@@ -67,5 +67,20 @@ namespace Algo2.Tree.Tests
             var result = BinarySearchTree<int>.IsValid(bt);
             Assert.AreEqual(true, result);
         }
+
+        [TestMethod()]
+        public void IsValidBst()
+        {
+            TreeNode<int> six = new TreeNode<int>() { NodeValue = 6 };
+            TreeNode<int> twenty = new TreeNode<int>() { NodeValue = 20 };
+            TreeNode<int> fifteen = new TreeNode<int>() { NodeValue = 15, Left = six, Right = twenty };
+
+            TreeNode<int> five = new TreeNode<int>() { NodeValue = 5 };
+            TreeNode<int> ten = new TreeNode<int>() { NodeValue = 10, Left = five, Right = fifteen };
+
+            BinarySearchTree<int> bt = new BinarySearchTree<int>() { Root = ten };
+            var result = BinarySearchTree<int>.IsValidBst(bt.Root, null, null);
+            Assert.AreEqual(false, result);
+        }
     }
 }
