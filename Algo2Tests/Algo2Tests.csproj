@@ -59,6 +59,7 @@
     <Compile Include="BinarySearch\BinarySearchTests.cs" />
     <Compile Include="CombinationAndPermutation\CombinationTests.cs" />
     <Compile Include="Container\ContainerDSTests.cs" />
+    <Compile Include="Container\LinkedListDSTests.cs" />
     <Compile Include="DividAndConquer\DifferentBracketsToCalculateTests.cs" />
     <Compile Include="DP\ArrayProductExceptItemItselfTests.cs" />
     <Compile Include="DP\BagMaxTests.cs" />
