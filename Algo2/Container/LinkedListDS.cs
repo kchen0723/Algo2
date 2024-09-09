@@ -8,7 +8,7 @@ namespace Algo2.Container
 {
     public class LinkedListDS<T> : IContainer<T> where T : IComparable<T>
     {
-        private LinkedListNode<T> _dummyHeader = new LinkedListNode<T>();
+        private LinkedListNodeDS<T> _dummyHeader = new LinkedListNodeDS<T>();
 
         public LinkedListDS() { }
         public LinkedListDS(IEnumerable<T> values)
@@ -18,16 +18,16 @@ namespace Algo2.Container
                 Insert(item);
             }
         }
-        public LinkedListNode<T> First
+        public LinkedListNodeDS<T> First
         {
             get { return _dummyHeader.Next; }
         }
 
-        public LinkedListNode<T> Last
+        public LinkedListNodeDS<T> Last
         {
             get
             {
-                LinkedListNode<T> result = null;
+                LinkedListNodeDS<T> result = null;
                 var current = First;
                 while(current != null)
                 {
@@ -85,7 +85,7 @@ namespace Algo2.Container
 
         public void Insert(T item)
         {
-            var node = new LinkedListNode<T>(item);
+            var node = new LinkedListNodeDS<T>(item);
             var lastNode = Last ?? _dummyHeader;
             lastNode.Next = node;
             node.Previous = lastNode;

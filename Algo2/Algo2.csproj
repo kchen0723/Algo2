@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Container\LinkedListDS.cs" />
-    <Compile Include="Container\LinkedListNode.cs" />
+    <Compile Include="Container\LinkedListNodeDS.cs" />
     <Compile Include="DP\StringSearch.cs" />
     <Compile Include="Graph\GraphAdjacentList.cs" />
     <Compile Include="Graph\GraphAdjacentMatrix.cs" />
