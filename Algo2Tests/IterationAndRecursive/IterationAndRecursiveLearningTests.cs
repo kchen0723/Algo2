@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Algo2.Container;
 
 namespace Algo2.IterationAndRecursive.Tests
 {
@@ -25,6 +26,13 @@ namespace Algo2.IterationAndRecursive.Tests
             var LinkedList = new LinkedList<int>(new int[] { 4, 5, 7, 8, 9 });
             IterationAndRecursiveLearning.IterationLinkedList(LinkedList);
             IterationAndRecursiveLearning.RecursiveLinkedList(LinkedList);
+        }
+
+        [TestMethod()]
+        public void RecursiveLinkedListDSTest()
+        {
+            var linkedList = new LinkedListDS<int>(new int[] { 4, 5, 7, 8, 9 });
+            IterationAndRecursiveLearning.RecursiveLinkedListDS(linkedList);
         }
     }
 }
