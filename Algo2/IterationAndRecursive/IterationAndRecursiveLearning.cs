@@ -77,26 +77,30 @@ namespace Algo2.IterationAndRecursive
                 return linkedList;
             }
 
+            LinkedListNodeDS<T> newFirstNode = null;
+            LinkedListNodeDS<T> newLastNode = null;
+            ReverseHelp(linkedList.First, ref newFirstNode, ref newLastNode);
             LinkedListDS<T> result = new LinkedListDS<T>();
-            var lastNode = ReverseHelp(linkedList.First, result);
-            lastNode.Next = null;
-            lastNode.Previous = null;
-            result.Insert(lastNode);
+            result.Insert(newFirstNode);
             return result;
         }
 
-        public static LinkedListNodeDS<T> ReverseHelp<T>(LinkedListNodeDS<T> currentNode, LinkedListDS<T> result) where T : IComparable<T>
+        public static void ReverseHelp<T>(LinkedListNodeDS<T> currentNode, ref LinkedListNodeDS<T> newFirstNode, ref LinkedListNodeDS<T> newLastNode) where T : IComparable<T>
         {
             if (currentNode.Next == null) //last node
             {
-                return currentNode;
+                currentNode.Previous = null;
+                newFirstNode = currentNode;
+                newLastNode = currentNode;
+                return;
             }
 
-            var reverseNode = ReverseHelp(currentNode.Next, result);
-            reverseNode.Next = null;
-            reverseNode.Previous = null;
-            result.Insert(reverseNode);
-            return currentNode;
+            ReverseHelp(currentNode.Next, ref newFirstNode, ref newLastNode);
+            currentNode.Next = null;
+            currentNode.Previous = null;
+            newLastNode.Next = currentNode;
+            currentNode.Previous = newLastNode;
+            newLastNode = currentNode;
         }
     }
 }
