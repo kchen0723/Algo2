@@ -86,6 +86,11 @@ namespace Algo2.Container
         public void Insert(T item)
         {
             var node = new LinkedListNodeDS<T>(item);
+            Insert(node);
+        }
+
+        public void Insert(LinkedListNodeDS<T> node)
+        {
             var lastNode = Last ?? _dummyHeader;
             lastNode.Next = node;
             node.Previous = lastNode;
