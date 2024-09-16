@@ -39,7 +39,7 @@ namespace Algo2.IterationAndRecursive.Tests
         public void ReverseTest()
         {
             var linkedList = new LinkedListDS<int>(new int[] { 4, 5, 7, 8, 9 });
-            var result = IterationAndRecursiveLearning.Reverse(linkedList);
+            var result = IterationAndRecursiveLearning.BetterReverse(linkedList);
             Assert.IsNull(result);
         }
     }

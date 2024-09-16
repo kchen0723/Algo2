@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,7 +86,7 @@ namespace Algo2.IterationAndRecursive
             return result;
         }
 
-        public static void ReverseHelp<T>(LinkedListNodeDS<T> currentNode, ref LinkedListNodeDS<T> newFirstNode, ref LinkedListNodeDS<T> newLastNode) where T : IComparable<T>
+        private static void ReverseHelp<T>(LinkedListNodeDS<T> currentNode, ref LinkedListNodeDS<T> newFirstNode, ref LinkedListNodeDS<T> newLastNode) where T : IComparable<T>
         {
             if (currentNode.Next == null) //last node
             {
@@ -101,6 +102,34 @@ namespace Algo2.IterationAndRecursive
             newLastNode.Next = currentNode;
             currentNode.Previous = newLastNode;
             newLastNode = currentNode;
+        }
+
+        public static LinkedListDS<T> BetterReverse<T>(LinkedListDS<T> linkedList) where T : IComparable<T>
+        {
+            if (linkedList == null || linkedList.IsEmpty)
+            {
+                return linkedList;
+            }
+            
+            var first = BetterReserveHelp(linkedList.First); 
+            var result = new LinkedListDS<T>();
+            result.Insert(first);
+            return result;
+        }
+
+        private static LinkedListNodeDS<T> BetterReserveHelp<T>(LinkedListNodeDS<T> currentNode) where T : IComparable<T>
+        {
+            if (currentNode == null || currentNode.Next == null)
+            {
+                return currentNode;
+            }
+
+            var reversedNode = BetterReserveHelp(currentNode.Next);
+            currentNode.Previous = currentNode.Next;
+            currentNode.Next.Next = currentNode;
+            currentNode.Next = null;
+            
+            return reversedNode;
         }
     }
 }
