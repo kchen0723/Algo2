@@ -37,6 +37,24 @@ namespace Algo2.Tree
             return null;
         }
 
+        public T FindLargestSmallerKey(TreeNode<T> currentNode, T targetValue)
+        {
+            var result = default(T);
+            while (currentNode != null)
+            {
+                if (targetValue.CompareTo(currentNode.NodeValue) > 0)
+                {
+                    result = currentNode.NodeValue;
+                    currentNode = currentNode.Right;
+                }
+                else
+                {
+                    currentNode = currentNode.Left;
+                }
+            }
+            return result;
+        }
+
         public TreeNode<T> FindMaxNodeWhichIsSmallerThanTarget(T target)
         {
             if (Root == null)

@@ -15,7 +15,7 @@ namespace Algo2.Tree.Tests
         [TestMethod()]
         public void FindTest()
         {
-            List<int> lists = new List<int> { 7,5,9,3,6,8 };
+            List<int> lists = new List<int> { 7, 5, 9, 3, 6, 8 };
             BinarySearchTree<int> bt = new BinarySearchTree<int>();
             foreach (var item in lists)
             {
@@ -81,6 +81,19 @@ namespace Algo2.Tree.Tests
             BinarySearchTree<int> bt = new BinarySearchTree<int>() { Root = ten };
             var result = BinarySearchTree<int>.IsValidBst(bt.Root, null, null);
             Assert.AreEqual(false, result);
+        }
+
+        [TestMethod()]
+        public void FindLargestSmallerKeyTest()
+        {
+            List<int> lists = new List<int> { 20, 9, 25, 5, 12, 11, 14 };
+            BinarySearchTree<int> bt = new BinarySearchTree<int>();
+            foreach (var item in lists)
+            {
+                bt.Insert(item);
+            }
+            var actual = bt.FindLargestSmallerKey(bt.Root, 13);
+            Assert.AreEqual(20, actual);
         }
     }
 }
