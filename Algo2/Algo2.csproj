@@ -59,6 +59,7 @@
     <Compile Include="labuladong\MonotonicQueue.cs" />
     <Compile Include="labuladong\MonotonicStack.cs" />
     <Compile Include="labuladong\WeightRandom.cs" />
+    <Compile Include="Pramp\AwardBudgetCuts.cs" />
     <Compile Include="Pramp\ReverseWords.cs" />
     <Compile Include="Pramp\ShortestCellPath.cs" />
     <Compile Include="Pramp\StringCross.cs" />
