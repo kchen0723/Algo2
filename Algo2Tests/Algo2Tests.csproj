@@ -91,6 +91,7 @@
     <Compile Include="List\LinkedListDSTests.cs" />
     <Compile Include="List\SequenceListTests.cs" />
     <Compile Include="Pramp\AwardBudgetCutsTests.cs" />
+    <Compile Include="Pramp\IndexesOfItemsWeightTests.cs" />
     <Compile Include="Pramp\ReverseWordsTests.cs" />
     <Compile Include="Pramp\ShortestCellPathTests.cs" />
     <Compile Include="Pramp\SpiralCopyTests.cs" />
