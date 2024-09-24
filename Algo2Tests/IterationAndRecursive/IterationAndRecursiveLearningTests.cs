@@ -40,7 +40,7 @@ namespace Algo2.IterationAndRecursive.Tests
         {
             var linkedList = new LinkedListDS<int>(new int[] { 4, 5, 7, 8, 9 });
             var result = IterationAndRecursiveLearning.BetterReverse(linkedList);
-            Assert.IsNull(result);
+            Assert.IsNotNull(result);
         }
     }
 }

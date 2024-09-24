@@ -16,7 +16,7 @@ namespace Algo2.Pramp.Tests
         {
             var arr = new int[] { 4, 6, 10, 15, 16 };
             var result = IndexesOfItemsWeight.GetIndicesOfItemWeights(arr, 21);
-            Assert.IsNull(result);
+            Assert.IsNotNull(result);
         }
     }
 }

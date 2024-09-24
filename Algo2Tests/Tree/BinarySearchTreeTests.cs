@@ -93,7 +93,7 @@ namespace Algo2.Tree.Tests
                 bt.Insert(item);
             }
             var actual = bt.FindLargestSmallerKey(bt.Root, 13);
-            Assert.AreEqual(20, actual);
+            Assert.AreEqual(12, actual);
         }
     }
 }
