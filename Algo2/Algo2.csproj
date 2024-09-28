@@ -113,6 +113,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DP\DP Template.txt" />
     <Content Include="Graph\china railway map.jpeg" />
     <Content Include="Graph\map.jpeg" />
     <Content Include="readme.txt" />
