@@ -67,7 +67,7 @@ namespace Algo2.Tree
                 }
                 if (rightIndex < _maxHeap.Count && _maxHeap[rightIndex] > _maxHeap[maxIndex])
                 {
-                    maxIndex = leftIndex;
+                    maxIndex = rightIndex;
                 }
                 if(maxIndex == index)
                 {
