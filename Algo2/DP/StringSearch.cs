@@ -46,17 +46,44 @@ namespace Algo2.DP
         private static int[] KmpNext(string pattern)
         {
             int[] next = new int[pattern.Length];
-            for (int i = 1, j = 0; i < pattern.Length; i++)
+            var longestCommonPrePostfixLength = 0;
+            for (int i = 1; i < pattern.Length; i++)
             {
-                while (j > 0 && pattern[i] != pattern[j])
+                while (longestCommonPrePostfixLength > 0 && pattern[i] != pattern[longestCommonPrePostfixLength])
                 {
-                    j = next[j - 1];
+                    longestCommonPrePostfixLength = next[longestCommonPrePostfixLength - 1];
                 }
-                if (pattern[i] == pattern[j])
+                if (pattern[i] == pattern[longestCommonPrePostfixLength])
                 {
-                    j++;
+                    longestCommonPrePostfixLength++;
                 }
-                next[i] = j;
+                next[i] = longestCommonPrePostfixLength;
+            }
+            return next;
+        }
+
+        private static int[] LongestCommonPrePostfix(string pattern)
+        {
+            int[] next = new int[pattern.Length];
+            for (var i = 1; i < pattern.Length; i++)
+            {
+                for (var longestCommonPrePostfixLength = i; longestCommonPrePostfixLength > 0; longestCommonPrePostfixLength--)
+                {
+                    var isMatch = true;
+                    for (var j = 0; j < longestCommonPrePostfixLength; j++)
+                    {
+                        if (pattern[j] != pattern[i - longestCommonPrePostfixLength + j + 1])
+                        {
+                            isMatch = false;
+                            break;
+                        }
+                    }
+                    if (isMatch == true)
+                    {
+                        next[i] = longestCommonPrePostfixLength;
+                        break;
+                    }
+                }
             }
             return next;
         }
@@ -67,7 +94,7 @@ namespace Algo2.DP
             {
                 return -1;
             }
-            var next = KmpNext(pattern);
+            var next = LongestCommonPrePostfix(pattern);
             for (int i = 0, j = 0; i < text.Length; i++)
             {
                 while (j > 0 && text[i] != pattern[j])
