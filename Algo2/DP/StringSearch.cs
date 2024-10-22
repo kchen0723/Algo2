@@ -43,7 +43,7 @@ namespace Algo2.DP
         }
 
         //https://www.qb5200.com/article/587614.html
-        private static int[] KmpNext(string pattern)
+        private static int[] LongestCommonPrePostfix(string pattern)
         {
             int[] next = new int[pattern.Length];
             var longestCommonPrePostfixLength = 0;
@@ -62,7 +62,7 @@ namespace Algo2.DP
             return next;
         }
 
-        private static int[] LongestCommonPrePostfix(string pattern)
+        private static int[] LongestCommonPrePostfix2(string pattern)
         {
             int[] next = new int[pattern.Length];
             for (var i = 1; i < pattern.Length; i++)
@@ -95,19 +95,20 @@ namespace Algo2.DP
                 return -1;
             }
             var next = LongestCommonPrePostfix(pattern);
-            for (int i = 0, j = 0; i < text.Length; i++)
+            var longestCommonPrePostfixLength = 0;
+            for (int i = 0; i < text.Length; i++)
             {
-                while (j > 0 && text[i] != pattern[j])
+                while (longestCommonPrePostfixLength > 0 && text[i] != pattern[longestCommonPrePostfixLength])
                 {
-                    j = next[j - 1];
+                    longestCommonPrePostfixLength = next[longestCommonPrePostfixLength - 1];
                 }
-                if (text[i] == pattern[j])
+                if (text[i] == pattern[longestCommonPrePostfixLength])
                 {
-                    j++;
+                    longestCommonPrePostfixLength++;
                 }
-                if (j == pattern.Length)
+                if (longestCommonPrePostfixLength == pattern.Length)
                 {
-                    return i - j + 1;
+                    return i - longestCommonPrePostfixLength + 1;
                 }
             }
             return -1;
