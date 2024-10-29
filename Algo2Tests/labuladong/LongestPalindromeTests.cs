@@ -12,10 +12,10 @@ namespace Algo2.labuladong.Tests
     public class LongestPalindromeTests
     {
         [TestMethod()]
-        public void GetLongestPalindromeSubsetTest()
+        public void GetLongestPalindromeStringTest()
         {
-            var actual = LongestPalindrome.GetLongestPalindromeSubset("array");
-            Assert.AreEqual(4, actual);
+            var actual = LongestPalindrome.GetLongestPalindromeString("aacxycaa");
+            Assert.AreEqual("aa", actual);
         }
     }
 }

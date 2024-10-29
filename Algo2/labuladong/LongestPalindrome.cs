@@ -8,28 +8,38 @@ namespace Algo2.labuladong
 {
     public class LongestPalindrome
     {
-        public static int GetLongestPalindromeSubset(string str)
+        public static string GetLongestPalindromeString(string str)
         {
             if (string.IsNullOrEmpty(str))
-            { 
-                return -1;
+            {
+                return string.Empty;
             }
 
-            var reversedString = new string(str.Reverse().ToArray());
-            var dp = new int[str.Length + 1, str.Length + 1];  //now try to find longest common subset between str and reversedString
-            var result = 0;
-            for(var i = 1; i < str.Length + 1; i++)
+            var result = string.Empty;
+            for (var i = 0; i < str.Length; i++)
             {
-                for (var j = 1; j < reversedString.Length + 1; j++)
+                var even = GetPalindrome(str, i, i + 1);
+                var odd = GetPalindrome(str, i, i);
+                if (even.Length > result.Length)
+                { 
+                    result = even;
+                }
+                if (odd.Length > result.Length)
                 {
-                    if (str[i - 1] == reversedString[j - 1])  //the char is same, so common subset should be add one
-                    {
-                        dp[i, j] = dp[i - 1, j - 1] + 1;
-                        result = Math.Max(dp[i, j], result);
-                    }
+                    result = odd;
                 }
             }
             return result;
+        }
+
+        private static string GetPalindrome(string str, int start, int end)
+        {
+            while (start >= 0 && end < str.Length && str[start] == str[end])
+            { 
+                start--;
+                end++;
+            }
+            return str.Substring(start + 1, end - start - 1);
         }
     }
 }
