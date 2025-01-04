@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Algo2.labuladong;
 using System;
 using System.Collections.Generic;
@@ -16,6 +16,20 @@ namespace Algo2.labuladong.Tests
         {
             var actual = LongestPalindrome.GetLongestPalindromeString("aacxycaa");
             Assert.AreEqual("aa", actual);
+        }
+
+        [TestMethod()]
+        public void GetLongestPalindromeStringDp()
+        {
+            var actual = LongestPalindrome.GetLongestPalindromeStringDp("aacxycaa");
+            Assert.AreEqual("bab", actual);
+        }
+
+        [TestMethod()]
+        public void GetLongestPalindromeSubsetDp()
+        {
+            var actual = LongestPalindrome.GetLongestPalindromeSubsetDp("babb");
+            Assert.AreEqual(3, actual);
         }
     }
 }
