@@ -16,7 +16,6 @@ namespace Algo2.TwentyfourGame
             return HandleBracketExpress(tokens);
         }
 
-        //have bugs here, cannot handle nested bracket.
         public static double HandleBracketExpress(List<string> tokens)
         {
             double result = 0d;

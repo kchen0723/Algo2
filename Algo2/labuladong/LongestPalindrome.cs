@@ -61,7 +61,10 @@ namespace Algo2.labuladong
                     dp[i, j] = 1;
                     if (str[i] == str[j])
                     {
-                        dp[i, j] = dp[i - 1, j + 1] + 2; 
+                        if (i - 1 >= 0 && j + 1 <= i)
+                        {
+                            dp[i, j] = dp[i - 1, j + 1] + 2;
+                        }
                     }
                     else
                     {

@@ -22,7 +22,7 @@ namespace Algo2.labuladong.Tests
         public void GetLongestPalindromeStringDp()
         {
             var actual = LongestPalindrome.GetLongestPalindromeStringDp("aacxycaa");
-            Assert.AreEqual("bab", actual);
+            Assert.AreEqual("aa", actual);
         }
 
         [TestMethod()]
