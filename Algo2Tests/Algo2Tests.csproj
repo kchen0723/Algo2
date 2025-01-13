@@ -109,6 +109,7 @@
     <Compile Include="TwentyfourGame\Calculate24GameTests.cs" />
     <Compile Include="TwentyfourGame\CalculateTests.cs" />
     <Compile Include="TwentyfourGame\Calculator2Tests.cs" />
+    <Compile Include="TwentyfourGame\CalculatorRecusiveTests.cs" />
     <Compile Include="TwoPoints\MoveZeroToEndTests.cs" />
   </ItemGroup>
   <ItemGroup>

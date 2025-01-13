@@ -106,6 +106,7 @@
     <Compile Include="TwentyfourGame\Calculate.cs" />
     <Compile Include="TwentyfourGame\Calculate24Game.cs" />
     <Compile Include="TwentyfourGame\Calculator2.cs" />
+    <Compile Include="TwentyfourGame\CalculatorRecusive.cs" />
     <Compile Include="TwoPoints\MoveZeroToEnd.cs" />
     <Compile Include="Utility\ArrayHelper.cs" />
   </ItemGroup>
