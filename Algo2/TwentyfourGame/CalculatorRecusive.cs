@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Algo2.TwentyfourGame
@@ -103,6 +104,72 @@ namespace Algo2.TwentyfourGame
                         break;
                     }
                     sign = token;
+                }
+            }
+            return stack.Sum();
+        }
+
+        public static float CalcuateByTokens(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return 0f;
+            }
+
+            var tokens = TwentyfourGame.Calculate.GetTokens(str);
+            return CalculateByTokensHelp(tokens);
+        }
+
+        private static float CalculateByTokensHelp(List<string> tokens)
+        {
+            var num = 0f;
+            var sign = "+";
+            Stack<float> stack = new Stack<float>();
+            var previousToken = string.Empty;
+            while(tokens.Count > 0)
+            {
+                var token = tokens[0];
+                tokens.RemoveAt(0);
+                if (token == "(" || token == ")" || 
+                    token == "+" || token == "-" || token == "*" || token == "/"
+                    || tokens.Count == 0)
+                {
+                    if (token == "(")
+                    {
+                        num = CalculateByTokensHelp(tokens);
+                    }
+                    else if (tokens.Count == 0)
+                    {
+                        num = ToFloat(token);
+                    }
+                    else if(previousToken != string.Empty)
+                    {
+                        num = ToFloat(previousToken);
+                    }
+                    switch (sign)
+                    {
+                        case "+":
+                            stack.Push(num);
+                            break;
+                        case "-":
+                            stack.Push(0 - num);
+                            break;
+                        case "*":
+                            stack.Push(stack.Pop() * num);
+                            break;
+                        case "/":
+                            stack.Push(stack.Pop() / num);
+                            break;
+                    }
+                    if (token == ")")
+                    {
+                        break;
+                    }
+                    sign = token;
+                }
+                else
+                {
+                    previousToken = token;
                 }
             }
             return stack.Sum();

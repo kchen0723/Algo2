@@ -25,12 +25,32 @@ namespace Algo2.TwentyfourGame.Tests
         [TestMethod()]
         public void CalculateTest()
         {
-            string input = "1+((9-3)*4-10)/(6-4)+1";
+            string input = "9-10+11";
             var actual = CalculatorRecusive.Calculate(input);
+            Assert.AreEqual(10, actual);
+
+            input = "1+((9-3)*4-10)/(6-4)+1";
+            actual = CalculatorRecusive.Calculate(input);
             Assert.AreEqual(9, actual);
 
             input = "1+((3*((9-3)*4-10)/(6-4)+1)+2)/3+5";
             actual = CalculatorRecusive.Calculate(input);
+            Assert.AreEqual(14, actual);
+        }
+
+        [TestMethod()]
+        public void CalcuateByTokensTest()
+        {
+            string input = "9-10+11";
+            var actual = CalculatorRecusive.CalcuateByTokens(input);
+            Assert.AreEqual(10, actual);
+
+            input = "1+((9-3)*4-10)/(6-4)+1";
+            actual = CalculatorRecusive.CalcuateByTokens(input);
+            Assert.AreEqual(9, actual);
+
+            input = "1+((3*((9-3)*4-10)/(6-4)+1)+2)/3+5";
+            actual = CalculatorRecusive.CalcuateByTokens(input);
             Assert.AreEqual(14, actual);
         }
     }
