@@ -59,6 +59,7 @@
     <Compile Include="labuladong\LongestPalindrome.cs" />
     <Compile Include="labuladong\MonotonicQueue.cs" />
     <Compile Include="labuladong\MonotonicStack.cs" />
+    <Compile Include="labuladong\WaterTrap.cs" />
     <Compile Include="labuladong\WeightRandom.cs" />
     <Compile Include="Pramp\AwardBudgetCuts.cs" />
     <Compile Include="Pramp\IndexesOfItemsWeight.cs" />
