@@ -83,6 +83,7 @@
     <Compile Include="labuladong\ChessQueenTests.cs" />
     <Compile Include="labuladong\CountPrimeTests.cs" />
     <Compile Include="labuladong\EggDropTests.cs" />
+    <Compile Include="labuladong\EnvelopNestTests.cs" />
     <Compile Include="labuladong\HouseRobberTests.cs" />
     <Compile Include="labuladong\LeastRecentlyUsedTests.cs" />
     <Compile Include="labuladong\LongestPalindromeTests.cs" />

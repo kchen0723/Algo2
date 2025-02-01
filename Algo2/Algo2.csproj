@@ -54,6 +54,7 @@
     <Compile Include="labuladong\ChessQueen.cs" />
     <Compile Include="labuladong\CountPrime.cs" />
     <Compile Include="labuladong\EggDrop.cs" />
+    <Compile Include="labuladong\EnvelopNest.cs" />
     <Compile Include="labuladong\HouseRobber.cs" />
     <Compile Include="labuladong\LeastRecentlyUsed.cs" />
     <Compile Include="labuladong\LongestPalindrome.cs" />
