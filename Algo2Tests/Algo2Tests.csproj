@@ -89,6 +89,7 @@
     <Compile Include="labuladong\LongestPalindromeTests.cs" />
     <Compile Include="labuladong\MaxSlidingWindowTests.cs" />
     <Compile Include="labuladong\MonotonicStackTests.cs" />
+    <Compile Include="labuladong\SubArraySumTests.cs" />
     <Compile Include="labuladong\WaterTrapTests.cs" />
     <Compile Include="labuladong\WeightRandomTests.cs" />
     <Compile Include="List\LinkedListDSTests.cs" />
