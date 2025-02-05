@@ -31,5 +31,33 @@ namespace Algo2.labuladong
             }
             return count;
         }
+
+        public static int SubArraySumCountByDirectory(int[] array, int target)
+        {
+            if (array == null || array.Length == 0)
+            {
+                return 0;
+            }
+
+            int count = 0;
+            var sum = 0;
+            var sumDictionary = new Dictionary<int, int>();
+            sumDictionary.Add(0, 1);
+            for(var i = 0; i < array.Length; i++)
+            {
+                sum += array[i];
+                var residual = sum - target;
+                if (sumDictionary.ContainsKey(residual))
+                {
+                    count++;
+                    sumDictionary[residual] = sumDictionary[residual] + 1;
+                }
+                else
+                {
+                    sumDictionary.Add(residual, 1);
+                }
+            }   
+            return count;
+        }
     }
 }

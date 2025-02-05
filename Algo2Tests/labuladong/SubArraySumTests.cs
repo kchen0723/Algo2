@@ -14,8 +14,16 @@ namespace Algo2.labuladong.Tests
         [TestMethod()]
         public void SubArraySumCountTest()
         {
-            var arr = new int[] {3, 5, 2, -2, 4, 1};
+            var arr = new int[] { 3, 5, 2, -2, 4, 1 };
             var actual = SubArraySum.SubArraySumCount(arr, 8);
+            Assert.AreEqual(2, actual);
+        }
+
+        [TestMethod()]
+        public void SubArraySumCountByDirectoryTest()
+        {
+            var arr = new int[] { 3, 5, 2, -2, 4, 1 };
+            var actual = SubArraySum.SubArraySumCountByDirectory(arr, 8);
             Assert.AreEqual(2, actual);
         }
     }
