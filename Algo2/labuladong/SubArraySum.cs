@@ -8,6 +8,29 @@ namespace Algo2.labuladong
 {
     public class SubArraySum
     {
+        public static int GetMaxSubArraySum(int[] inputArray) 
+        {
+            if (inputArray == null || inputArray.Length == 0)
+            {
+                return 0;
+            }
+
+            var dp = new int[inputArray.Length];
+            dp[0] = inputArray[0];
+            for(var i = 1; i < inputArray.Length; i++)
+            {
+                if (dp[i - 1] >= 0)
+                {
+                    dp[i] = dp[i - 1] + inputArray[i];
+                }
+                else
+                {
+                    dp[i] = inputArray[i];
+                }
+            }
+            return dp.Max();
+        }
+
         public static int SubArraySumCount(int[] array, int target)
         {
             if (array == null || array.Length == 0)

@@ -26,5 +26,13 @@ namespace Algo2.labuladong.Tests
             var actual = SubArraySum.SubArraySumCountByDirectory(arr, 8);
             Assert.AreEqual(2, actual);
         }
+
+        [TestMethod()]
+        public void GetMaxSubArraySumTest()
+        {
+            var arr = new int[] { -2, 5, 3, -6, 4, -8, 6 };
+            var actual = SubArraySum.GetMaxSubArraySum(arr);
+            Assert.AreEqual(8, actual);
+        }
     }
 }
