@@ -67,5 +67,13 @@ namespace Algo2.Tree.Tests
             BinaryTree<int> bt = CreateTestingTree();
             bt.PostOrderIteration(bt.Root);
         }
+
+        [TestMethod()]
+        public void FindMaxSpanTest()
+        {
+            BinaryTree<int> bt = CreateTestingTree();
+            var maxSpan = bt.FindMaxSpan(bt);
+            Assert.AreEqual(5, maxSpan);
+        }
     }
 }

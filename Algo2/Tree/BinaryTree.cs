@@ -209,6 +209,34 @@ namespace Algo2.Tree
             }
         }
 
+        public int FindMaxSpan(BinaryTree<int> tree)
+        {
+            if (tree == null || tree.Root == null)
+            {
+                return 0;
+            }
+
+            var height = 0;
+            return FindMaxSpanHelp(tree.Root, ref height);
+        }
+
+        private int FindMaxSpanHelp(TreeNode<int> node, ref int height)
+        {
+            if (node == null)
+            {
+                height = 0;
+                return 0;
+            }
+
+            var leftHeight = 0;
+            var rightHeight = 0;
+            var left = FindMaxSpanHelp(node.Left, ref leftHeight);
+            var right = FindMaxSpanHelp(node.Right, ref rightHeight);
+            height = Math.Max(leftHeight, rightHeight) + 1;
+            var result = Math.Max(leftHeight + rightHeight + 1, Math.Max(left, right));
+            return result;
+        }
+
         public TreeNode<T> GetLowestCommonAncestorByDp(T n1, T n2)
         {
             return GetLowestCommonAncestorByDpHelp(Root, n1, n2);
