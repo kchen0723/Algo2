@@ -21,8 +21,14 @@ namespace Algo2.DP.Tests
         [TestMethod()]
         public void KmpSearchTest()
         {
-            var actual = StringSearch.KmpSearch("abcabaabcabac", "abaa");
+            var actual = StringSearch.KmpSearch("abcabaabaaacabac", "aabaaa");
+            Assert.AreEqual(5, actual);
+
+            actual = StringSearch.KmpSearch("abcabaabaaacabac", "abaa");
             Assert.AreEqual(3, actual);
+
+            actual = StringSearch.KmpSearch("a", "a");
+            Assert.AreEqual(0, actual);
         }
     }
 }

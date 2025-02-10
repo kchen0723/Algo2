@@ -42,37 +42,46 @@ namespace Algo2.DP
             return -1;
         }
 
-        //https://www.qb5200.com/article/587614.html
-        private static int[] LongestCommonPrePostfix(string pattern)
+        //https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
+        private static int[] LongestProperPrefixSuffix(string pattern)
         {
             int[] next = new int[pattern.Length];
-            var longestCommonPrePostfixLength = 0;
-            for (int i = 1; i < pattern.Length; i++)
+            var longestProperPrefixSuffixLength = 0;
+            var i = 1;
+            while (i < pattern.Length)
             {
-                while (longestCommonPrePostfixLength > 0 && pattern[i] != pattern[longestCommonPrePostfixLength])
+                if (pattern[i] == pattern[longestProperPrefixSuffixLength])
                 {
-                    longestCommonPrePostfixLength = next[longestCommonPrePostfixLength - 1];
+                    longestProperPrefixSuffixLength++;
+                    next[i] = longestProperPrefixSuffixLength;
+                    i++;
                 }
-                if (pattern[i] == pattern[longestCommonPrePostfixLength])
+                else
                 {
-                    longestCommonPrePostfixLength++;
-                }
-                next[i] = longestCommonPrePostfixLength;
-            }
+                    if (longestProperPrefixSuffixLength == 0)
+                    {
+                        i++;
+                    }
+                    else
+                    { 
+                        longestProperPrefixSuffixLength = next[longestProperPrefixSuffixLength - 1];
+                    }
+                }   
+            }   
             return next;
         }
 
-        private static int[] LongestCommonPrePostfix2(string pattern)
+        private static int[] LongestProperPrefixSuffixBruteForce(string pattern)
         {
             int[] next = new int[pattern.Length];
             for (var i = 1; i < pattern.Length; i++)
             {
-                for (var longestCommonPrePostfixLength = i; longestCommonPrePostfixLength > 0; longestCommonPrePostfixLength--)
+                for (var longestProperPrefixSuffixLength = i; longestProperPrefixSuffixLength > 0; longestProperPrefixSuffixLength--)
                 {
                     var isMatch = true;
-                    for (var j = 0; j < longestCommonPrePostfixLength; j++)
+                    for (var j = 0; j < longestProperPrefixSuffixLength; j++)
                     {
-                        if (pattern[j] != pattern[i - longestCommonPrePostfixLength + j + 1])
+                        if (pattern[j] != pattern[i - longestProperPrefixSuffixLength + j + 1])
                         {
                             isMatch = false;
                             break;
@@ -80,7 +89,7 @@ namespace Algo2.DP
                     }
                     if (isMatch == true)
                     {
-                        next[i] = longestCommonPrePostfixLength;
+                        next[i] = longestProperPrefixSuffixLength;
                         break;
                     }
                 }
@@ -90,27 +99,38 @@ namespace Algo2.DP
 
         public static int KmpSearch(string text, string pattern)
         {
-            if (string.IsNullOrEmpty(text) || string.IsNullOrEmpty(pattern))
+            if (string.IsNullOrEmpty(text) || string.IsNullOrEmpty(pattern) || pattern.Length > text.Length)
             {
                 return -1;
             }
-            var next = LongestCommonPrePostfix(pattern);
-            var longestCommonPrePostfixLength = 0;
-            for (int i = 0; i < text.Length; i++)
+
+            var next = LongestProperPrefixSuffix(pattern);
+            var i = 0;
+            var longestProperPrefixSuffixLength = 0;
+            while(i < text.Length)
             {
-                while (longestCommonPrePostfixLength > 0 && text[i] != pattern[longestCommonPrePostfixLength])
+                if (text[i] == pattern[longestProperPrefixSuffixLength])
                 {
-                    longestCommonPrePostfixLength = next[longestCommonPrePostfixLength - 1];
+                    i++;
+                    longestProperPrefixSuffixLength++;
+                    if (longestProperPrefixSuffixLength == pattern.Length)
+                    {
+                        return i - longestProperPrefixSuffixLength;
+                    }
                 }
-                if (text[i] == pattern[longestCommonPrePostfixLength])
+                else
                 {
-                    longestCommonPrePostfixLength++;
-                }
-                if (longestCommonPrePostfixLength == pattern.Length)
-                {
-                    return i - longestCommonPrePostfixLength + 1;
+                    if (longestProperPrefixSuffixLength == 0)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        longestProperPrefixSuffixLength = next[longestProperPrefixSuffixLength - 1];
+                    }
                 }
             }
+
             return -1;
         }
     }
