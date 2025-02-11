@@ -43,6 +43,7 @@ namespace Algo2.DP
         }
 
         //https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
+        //https://www.youtube.com/watch?v=GTJr8OvyEVQ
         private static int[] LongestProperPrefixSuffix(string pattern)
         {
             int[] next = new int[pattern.Length];
