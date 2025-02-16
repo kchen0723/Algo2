@@ -50,6 +50,7 @@
     <Compile Include="Graph\GraphAdjacentMatrix.cs" />
     <Compile Include="Graph\NumberOfIslands.cs" />
     <Compile Include="Graph\RailWayMap.cs" />
+    <Compile Include="Graph\UnionFind.cs" />
     <Compile Include="IterationAndRecursive\IterationAndRecursiveLearning.cs" />
     <Compile Include="labuladong\ChessQueen.cs" />
     <Compile Include="labuladong\CountPrime.cs" />

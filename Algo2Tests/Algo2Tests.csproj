@@ -77,6 +77,7 @@
     <Compile Include="DP\TriangleMinPathTests.cs" />
     <Compile Include="DP\WordDistanceTests.cs" />
     <Compile Include="Graph\NumberOfIslandsTests.cs" />
+    <Compile Include="Graph\UnionFindTests.cs" />
     <Compile Include="HanoiTower\HonoiTests.cs" />
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
     <Compile Include="IterationAndRecursive\IterationAndRecursiveLearningTests.cs" />
