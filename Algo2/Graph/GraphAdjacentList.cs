@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algo2.Graph
 {
-    public class GraphAdjacentList<T> : IGraph<T>
+    public class GraphAdjacentList : IGraph
     {
         public int GetNumberOfEdge()
         {

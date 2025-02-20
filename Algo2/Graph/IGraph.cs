@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algo2.Graph
 {
-    public interface IGraph<T>
+    public interface IGraph
     {
         int GetNumberOfVertex();
         int GetNumberOfEdge();
