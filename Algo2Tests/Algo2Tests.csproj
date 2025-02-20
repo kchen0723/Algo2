@@ -112,6 +112,7 @@
     <Compile Include="Tree\BinaryTreeTests.cs" />
     <Compile Include="Tree\CalculateTreeTests.cs" />
     <Compile Include="Tree\MaxHeapTreeTests.cs" />
+    <Compile Include="Tree\PriorityQueueOnSortedDictionaryTests.cs" />
     <Compile Include="TwentyfourGame\Calculate24GameTests.cs" />
     <Compile Include="TwentyfourGame\CalculateTests.cs" />
     <Compile Include="TwentyfourGame\Calculator2Tests.cs" />
