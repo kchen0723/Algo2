@@ -41,18 +41,18 @@ namespace Algo2.Graph
         {
             colours[vertexIndex] = colour;
             var count = _matrix.GetLength(0);
-            for (var i = 0; i < count; i++)
+            for (var neighbour = 0; neighbour < count; neighbour++)
             {
-                if (_matrix[vertexIndex, i] > 0)
+                if (_matrix[vertexIndex, neighbour] > 0)
                 {
-                    if (colours[i] == null)
+                    if (colours[neighbour] == null)
                     {
-                        if (IsBiPartiteByDfs(colours, i, !colour) == false)
+                        if (IsBiPartiteByDfs(colours, neighbour, !colour) == false)
                         {
                             return false;
                         }
                     }
-                    else if (colours[i] == colour)
+                    else if (colours[neighbour] == colour)
                     {
                         return false;
                     }
@@ -60,6 +60,52 @@ namespace Algo2.Graph
             }
             return true;
         }
+
+        public bool IsBiPartiteBfs()
+        {
+            var count = _matrix.GetLength(0);
+            var colours = new bool?[count];  //null: not set;true: red colour; false: black colour
+            for (var i = 0; i < count; i++)
+            {
+                if (colours[i] == null)
+                {
+                    if (IsBiPartiteByDfs(colours, i, true) == false)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public bool IsBiPartiteBfsHelper(int start, bool?[] colours) 
+        {
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(start);
+            colours[start] = true;
+            var count = _matrix.GetLength(0);
+            while (queue.Count > 0)
+            {
+                var node = queue.Dequeue();
+                for (var neighbour = 0; neighbour < count; neighbour++)
+                {
+                    if (_matrix[node, neighbour] > 0)
+                    {
+                        if (colours[neighbour] == null)
+                        {
+                            colours[neighbour] = !colours[node];
+                            queue.Enqueue(neighbour);
+                        }
+                        else if (colours[neighbour] == colours[node])
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
         public int GetNumberOfEdge()
         {
             throw new NotImplementedException();

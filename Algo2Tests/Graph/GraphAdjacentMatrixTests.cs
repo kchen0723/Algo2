@@ -20,6 +20,8 @@ namespace Algo2.Graph.Tests
             graph.AddEdge(1, 3);
             var actual = graph.IsBiPartite();
             Assert.IsTrue(actual);
+            actual = graph.IsBiPartiteBfs();
+            Assert.IsTrue(actual);
         }
     }
 }
