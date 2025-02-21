@@ -107,6 +107,7 @@
     <Compile Include="Tree\BinaryTree.cs" />
     <Compile Include="Tree\CalculateTree.cs" />
     <Compile Include="Tree\MaxHeapTree.cs" />
+    <Compile Include="Tree\MedianQueue.cs" />
     <Compile Include="Tree\PriorityQueueOnSortedDictionary.cs" />
     <Compile Include="Tree\TreeNode.cs" />
     <Compile Include="TwentyfourGame\Calculate.cs" />
