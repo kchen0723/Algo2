@@ -8,17 +8,29 @@ namespace Algo2.Graph
 {
     public class GraphAdjacentMatrix : IGraph
     {
-        private float[,] _matrix;
+        private float?[,] _matrix;
 
-        public GraphAdjacentMatrix(int size)
+        public GraphAdjacentMatrix(int size) : this(size, size)
         { 
-            _matrix = new float[size, size];
         }
 
-        public void AddEdge(int vertex1, int vertex2, float weight = 1)
+        public GraphAdjacentMatrix(int width, int height)
+        {
+            _matrix = new float?[width, height];
+        }
+
+        public void AddEdge(int vertex1, int vertex2)
+        {
+            AddEdge(vertex1, vertex2, 1, true);
+        }
+
+        public void AddEdge(int vertex1, int vertex2, float weight, bool isSymmetry = false)
         {
             _matrix[vertex1, vertex2] = weight;
-            _matrix[vertex2, vertex1] = weight;
+            if (isSymmetry)
+            {
+                _matrix[vertex2, vertex1] = weight;
+            }
         }
 
         public bool IsBiPartite()
@@ -43,7 +55,7 @@ namespace Algo2.Graph
             var count = _matrix.GetLength(0);
             for (var neighbour = 0; neighbour < count; neighbour++)
             {
-                if (_matrix[vertexIndex, neighbour] > 0)
+                if (_matrix[vertexIndex, neighbour].GetValueOrDefault() > 0)
                 {
                     if (colours[neighbour] == null)
                     {
@@ -89,7 +101,7 @@ namespace Algo2.Graph
                 var node = queue.Dequeue();
                 for (var neighbour = 0; neighbour < count; neighbour++)
                 {
-                    if (_matrix[node, neighbour] > 0)
+                    if (_matrix[node, neighbour].GetValueOrDefault() > 0)
                     {
                         if (colours[neighbour] == null)
                         {

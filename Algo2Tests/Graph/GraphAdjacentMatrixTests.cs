@@ -23,5 +23,20 @@ namespace Algo2.Graph.Tests
             actual = graph.IsBiPartiteBfs();
             Assert.IsTrue(actual);
         }
+
+        private GraphAdjacentMatrix CreateGraphForTestingMap()
+        {
+            var result = new GraphAdjacentMatrix(6);
+            result.AddEdge(0, 1, 1);
+            result.AddEdge(0, 2, 12);
+            result.AddEdge(1, 2, 9);
+            result.AddEdge(1, 3, 3);
+            result.AddEdge(2, 4, 5);
+            result.AddEdge(3, 2, 4);
+            result.AddEdge(3, 4, 13);
+            result.AddEdge(3, 5, 15);
+            result.AddEdge(4, 5, 4);
+            return result;
+        }
     }
 }
