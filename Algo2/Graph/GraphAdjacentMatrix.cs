@@ -33,6 +33,50 @@ namespace Algo2.Graph
             }
         }
 
+        public float FindShortestPathByBackTracking(int start, int end)
+        {
+            if (start < 0 || end < 0 || start >= _matrix.GetLength(0) || end >= _matrix.GetLength(1))
+            {
+                return -1;
+            }
+
+            var result = float.MaxValue;
+            var isVisited = new bool[_matrix.GetLength(0), _matrix.GetLength(1)];
+            var paths = new List<List<int>>();
+            var currentPath = new List<int>() { start + 1};
+            var currentPathWeight = new List<float>();
+
+            FindShortestPathByBackTrackingHelp(start, end, currentPath, currentPathWeight, paths, isVisited, ref result);
+            return result;
+        }
+
+        private void FindShortestPathByBackTrackingHelp(int currentNodeIndex, int end, List<int> currentPath, 
+            List<float> currentPathWeight, List<List<int>> paths, bool[,] isVisited, ref float result)
+        {
+            if (currentNodeIndex == end)
+            {
+                paths.Add(currentPath.ToArray().ToList());
+                result = Math.Min(result, currentPathWeight.Sum());
+                return;
+            }
+
+            for(var columnIndex = 0; columnIndex < _matrix.GetLength(1); columnIndex++)
+            {
+                if (isVisited[currentNodeIndex, columnIndex] == false && _matrix[currentNodeIndex, columnIndex] != null)
+                {
+                    isVisited[currentNodeIndex, columnIndex] = true;
+                    currentPath.Add(columnIndex + 1);
+                    currentPathWeight.Add(_matrix[currentNodeIndex, columnIndex].GetValueOrDefault());
+
+                    FindShortestPathByBackTrackingHelp(columnIndex, end, currentPath, currentPathWeight, paths, isVisited, ref result);
+
+                    isVisited[currentNodeIndex, columnIndex] = false;
+                    currentPath.RemoveAt(currentPath.Count - 1);
+                    currentPathWeight.RemoveAt(currentPathWeight.Count - 1);
+                }
+            }
+        }
+
         public bool IsBiPartite()
         {
             var count = _matrix.GetLength(0);
