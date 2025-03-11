@@ -82,10 +82,10 @@ namespace Algo2.Graph
             return result;
         }
 
-        public static double[,] BuildMatrix()
+        public static double?[,] BuildMatrix()
         {
             var cities = GetCityDictionary();
-            var matrix = new double[cities.Count, cities.Count];
+            var matrix = new double?[cities.Count, cities.Count];
             SetRailWayDistance("哈尔滨", "长春", 1, cities, matrix);
             SetRailWayDistance("长春", "沈阳", 1, cities, matrix);
             SetRailWayDistance("沈阳", "大连", 1.5, cities, matrix);
@@ -166,7 +166,7 @@ namespace Algo2.Graph
             return matrix;
         }
 
-        private static void SetRailWayDistance(string from, string to, double hour, Dictionary<string, int> cities, double[,] matrix)
+        private static void SetRailWayDistance(string from, string to, double hour, Dictionary<string, int> cities, double?[,] matrix)
         {
             if (!string.IsNullOrEmpty(from) && !string.IsNullOrEmpty(to))
             {
@@ -180,6 +180,17 @@ namespace Algo2.Graph
                 }
             }
             throw new ArgumentException("city does not exists");
+        }
+
+        public static double FindShortestPathByBackTracking(string from, string to)
+        {
+            var matrix = BuildMatrix();
+            var graph = new GraphAdjacentMatrix(matrix);
+            var cityDictionary = GetCityDictionary();
+            var fromIndex = cityDictionary[from];
+            var toIndex = cityDictionary[to];
+            var result = graph.FindShortestPathByBackTracking(fromIndex, toIndex);
+            return result;
         }
     }
 }

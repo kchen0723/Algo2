@@ -78,6 +78,7 @@
     <Compile Include="DP\WordDistanceTests.cs" />
     <Compile Include="Graph\GraphAdjacentMatrixTests.cs" />
     <Compile Include="Graph\NumberOfIslandsTests.cs" />
+    <Compile Include="Graph\RailWayMapTests.cs" />
     <Compile Include="Graph\UnionFindTests.cs" />
     <Compile Include="HanoiTower\HonoiTests.cs" />
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
