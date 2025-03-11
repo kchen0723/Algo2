@@ -38,6 +38,77 @@ namespace Algo2.Graph
             }
         }
 
+        public double DijkstraAlgorithm()
+        {
+            var result = 0;
+            var distance = new double?[_matrix.GetLength(0)];
+            var isUsed = new bool[_matrix.GetLength(0)];
+            isUsed[0] = true;
+
+            for (int i = 0; i < _matrix.GetLength(0); i++)
+            {
+                distance[i] = _matrix[0, i];
+            }
+
+            for (int i = 1; i < _matrix.GetLength(0); i++)
+            {
+                int index = -1;
+                double? min = double.MaxValue;
+                for (int j = 0; j < _matrix.GetLength(0); j++)
+                {
+                    if (isUsed[j] == false && min > distance[j])
+                    {
+                        min = distance[j];
+                        index = j;
+                    }
+                }
+
+                if (index == -1)
+                {
+                    break;
+                }
+                isUsed[index] = true;
+
+                for (int j = 0; j < _matrix.GetLength(0); j++)
+                {
+                    if (isUsed[j] == false)
+                    {
+                        var candidate = distance[j] + _matrix[index, j];
+                        var left = candidate == null ? double.MaxValue : candidate.Value;
+                        var right = _matrix[index, j] == null ? double.MaxValue : _matrix[index, j].GetValueOrDefault();
+                        _matrix[index, j] = Math.Min(left, right);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public double?[,] FloydAlgorithm()
+        {
+            var result = _matrix.Clone() as double?[,];
+            for (int k = 1; k < result.GetLength(0); k++)
+            {
+                for (int i = 0; i < result.GetLength(0); i++)
+                {
+                    for (int j = 0; j < result.GetLength(0); j++)
+                    {
+                        double? candidate = null;
+                        if (result[i, k] != null || result[k, j] != null)
+                        {
+                            candidate = result[i, k].GetValueOrDefault() + result[k, j].GetValueOrDefault();
+                        }
+                        if (result[i, j] != null || candidate != null)
+                        {
+                            var left = result[i, j] == null ? double.MaxValue : result[i, j].GetValueOrDefault();
+                            var right = candidate == null ? double.MaxValue : candidate.GetValueOrDefault();
+                            result[i, j] = Math.Min(left, right);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
         public double FindShortestPathByBackTracking(int start, int end)
         {
             if (start < 0 || end < 0 || start >= _matrix.GetLength(0) || end >= _matrix.GetLength(1))

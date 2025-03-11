@@ -48,5 +48,13 @@ namespace Algo2.Graph.Tests
             var actual = graph.FindShortestPathByBackTracking(0, 5);
             Assert.AreEqual(17, actual);
         }
+
+        [TestMethod()]
+        public void FloydAlgorithmTest()
+        {
+            var graph = CreateGraphForTestingMap();
+            var actual = graph.FloydAlgorithm();
+
+        }
     }
 }
