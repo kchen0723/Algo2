@@ -8,7 +8,7 @@ namespace Algo2.Graph
 {
     public class GraphAdjacentMatrix : IGraph
     {
-        private float?[,] _matrix;
+        private double?[,] _matrix;
 
         public GraphAdjacentMatrix(int size) : this(size, size)
         { 
@@ -16,7 +16,12 @@ namespace Algo2.Graph
 
         public GraphAdjacentMatrix(int width, int height)
         {
-            _matrix = new float?[width, height];
+            _matrix = new double?[width, height];
+        }
+
+        public GraphAdjacentMatrix(double?[,] matrix)
+        {
+            _matrix = matrix;
         }
 
         public void AddEdge(int vertex1, int vertex2)
@@ -33,25 +38,25 @@ namespace Algo2.Graph
             }
         }
 
-        public float FindShortestPathByBackTracking(int start, int end)
+        public double FindShortestPathByBackTracking(int start, int end)
         {
             if (start < 0 || end < 0 || start >= _matrix.GetLength(0) || end >= _matrix.GetLength(1))
             {
                 return -1;
             }
 
-            var result = float.MaxValue;
+            var result = double.MaxValue;
             var isVisited = new bool[_matrix.GetLength(0), _matrix.GetLength(1)];
             var paths = new List<List<int>>();
             var currentPath = new List<int>() { start + 1};
-            var currentPathWeight = new List<float>();
+            var currentPathWeight = new List<double>();
 
             FindShortestPathByBackTrackingHelp(start, end, currentPath, currentPathWeight, paths, isVisited, ref result);
             return result;
         }
 
         private void FindShortestPathByBackTrackingHelp(int currentNodeIndex, int end, List<int> currentPath, 
-            List<float> currentPathWeight, List<List<int>> paths, bool[,] isVisited, ref float result)
+            List<double> currentPathWeight, List<List<int>> paths, bool[,] isVisited, ref double result)
         {
             if (currentNodeIndex == end)
             {
@@ -64,15 +69,19 @@ namespace Algo2.Graph
             {
                 if (isVisited[currentNodeIndex, columnIndex] == false && _matrix[currentNodeIndex, columnIndex] != null)
                 {
-                    isVisited[currentNodeIndex, columnIndex] = true;
-                    currentPath.Add(columnIndex + 1);
-                    currentPathWeight.Add(_matrix[currentNodeIndex, columnIndex].GetValueOrDefault());
+                    var displayColumnIndex = columnIndex + 1;
+                    if(currentPath.Contains(displayColumnIndex) == false)
+                    {
+                        isVisited[currentNodeIndex, columnIndex] = true;
+                        currentPath.Add(displayColumnIndex);
+                        currentPathWeight.Add(_matrix[currentNodeIndex, columnIndex].GetValueOrDefault());
 
-                    FindShortestPathByBackTrackingHelp(columnIndex, end, currentPath, currentPathWeight, paths, isVisited, ref result);
+                        FindShortestPathByBackTrackingHelp(columnIndex, end, currentPath, currentPathWeight, paths, isVisited, ref result);
 
-                    isVisited[currentNodeIndex, columnIndex] = false;
-                    currentPath.RemoveAt(currentPath.Count - 1);
-                    currentPathWeight.RemoveAt(currentPathWeight.Count - 1);
+                        isVisited[currentNodeIndex, columnIndex] = false;
+                        currentPath.RemoveAt(currentPath.Count - 1);
+                        currentPathWeight.RemoveAt(currentPathWeight.Count - 1);
+                    }
                 }
             }
         }
