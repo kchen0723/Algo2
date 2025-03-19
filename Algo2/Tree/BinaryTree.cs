@@ -237,6 +237,35 @@ namespace Algo2.Tree
             return result;
         }
 
+        public bool IsSymmetric(BinaryTree<int> tree)
+        {
+            if (tree == null || tree.Root == null)
+            {
+                return true;
+            }
+
+            return IsSymmetricHelp(tree.Root.Left, tree.Root.Right);
+        }
+
+        private bool IsSymmetricHelp(TreeNode<int> leftNode, TreeNode<int> rightNode)
+        {
+            if (leftNode == null && rightNode == null)
+            {
+                return true;
+            }
+            if (leftNode == null || rightNode == null)
+            { 
+                return false;
+            }
+            if (leftNode.NodeValue != rightNode.NodeValue)
+            {
+                return false;
+            }
+            var leftResult = IsSymmetricHelp(leftNode.Left, rightNode.Right);
+            var rightResult = IsSymmetricHelp(leftNode.Right, rightNode.Left);
+            return leftResult && rightResult;
+        }
+
         public TreeNode<T> GetLowestCommonAncestorByDp(T n1, T n2)
         {
             return GetLowestCommonAncestorByDpHelp(Root, n1, n2);

@@ -75,5 +75,13 @@ namespace Algo2.Tree.Tests
             var maxSpan = bt.FindMaxSpan(bt);
             Assert.AreEqual(5, maxSpan);
         }
+
+        [TestMethod()]
+        public void IsSymmetricTest()
+        {
+            BinaryTree<int> bt = CreateTestingTree();
+            var actual = bt.IsSymmetric(bt);
+            Assert.AreEqual(false, actual);
+        }
     }
 }
