@@ -83,5 +83,13 @@ namespace Algo2.Tree.Tests
             var actual = bt.IsSymmetric(bt);
             Assert.AreEqual(false, actual);
         }
+
+        [TestMethod()]
+        public void MaxDepthTest()
+        {
+            BinaryTree<int> bt = CreateTestingTree();
+            var actual = bt.MaxDepth(bt.Root);
+            Assert.AreEqual(4, actual);
+        }
     }
 }

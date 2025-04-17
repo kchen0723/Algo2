@@ -237,6 +237,18 @@ namespace Algo2.Tree
             return result;
         }
 
+        public int MaxDepth(TreeNode<int> node) 
+        {
+            if (node == null)
+            {
+                return 0;
+            }
+            var leftDepth = MaxDepth(node.Left);
+            var rightDepth = MaxDepth(node.Right);
+            var result = Math.Max(leftDepth, rightDepth) + 1;
+            return result;
+        }
+
         public bool IsSymmetric(BinaryTree<int> tree)
         {
             if (tree == null || tree.Root == null)
