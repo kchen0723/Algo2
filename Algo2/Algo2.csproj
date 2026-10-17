@@ -124,6 +124,7 @@
     <Content Include="DP\DP Template.txt" />
     <Content Include="Graph\china railway map.jpeg" />
     <Content Include="Graph\map.jpeg" />
+    <Content Include="IterationAndRecursive\readme.txt" />
     <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
