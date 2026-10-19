@@ -108,29 +108,29 @@ namespace Algo2.DP
             return result;
         }
 
-        public static Tuple<int, List<List<int>>> GetMinCountByBackTracking(int[] coins, int money)
+        public static Tuple<int, List<int>> GetMinCountByBackTracking(int[] coins, int money)
         {
             var result = int.MaxValue;
-            var resultCoins = new List<List<int>>();
+            var resultCoins = new List<int>();
             if (coins == null || coins.Length == 0 || money == 0)
             {
-                new Tuple<int, List<List<int>>>(0, resultCoins);
+                return new Tuple<int, List<int>>(0, resultCoins);
             }
 
             Array.Sort(coins);
             var candidate = new List<int>();
-            GetMinCountByBackTrackingHelp(coins, money, 0, candidate, ref result, resultCoins);
-            return new Tuple<int, List<List<int>>>(result, resultCoins);
+            GetMinCountByBackTrackingHelp(coins, money, 0, candidate, ref result, ref resultCoins);
+            return new Tuple<int, List<int>>(result, resultCoins);
         }
 
-        private static void GetMinCountByBackTrackingHelp(int[] coins, int money, int index, List<int> candidate, ref int result, List<List<int>> resultCoins)
+        private static void GetMinCountByBackTrackingHelp(int[] coins, int money, int index, List<int> candidate, ref int result, ref List<int> resultCoins)
         { 
             if(candidate.Sum() == money)
             {
                 if (candidate.Count < result)
                 { 
                     result = candidate.Count;
-                    resultCoins.Add(candidate.ToArray().ToList());
+                    resultCoins = candidate.ToArray().ToList();
                 }
                 return;
             }
@@ -142,8 +142,41 @@ namespace Algo2.DP
             for (var i = index; i < coins.Length; i++)
             {
                 candidate.Add(coins[i]);
-                GetMinCountByBackTrackingHelp(coins, money, index, candidate, ref result, resultCoins);
+                GetMinCountByBackTrackingHelp(coins, money, index, candidate, ref result, ref resultCoins);
                 candidate.RemoveAt(candidate.Count - 1);
+            }
+        }
+
+        public static Tuple<int, List<int>> GetMinCountByGreedy(int[] coins, int money)
+        {
+            var resultCoins = new List<int>();
+            if (coins == null || coins.Length == 0 || money == 0)
+            {
+                return new Tuple<int, List<int>>(0, resultCoins);
+            }
+
+            Array.Sort(coins);
+            Array.Reverse(coins);
+            int index = 0;
+            while (index < coins.Length && money > 0)
+            {
+                if (money >= coins[index])
+                {
+                    resultCoins.Add(coins[index]);
+                    money -= coins[index];
+                }
+                if (money < coins[index])
+                {
+                    index++;
+                }
+            }
+            if (money == 0)
+            {
+                return new Tuple<int, List<int>>(resultCoins.Count, resultCoins);
+            }
+            else
+            {
+                return new Tuple<int, List<int>>(0, new List<int>());
             }
         }
     }

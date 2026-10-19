@@ -20,6 +20,14 @@ namespace Algo2.DP.Tests
         }
 
         [TestMethod()]
+        public void GetMinCountByGreedyTest()
+        {
+            var arr = new int[] { 1, 5, 2 };
+            var actual = CoinChange.GetMinCountByGreedy(arr, 12);
+            Assert.AreEqual(3, actual.Item1);
+        }
+
+        [TestMethod()]
         public void GetMinCountByDpTest()
         {
             var arr = new int[] { 1, 5, 2 };
