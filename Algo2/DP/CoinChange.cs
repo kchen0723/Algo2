@@ -156,23 +156,20 @@ namespace Algo2.DP
             }
 
             Array.Sort(coins);
-            Array.Reverse(coins);
-            int index = 0;
-            while (index < coins.Length && money > 0)
+            int totalCount = 0;
+            for (var i = coins.Length - 1; i >= 0; i--)
             {
-                if (money >= coins[index])
+                int count = money / coins[i];
+                totalCount += count;
+                money = money - count * coins[i];
+                if (money <= 0)
                 {
-                    resultCoins.Add(coins[index]);
-                    money -= coins[index];
-                }
-                if (money < coins[index])
-                {
-                    index++;
+                    break;
                 }
             }
             if (money == 0)
             {
-                return new Tuple<int, List<int>>(resultCoins.Count, resultCoins);
+                return new Tuple<int, List<int>>(totalCount, resultCoins);
             }
             else
             {
