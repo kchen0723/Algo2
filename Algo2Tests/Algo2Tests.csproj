@@ -80,6 +80,7 @@
     <Compile Include="Graph\NumberOfIslandsTests.cs" />
     <Compile Include="Graph\RailWayMapTests.cs" />
     <Compile Include="Graph\UnionFindTests.cs" />
+    <Compile Include="GreedyAlgorithm\RadioCoverTests.cs" />
     <Compile Include="HanoiTower\HonoiTests.cs" />
     <Compile Include="CombinationAndPermutation\PermutationTests.cs" />
     <Compile Include="IterationAndRecursive\IterationAndRecursiveLearningTests.cs" />
