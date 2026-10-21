@@ -28,11 +28,11 @@ namespace Algo2.GreedyAlgorithm
                 HashSet<string> candidate = null;
                 foreach (var cities in citiesList)
                 {
-                    var allCitiesCopy = allCities.ToList<string>().ToHashSet<string>();
-                    allCitiesCopy.IntersectWith(cities);
-                    if (allCitiesCopy.Count > longestCoveredCities.Count)
+                    var coveredCities = allCities.ToList<string>().ToHashSet<string>();
+                    coveredCities.IntersectWith(cities);
+                    if (coveredCities.Count > longestCoveredCities.Count)
                     {
-                        longestCoveredCities = allCitiesCopy;
+                        longestCoveredCities = coveredCities;
                         candidate = cities;
                     }
                 }
