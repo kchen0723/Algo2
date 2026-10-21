@@ -33,6 +33,28 @@ namespace Algo2.IterationAndRecursive
             }
         }
 
+        public static void RecursiveArrayToIterative(int[] array)
+        {
+            if (array == null || array.Length == 0)
+            {
+                return;
+            }
+
+            Stack<int> s = new Stack<int>();
+            s.Push(array[0]);
+            var index = 1;
+            while (s.Count > 0) 
+            {
+                var item = s.Pop();
+                Console.WriteLine(item);
+                if (index < array.Length)
+                {
+                    s.Push(array[index]);
+                    index++;
+                }
+            }
+        }
+
         public static void IterationLinkedList(LinkedList<int> linkedList)
         {
             var current = linkedList.First;
@@ -54,6 +76,26 @@ namespace Algo2.IterationAndRecursive
             {
                 Console.WriteLine(current.Value);
                 RecursiveLinkedListHelp(current.Next);
+            }
+        }
+
+        public static void RecursiveLinkedToInterative(LinkedList<int> linkedList)
+        {
+            if (linkedList == null || linkedList.Count == 0)
+            {
+                return;
+            }
+
+            Stack<LinkedListNode<int>> s = new Stack<LinkedListNode<int>>();
+            s.Push(linkedList.First);
+            while (s.Count > 0)
+            {
+                var item = s.Pop();
+                Console.WriteLine(item.Value);
+                if (item.Next != null)
+                {
+                    s.Push(item.Next);
+                }
             }
         }
 

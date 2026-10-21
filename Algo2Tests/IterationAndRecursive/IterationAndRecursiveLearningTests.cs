@@ -42,5 +42,19 @@ namespace Algo2.IterationAndRecursive.Tests
             var result = IterationAndRecursiveLearning.BetterReverse(linkedList);
             Assert.IsNotNull(result);
         }
+
+        [TestMethod()]
+        public void RecursiveArrayToIterativeTest()
+        {
+            var array = new int[] { 4, 5, 7, 8, 9 };
+            IterationAndRecursiveLearning.RecursiveArrayToIterative(array);
+        }
+
+        [TestMethod()]
+        public void RecursiveLinkedToInterativeTest()
+        {
+            var LinkedList = new LinkedList<int>(new int[] { 4, 5, 7, 8, 9 });
+            IterationAndRecursiveLearning.RecursiveLinkedToInterative(LinkedList);
+        }
     }
 }
