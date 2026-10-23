@@ -23,6 +23,18 @@ namespace Algo2.Container
             get { return _dummyHeader.Next; }
         }
 
+        public void InsertFirst(LinkedListNodeDS<T> node)
+        {
+            node.Next = _dummyHeader.Next;
+            if (_dummyHeader.Next != null)
+            {
+                _dummyHeader.Next.Previous = node;
+            }
+
+            _dummyHeader.Next = node;
+            node.Previous = _dummyHeader;
+        }
+
         public LinkedListNodeDS<T> Last
         {
             get

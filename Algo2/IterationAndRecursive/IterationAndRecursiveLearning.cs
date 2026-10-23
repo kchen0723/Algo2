@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -172,6 +173,52 @@ namespace Algo2.IterationAndRecursive
             currentNode.Next = null;
             
             return reversedNode;
+        }
+
+        public static int[] BestReverseArray(int[] array)
+        {
+            if (array == null || array.Length == 0)
+            {
+                return array;
+            }
+            var result = new int[array.Length];
+            BestReverseArrayHelper(array, result, 0);
+            return result;
+        }
+
+        private static void BestReverseArrayHelper(int[] array, int[] result, int index)
+        {
+
+            if (index < 0 || index >= array.Length)
+            {
+                return;
+            }
+
+            BestReverseArrayHelper(array, result, index + 1);
+            result[array.Length - index - 1] = array[index];
+        }
+
+        public static LinkedListDS<T> BestReverseLinkedList<T>(LinkedListDS<T> linkedList) where T : IComparable<T>
+        {
+            if (linkedList == null || linkedList.IsEmpty)
+            {
+                return linkedList;
+            }
+
+            LinkedListDS<T> result = new LinkedListDS<T>();
+            BestReverseLinkedListHelp(linkedList.First, result);
+            return result;
+        }
+
+        private static void BestReverseLinkedListHelp<T>(LinkedListNodeDS<T> currentNode, LinkedListDS<T> result) where T : IComparable<T>
+        {
+            if (currentNode == null)
+            {
+                return;
+            }
+
+            BestReverseLinkedListHelp(currentNode.Next, result);
+            result.InsertFirst(currentNode);
         }
     }
 }

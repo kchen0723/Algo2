@@ -56,5 +56,21 @@ namespace Algo2.IterationAndRecursive.Tests
             var LinkedList = new LinkedList<int>(new int[] { 4, 5, 7, 8, 9 });
             IterationAndRecursiveLearning.RecursiveLinkedToInterative(LinkedList);
         }
+
+        [TestMethod()]
+        public void BestReverseTest()
+        {
+            var linkedList = new LinkedListDS<int>(new int[] { 4, 5, 7 });
+            var result = IterationAndRecursiveLearning.BestReverseLinkedList(linkedList);
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod()]
+        public void BestReverseArrayTest()
+        {
+            var array = new int[] { 4, 5, 7, 8, 9 };
+            var result = IterationAndRecursiveLearning.BestReverseArray(array);
+            Assert.IsNotNull(result);
+        }
     }
 }
