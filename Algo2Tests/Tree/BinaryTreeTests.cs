@@ -91,5 +91,19 @@ namespace Algo2.Tree.Tests
             var actual = bt.MaxDepth(bt.Root);
             Assert.AreEqual(4, actual);
         }
+
+        [TestMethod()]
+        public void BetterInOrderIterationTest()
+        {
+            BinaryTree<int> bt = CreateTestingTree();
+            bt.BetterInOrderIteration(bt.Root);
+        }
+
+        [TestMethod()]
+        public void BetterPostOrderIterationTest()
+        {
+            BinaryTree<int> bt = CreateTestingTree();
+            bt.BetterPostOrderIteration(bt.Root);
+        }
     }
 }

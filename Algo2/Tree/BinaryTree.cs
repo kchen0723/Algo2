@@ -145,6 +145,28 @@ namespace Algo2.Tree
             Console.WriteLine(result.Keys.Count.ToString());
         }
 
+        public void BetterInOrderIteration(TreeNode<T> node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+
+            var stack = new Stack<TreeNode<T>>();
+            var current = node;
+            while (current != null || stack.Count > 0)
+            {
+                while (current != null)
+                {
+                    stack.Push(current);
+                    current = current.Left;
+                }
+                current = stack.Pop();  //Reach to most left, then pop from the stack.
+                Console.WriteLine(current.NodeValue);
+                current = current.Right;
+            }
+        }
+
         public void PostOrder(TreeNode<T> node)
         {
             if (node == null)
@@ -183,6 +205,46 @@ namespace Algo2.Tree
                 result.Add(current, true);
             }
             Console.WriteLine(result.Keys.Count.ToString());
+        }
+
+        public void BetterPostOrderIteration(TreeNode<T> node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+
+            var stack = new Stack<TreeNode<T>>();
+            TreeNode<T> previous = null;
+            stack.Push(node);
+            while (stack.Count > 0)
+            {
+                var current = stack.Peek();
+                if (previous == null || previous.Left == current || previous.Right == current) //going down
+                {
+                    if (current.Left != null)
+                    {
+                        stack.Push(current.Left);
+                    }
+                    else if (current.Right != null)
+                    {
+                        stack.Push(current.Right);
+                    }
+                }
+                else if (current.Left == previous)  //return from left tree
+                {
+                    if (current.Right != null)
+                    {
+                        stack.Push(current.Right);
+                    }
+                }
+                else //return from right tree
+                {
+                    Console.WriteLine(current.NodeValue);
+                    stack.Pop();
+                }
+                previous = current;
+            }
         }
 
         public void LevelOrder(TreeNode<T> node)
