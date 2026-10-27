@@ -93,7 +93,7 @@ namespace Algo2.Tree
             while (stack.Count > 0)
             {
                 var current = stack.Pop();
-                Console.WriteLine(current.NodeValue.ToString());
+                Console.WriteLine(current.NodeValue);
                 result.Add(current.NodeValue);
                 if (current.Right != null)
                 {
@@ -126,11 +126,11 @@ namespace Algo2.Tree
             }
             var stack = new Stack<TreeNode<T>>();
             stack.Push(node);
-            var result = new Dictionary<TreeNode<T>, bool>();
+            var result = new HashSet<TreeNode<T>>();
             while (stack.Count > 0)
             {
                 var current = stack.Pop();
-                while (current.Left != null && result.ContainsKey(current.Left) == false)
+                while (current.Left != null && result.Contains(current.Left) == false)
                 {
                     stack.Push(current);
                     current = current.Left;
@@ -140,9 +140,9 @@ namespace Algo2.Tree
                 { 
                     stack.Push(current.Right);
                 }
-                result.Add(current, true);
+                result.Add(current);
             }
-            Console.WriteLine(result.Keys.Count.ToString());
+            Console.WriteLine(result.Count.ToString());
         }
 
         public void BetterInOrderIteration(TreeNode<T> node)
@@ -186,25 +186,25 @@ namespace Algo2.Tree
             }
             var stack = new Stack<TreeNode<T>>();
             stack.Push(node);
-            var result = new Dictionary<TreeNode<T>, bool>();
+            var result = new HashSet<TreeNode<T>>();
             while (stack.Count > 0)
             {
                 var current = stack.Pop();
-                while (current.Left != null && result.ContainsKey(current.Left) == false)
+                while (current.Left != null && result.Contains(current.Left) == false)
                 {
                     stack.Push(current);
                     current = current.Left;
                 }
-                if (current.Right != null && result.ContainsKey(current.Right) == false)
+                if (current.Right != null && result.Contains(current.Right) == false)
                 {
                     stack.Push(current);
                     stack.Push(current.Right);
                     continue;
                 }
                 Console.WriteLine(current.NodeValue.ToString());
-                result.Add(current, true);
+                result.Add(current);
             }
-            Console.WriteLine(result.Keys.Count.ToString());
+            Console.WriteLine(result.Count.ToString());
         }
 
         public void BetterPostOrderIteration(TreeNode<T> node)
