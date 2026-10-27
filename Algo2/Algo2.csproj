@@ -89,7 +89,7 @@
     <Compile Include="DP\TriangleMinPath.cs" />
     <Compile Include="DP\WordDistance.cs" />
     <Compile Include="Graph\IGraph.cs" />
-    <Compile Include="HanoiTower\Honoi.cs" />
+    <Compile Include="HanoiTower\Hanoi.cs" />
     <Compile Include="CombinationAndPermutation\Combination.cs" />
     <Compile Include="CombinationAndPermutation\Permutation.cs" />
     <Compile Include="List\IListDS.cs" />

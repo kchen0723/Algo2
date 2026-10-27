@@ -9,15 +9,24 @@ using System.Threading.Tasks;
 namespace Algo2.HanoiTower.Tests
 {
     [TestClass()]
-    public class HonoiTests
+    public class HanoiTests
     {
         [TestMethod()]
         public void SolveTest()
         {
-            var source = new HonoiEntity() { Name = "Source", Data = new List<int>() { 1, 2, 3, 4 } };
-            var target = new HonoiEntity() { Name = "Target" };
-            var help = new HonoiEntity() { Name = "Help" };
-            Honoi.SolveByRecursive(source, help, target);
+            var source = new HanoiEntity() { Name = "Source", Data = new Stack<int>(new int[] { 3, 2, 1 }) };
+            var target = new HanoiEntity() { Name = "Target" };
+            var auxiliary = new HanoiEntity() { Name = "Auxiliary" };
+            Hanoi.SolveByRecursive(source, auxiliary, target);
+        }
+
+        [TestMethod()]
+        public void SolveByIterationTest()
+        {
+            var source = new HanoiEntity() { Name = "Source", Data = new Stack<int>(new int[] { 3, 2, 1 }) };
+            var target = new HanoiEntity() { Name = "Target" };
+            var auxiliary = new HanoiEntity() { Name = "Auxiliary" };
+            Hanoi.SolveByIteration(source, auxiliary, target);
         }
     }
 }
